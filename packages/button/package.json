@@ -1,6 +1,6 @@
 {
   "name": "@pose/button",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.2-alpha.0",
   "description": "a button.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
