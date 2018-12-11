@@ -1,6 +1,6 @@
 {
   "name": "@zcool/provider",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a provider.",
   "main": "index.js",
   "module": "es/index.js",
@@ -26,7 +26,7 @@
     "index.js"
   ],
   "dependencies": {
-    "@zcool/theme": "^0.1.1"
+    "@zcool/theme": "^0.1.2"
   },
   "gitHead": "2cb2d49b372bbaa4b4c6b1e4f61e2ac211f5860a"
 }
