@@ -3,10 +3,9 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "test": "lerna run test --stream",
-    "build:changed": "lerna run build --parallel --since origin/master",
     "build": "lerna run build --parallel",
     "precommit": "pretty-quick --staged",
-    "release": "yarn build && lerna publish"
+    "release": "lerna run test && yarn build && lerna publish"
   },
   "version": "0.0.0",
   "description": "web components",

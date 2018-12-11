@@ -1,5 +1,5 @@
 {
-  "name": "pose-tag",
+  "name": "@pose/tag",
   "version": "0.0.1-alpha.0",
   "description": "a panel.",
   "main": "lib/index.js",
@@ -24,8 +24,5 @@
     "src",
     "lib",
     "index.js"
-  ],
-  "dependencies": {
-    "pose-theme": "^0.0.1-alpha.0"
-  }
+  ]
 }

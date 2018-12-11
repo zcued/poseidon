@@ -1,5 +1,5 @@
 {
-  "name": "pose-provider",
+  "name": "@pose/provider",
   "version": "0.0.1-alpha.0",
   "description": "a provider.",
   "main": "index.js",
@@ -26,6 +26,6 @@
     "index.js"
   ],
   "dependencies": {
-    "pose-theme": "^0.0.1-alpha.0"
+    "@pose/theme": "^0.0.1-alpha.0"
   }
 }
