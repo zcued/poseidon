@@ -1,0 +1,28 @@
+{
+  "name": "@pose/panel",
+  "version": "0.0.2-alpha.0",
+  "description": "a panel.",
+  "main": "index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "test": "echo \"Write some tests you bum!\"",
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.1.2"
+  },
+  "author": "cuining",
+  "license": "MIT",
+  "files": [
+    "es",
+    "src",
+    "lib",
+    "index.js"
+  ]
+}
