@@ -1,5 +1,5 @@
 {
-  "name": "@pose/button",
+  "name": "@zcool/button",
   "version": "0.1.1",
   "description": "a button.",
   "main": "lib/index.js",
@@ -21,5 +21,5 @@
     "lib",
     "index.js"
   ],
-  "gitHead": "9d7c3e8a3a333adfd25494275d28b3584cdd44b4"
+  "gitHead": "2cb2d49b372bbaa4b4c6b1e4f61e2ac211f5860a"
 }
