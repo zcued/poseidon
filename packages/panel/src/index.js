@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Panel = styled.div`
   background-color: white;
-  padding: 16px;
+  padding: 8px;
 `
 
 export default Panel

@@ -17,4 +17,4 @@ build
 coverage
 lib
 es
-
+*.tgz
