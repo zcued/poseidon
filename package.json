@@ -1,0 +1,49 @@
+{
+  "name": "poseidon",
+  "scripts": {
+    "bootstrap": "lerna bootstrap --hoist",
+    "test": "lerna run test --stream",
+    "build:changed": "lerna run build --parallel --since origin/master",
+    "build": "lerna run build --parallel",
+    "precommit": "pretty-quick --staged",
+    "release": "yarn build && lerna publish"
+  },
+  "version": "0.0.0",
+  "description": "web components",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zcued/poseidon.git"
+  },
+  "author": "cuining <cncc0824@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "7.2.3",
+    "eslint": "4.10.0",
+    "eslint-config-zcool": "^1.5.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.4.0",
+    "gzip-size": "^5.0.0",
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.4.2",
+    "prettier": "^1.13.5",
+    "pretty-bytes": "^5.1.0",
+    "pretty-quick": "^1.6.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.13",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "lerna": "^3.6.0",
+    "styled-components": "^4.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/zcued/poseidon/issues"
+  },
+  "homepage": "https://github.com/zcued/poseidon#readme"
+}

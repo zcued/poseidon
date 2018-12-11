@@ -1,12 +1,12 @@
 {
-  "name": "@pose/provider",
-  "version": "0.0.2-alpha.0",
+  "name": "pose-provider",
+  "version": "0.0.1-alpha.0",
   "description": "a provider.",
   "main": "index.js",
   "module": "es/index.js",
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
-    "build": "tsc"
+    "build": "node ../../shared/build-package"
   },
   "peerDependencies": {
     "react": "^16.6.0",
@@ -26,6 +26,6 @@
     "index.js"
   ],
   "dependencies": {
-    "@pose/theme": "^0.0.2-alpha.0"
+    "pose-theme": "^0.0.1-alpha.0"
   }
 }
