@@ -1,6 +1,6 @@
 {
   "name": "@pose/theme",
-  "version": "0.0.2-alpha.0",
+  "version": "0.1.0-alpha.0",
   "description": "a theme.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
