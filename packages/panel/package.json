@@ -1,6 +1,6 @@
 {
   "name": "@zcool/panel",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "a panel.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
