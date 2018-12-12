@@ -1,6 +1,6 @@
 {
   "name": "@zcool/provider",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "a provider.",
   "main": "index.js",
   "module": "es/index.js",
@@ -26,7 +26,7 @@
     "index.js"
   ],
   "dependencies": {
-    "@zcool/theme": "^0.1.3"
+    "@zcool/theme": "^0.1.4"
   },
   "publishConfig": {
     "access": "public"
