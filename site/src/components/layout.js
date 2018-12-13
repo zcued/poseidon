@@ -2,10 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import Link from 'gatsby-link'
 
 import Header from './header'
 import './layout.css'
 
+const NavLink = React.forwardRef((props, ref) =>
+  props.href ? (
+    <a ref={ref} className="NavLink" {...props} />
+  ) : (
+    <Link ref={ref} className="NavLink" {...props} />
+  )
+)
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -29,16 +37,30 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
+        <main
           style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0
+            display: 'flex'
           }}
         >
-          {children}
-        </div>
+          <ul>
+            <li>
+              <NavLink to="/button">Button</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tag">Tag</NavLink>
+            </li>
+          </ul>
+          <div
+            style={{
+              margin: '0 auto',
+              maxWidth: 960,
+              flex: 1,
+              paddingTop: 0
+            }}
+          >
+            {children}
+          </div>
+        </main>
       </>
     )}
   />

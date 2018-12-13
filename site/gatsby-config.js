@@ -1,9 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter'
+    title: 'Zcool UI Playground'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        defaultLayout: require.resolve('./src/components/mdx-layout.js')
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -1,12 +1,27 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "loose": true,
-        "modules": "commonjs"
-      }
-    ],
-    "react"
-  ]
+  "env": {
+    "es": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "react"
+      ]
+    },
+    "cjs": {
+      "presets": [
+        [
+          "env",
+          {
+            "loose": true,
+            "modules": "commonjs"
+          }
+        ],
+        "react"
+      ]
+    }
+  }
 }

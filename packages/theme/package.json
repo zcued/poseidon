@@ -20,6 +20,7 @@
   "author": "cuining",
   "license": "MIT",
   "files": [
+    "es",
     "src",
     "lib",
     "index.js"
