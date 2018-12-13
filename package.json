@@ -41,6 +41,11 @@
     "lerna": "^3.6.0",
     "styled-components": "^4.1.2"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "lerna run lint"
+    }
+  },
   "bugs": {
     "url": "https://github.com/zcued/poseidon/issues"
   },
