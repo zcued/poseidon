@@ -8,7 +8,7 @@ cd poseidon
 yarn install
 yarn bootstrap
 yarn build
-cd site && yarn start
+cd site && yarn && yarn start
 ```
 
 ## TODO
