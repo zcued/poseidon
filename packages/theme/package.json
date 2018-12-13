@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
     "build": "node ../../shared/build-package",
-    "lint": "eslint . --max-warnings=0"
+    "lint": "eslint src"
   },
   "author": "cuining",
   "license": "MIT",

@@ -1,1 +1,6 @@
-{ "extends": "eslint-config-zcool" }
+{
+  "extends": "eslint-config-zcool",
+  "rules": {
+    "comma-dangle": 0
+  }
+}
