@@ -13,6 +13,5 @@ cd site && yarn start
 
 ## TODO
 
-- babel 7.0+
 - typings
 - tests

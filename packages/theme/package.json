@@ -6,7 +6,8 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package"
+    "build": "node ../../shared/build-package",
+    "lint": "eslint . --max-warnings=0"
   },
   "author": "cuining",
   "license": "MIT",
