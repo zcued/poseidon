@@ -1,15 +1,21 @@
 import styled from 'styled-components'
-import { palette } from '@zcool/theme'
+import theme from '@zcool/theme'
 
 const Tag = styled.span`
   display: inline-block;
   padding: 8px 16px;
-  background-color: ${palette.daisy};
+  background-color: ${({ theme }) => theme.palette.daisy};
   border-radius: 4px;
-  color: ${palette.black};
+  color: ${({ theme }) => theme.palette.black};
   & + & {
     margin-left: 8px;
   }
 `
+
+Tag.displayName = 'Tag'
+
+Tag.defaultProps = {
+  theme
+}
 
 export default Tag

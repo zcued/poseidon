@@ -43,3 +43,10 @@ export const font = {
     xl: 32
   }
 }
+
+export default {
+  breakpoints,
+  palette,
+  spacing,
+  font
+}

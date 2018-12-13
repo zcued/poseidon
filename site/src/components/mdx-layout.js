@@ -5,6 +5,7 @@ import Layout from './layout'
 import GatsbyLink from 'gatsby-link'
 import Button from '../../../packages/button'
 import Tag from '../../../packages/tag'
+import Panel from '../../../packages/panel'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -13,9 +14,10 @@ const PreComponent = ({ className, ...props }) =>
       mountStylesheet={false}
       code={props.children.props.children}
       scope={{
-        GatsbyLink,
         Button,
-        Tag
+        Tag,
+        Panel,
+        GatsbyLink
       }}
     >
       <LiveEditor tabIndex="-1" />

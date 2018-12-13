@@ -1,11 +1,17 @@
 import styled from 'styled-components'
-import { palette } from '@zcool/theme'
+import theme from '@zcool/theme'
 
 const Button = styled.button`
   outline: none;
   height: 36px;
-  background: ${palette.white};
-  border-color: ${palette.black};
+  background: ${({ theme }) => theme.palette.white};
+  border-color: ${({ theme }) => theme.palette.black};
 `
+
+Button.displayName = 'Button'
+
+Button.defaultProps = {
+  theme
+}
 
 export default Button
