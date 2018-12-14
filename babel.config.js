@@ -1,27 +1,14 @@
+const BABEL_ENV = process.env.BABEL_ENV
+const isEsModules = BABEL_ENV === 'es'
+
 module.exports = {
-  env: {
-    es: {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            modules: false
-          }
-        ],
-        '@babel/preset-react'
-      ]
-    },
-    cjs: {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            loose: true,
-            modules: 'commonjs'
-          }
-        ],
-        '@babel/preset-react'
-      ]
-    }
-  }
+  presets: [
+    [
+      'next',
+      {
+        loose: true,
+        modules: isEsModules ? false : 'commonjs'
+      }
+    ]
+  ]
 }
