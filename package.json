@@ -18,9 +18,13 @@
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
     "@types/react": "^16.7.13",
     "babel-eslint": "7.2.3",
     "babel-preset-next": "^1.2.0",
+    "commitizen": "^3.0.5",
+    "cz-lerna-changelog": "^2.0.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "enzyme-to-json": "^3.3.5",
@@ -31,6 +35,7 @@
     "jest-enzyme": "^7.0.1",
     "jest-styled-components": "^6.3.1",
     "lerna": "^3.6.0",
+    "lint-staged": "^8.1.0",
     "prettier": "^1.13.5",
     "pretty-bytes": "^5.1.0",
     "pretty-quick": "^1.6.0",
@@ -38,10 +43,23 @@
     "react-dom": "^16.6.3",
     "styled-components": "^4.1.2"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
   "husky": {
     "hooks": {
-      "pre-push": "lerna run lint"
+      "commit-msg": "commitlint -e $GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "bugs": {
     "url": "https://github.com/zcued/poseidon/issues"

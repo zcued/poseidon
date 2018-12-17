@@ -1,11 +1,12 @@
 {
-  "name": "@zcool/button",
-  "version": "0.1.7",
-  "description": "a button.",
+  "name": "@zcool/list",
+  "version": "0.1.0",
+  "description": "a list.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "build": "node ../../shared/build-package",
+    "test": "echo \"Write some tests you bum!\"",
+    "build": "node ../../shared/build-package --watch",
     "lint": "eslint src"
   },
   "peerDependencies": {

@@ -26,6 +26,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.7"
+    "@zcool/theme": "^0.1.7",
+    "@zcool/util": "^0.1.0"
   }
 }
