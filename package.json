@@ -2,7 +2,7 @@
   "name": "poseidon",
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "test": "lerna run test --stream",
+    "test": "jest",
     "build": "lerna run build --parallel",
     "precommit": "pretty-quick --staged",
     "release": "lerna run test && yarn build && lerna publish"
@@ -34,6 +34,8 @@
     "prettier": "^1.13.5",
     "pretty-bytes": "^5.1.0",
     "pretty-quick": "^1.6.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "styled-components": "^4.1.2"
   },
   "husky": {

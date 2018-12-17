@@ -5,13 +5,12 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Write some tests you bum!\"",
     "build": "node ../../shared/build-package",
     "lint": "eslint src"
   },
   "peerDependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "styled-components": "^4.1.2"
   },
   "author": "cuining",
