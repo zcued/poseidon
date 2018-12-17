@@ -48,7 +48,6 @@ function Modal(props) {
   const {
     width,
     height,
-    closeStyle,
     title,
     footer,
     children,
