@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Manager, Popper, Reference } from 'react-popper'
-import { theme } from '@zcool/theme'
+import theme from '@zcool/theme'
 
 const fadeIn = keyframes`
   0% {
