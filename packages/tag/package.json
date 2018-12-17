@@ -1,6 +1,6 @@
 {
   "name": "@zcool/tag",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "a panel.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "@zcool/theme": "^0.1.7",
-    "@zcool/util": "^0.1.0"
+    "@zcool/util": "^0.1.1"
   }
 }
