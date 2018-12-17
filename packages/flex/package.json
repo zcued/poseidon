@@ -1,0 +1,22 @@
+{
+  "name": "@zcool/flex",
+  "version": "0.1.6",
+  "description": "a flex.",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Write some tests you bum!\"",
+    "build": "node ../../shared/build-package"
+  },
+  "author": "cuining",
+  "license": "MIT",
+  "files": [
+    "es",
+    "src",
+    "lib",
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
