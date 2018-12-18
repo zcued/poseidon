@@ -27,6 +27,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        ' '
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -36,7 +37,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        ' '<Header siteTitle={data.site.siteMetadata.title} />' '
         <main
           style={{
             display: 'flex'
@@ -67,6 +68,12 @@ const Layout = ({ children }) => (
             <li>
               <NavLink to="/heading">Heading</NavLink>
             </li>
+            <li>
+              <NavLink to="/pagination">Pagination</NavLink>
+            </li>
+            <li>
+              <NavLink to="/dropdown">Dropdown</NavLink>
+            </li>
           </ul>
           <div
             style={{
@@ -79,6 +86,7 @@ const Layout = ({ children }) => (
             {children}
           </div>
         </main>
+        ' '
       </>
     )}
   />

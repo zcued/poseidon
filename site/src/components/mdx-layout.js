@@ -10,7 +10,9 @@ import Tooltip from '../../../packages/tooltip'
 import Modal from '../../../packages/modal'
 import Flex from '../../../packages/flex'
 import Heading from '../../../packages/heading'
+import Pagination from '../../../packages/pagination'
 import { List, ListItem } from '../../../packages/list'
+import Dropdown from '../../../packages/dropdown'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -24,10 +26,12 @@ const PreComponent = ({ className, ...props }) =>
         Panel,
         Tooltip,
         Modal,
+        Pagination,
         List,
         ListItem,
         Flex,
         Heading,
+        Dropdown,
         GatsbyLink
       }}
     >

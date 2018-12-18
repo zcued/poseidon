@@ -1,0 +1,39 @@
+import Helmet from 'react-helmet'
+
+<Helmet
+  title="Zcool UI - Pagination"
+  meta={[
+    {
+      name: 'description',
+      content: 'Zcool UI - Pagination'
+    }
+  ]}
+/>
+
+# Pagination
+
+```js
+import Pagination from '@zcool/pagination'
+```
+
+```.jsx
+ () => {
+  function App() {
+    const [current, setCurrent] = React.useState(10)
+
+    function handleChange(value) {
+      setCurrent(value)
+      console.log(value)
+    }
+
+    return (
+      <div>
+        <Pagination defaultCurrent={1} total={25} pageSize={10} />
+        <Pagination current={current} total={25} pageSize={10} onChange={handleChange} />
+      </div>
+    )
+  }
+
+  return <App />
+}
+```
