@@ -62,6 +62,9 @@ const Layout = ({ children }) => (
               <NavLink to="/list">List</NavLink>
             </li>
             <li>
+              <NavLink to="/pagination">Pagination</NavLink>
+            </li>
+            <li>
               <NavLink to="/dropdown">Dropdown</NavLink>
             </li>
           </ul>

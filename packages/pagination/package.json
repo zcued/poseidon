@@ -1,12 +1,11 @@
 {
-  "name": "@zcool/modal",
-  "version": "0.1.1",
-  "description": "a modal.",
+  "name": "@zcool/pagination",
+  "version": "0.1.8",
+  "description": "a pagination.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package --watch",
+    "build": "node ../../shared/build-package",
     "lint": "eslint src"
   },
   "peerDependencies": {
@@ -26,6 +25,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.7"
+    "@zcool/input": "^0.1.8",
+    "@zcool/theme": "^0.1.7",
+    "@zcool/util": "^0.1.1",
+    "radio": "^0.2.0"
   }
 }
