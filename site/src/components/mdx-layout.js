@@ -10,6 +10,7 @@ import Tooltip from '../../../packages/tooltip'
 import Modal from '../../../packages/modal'
 import Pagination from '../../../packages/pagination'
 import { List, ListItem } from '../../../packages/list'
+import Dropdown from '../../../packages/dropdown'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -26,6 +27,7 @@ const PreComponent = ({ className, ...props }) =>
         Pagination,
         List,
         ListItem,
+        Dropdown,
         GatsbyLink
       }}
     >

@@ -1,0 +1,31 @@
+{
+  "name": "@zcool/dropdown",
+  "version": "0.1.6",
+  "description": "a dropdown.",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Write some tests you bum!\"",
+    "build": "node ../../shared/build-package"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
+    "styled-components": "^4.1.2"
+  },
+  "author": "cuining",
+  "license": "MIT",
+  "files": [
+    "es",
+    "src",
+    "lib",
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@zcool/theme": "^0.1.7",
+    "@zcool/util": "^0.1.1"
+  }
+}

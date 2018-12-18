@@ -1,13 +1,12 @@
 {
-  "name": "@zcool/theme",
-  "version": "0.1.7",
-  "description": "a theme.",
+  "name": "@zcool/flex",
+  "version": "0.1.6",
+  "description": "a flex.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package",
-    "lint": "eslint src"
+    "build": "node ../../shared/build-package"
   },
   "author": "cuining",
   "license": "MIT",
