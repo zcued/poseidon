@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 
 export const List = styled.ul`
@@ -7,6 +8,12 @@ export const List = styled.ul`
   padding: ${T('spacing.xs')}px 0;
 `
 
+List.displayName = 'List'
+
+List.defaultProps = {
+  theme
+}
+
 export const ListItem = styled.li`
   text-align: center;
   white-space: nowrap;
@@ -14,7 +21,13 @@ export const ListItem = styled.li`
   overflow: hidden;
 
   &:hover {
-    color: ${T('palette.primary')};
-    background-color: ${T('palette.white')};
+    color: ${T('palette.white')};
+    background-color: ${T('palette.primary')};
   }
 `
+
+ListItem.displayName = 'ListItem'
+
+ListItem.defaultProps = {
+  theme
+}

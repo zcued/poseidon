@@ -1,7 +1,7 @@
 {
-  "name": "@zcool/list",
+  "name": "@zcool/modal",
   "version": "0.1.1",
-  "description": "a list.",
+  "description": "a modal.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "@zcool/theme": "^0.1.7",
-    "@zcool/util": "^0.1.1"
+    "react-modal": "^3.7.1"
   }
 }

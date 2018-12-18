@@ -21,7 +21,7 @@ const StyledFlex = styled(Flex)`
 `
 
 StyledFlex.defaultProps = {
-  direction: 'column',
+  direction: 'row',
   halign: 'flex-start',
   valign: 'flex-start',
   flex: 'initial',

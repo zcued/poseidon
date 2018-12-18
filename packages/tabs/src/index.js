@@ -40,31 +40,4 @@ export const StyledTab = styled(Tab)`
   &:hover {
     color: ${T('palette.primary')};
   }
-
-  ${props =>
-    props.selected &&
-    css`
-      background-color: #fff;
-      color: #ea4335;
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        width: 3px;
-        height: 100%;
-        background: #ea4335;
-      }
-      .icon {
-        color: #ea4335;
-      }
-    `};
-
-  ${props =>
-    props.selected1 &&
-    css`
-      border-radius: 5px;
-      background-color: #eee;
-      color: #ea4335;
-      font-weight: 500;
-    `};
 `

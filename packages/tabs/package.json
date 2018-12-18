@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@zcool/flex": "^0.1.6",
-    "@zcool/util": "^0.1.6"
+    "@zcool/theme": "^0.1.6",
+    "@zcool/util": "^0.1.1"
   }
 }

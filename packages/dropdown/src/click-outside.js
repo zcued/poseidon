@@ -1,45 +1,44 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 
-class ClickOutSide extends React.Component {
-  wrapper = null
+function ClickOutSide(props) {
+  let wrapper = null
 
-  componentDidMount() {
-    document.addEventListener('click', this.handleClick, true)
-  }
+  useEffect(() => {
+    document.addEventListener('click', handleClick, true)
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleClick, true)
-  }
+    return function cleanup() {
+      document.removeEventListener('click', handleClick, true)
+    }
+  })
 
-  handleClick = e => {
-    if (this.isContains(e.target)) {
+  const handleClick = e => {
+    if (isContains(e.target)) {
       return
     }
 
-    this.props.onClick(e)
+    props.onClick(e)
   }
 
-  isContains(node) {
-    if (!this.wrapper) {
+  const isContains = node => {
+    if (!wrapper) {
       return true
     }
 
-    return this.wrapper !== node && this.wrapper.contains(node)
+    return wrapper !== node && wrapper.contains(node)
   }
 
-  render() {
-    const { children, className } = this.props
-    return (
-      <div
-        className={className}
-        ref={x => {
-          this.wrapper = x
-        }}
-      >
-        {children}
-      </div>
-    )
-  }
+  const { children, className } = props
+
+  return (
+    <div
+      className={className}
+      ref={x => {
+        wrapper = x
+      }}
+    >
+      {children}
+    </div>
+  )
 }
 
 export default ClickOutSide

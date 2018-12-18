@@ -6,6 +6,10 @@ import GatsbyLink from 'gatsby-link'
 import Button from '../../../packages/button'
 import Tag from '../../../packages/tag'
 import Panel from '../../../packages/panel'
+import Tooltip from '../../../packages/tooltip'
+import Modal from '../../../packages/modal'
+import { List, ListItem } from '../../../packages/list'
+import Dropdown from '../../../packages/dropdown'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -17,6 +21,11 @@ const PreComponent = ({ className, ...props }) =>
         Button,
         Tag,
         Panel,
+        Tooltip,
+        Modal,
+        List,
+        ListItem,
+        Dropdown,
         GatsbyLink
       }}
     >

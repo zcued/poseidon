@@ -52,6 +52,18 @@ const Layout = ({ children }) => (
             <li>
               <NavLink to="/panel">Panel</NavLink>
             </li>
+            <li>
+              <NavLink to="/tooltip">Tooltip</NavLink>
+            </li>
+            <li>
+              <NavLink to="/modal">Modal</NavLink>
+            </li>
+            <li>
+              <NavLink to="/list">List</NavLink>
+            </li>
+            <li>
+              <NavLink to="/dropdown">Dropdown</NavLink>
+            </li>
           </ul>
           <div
             style={{

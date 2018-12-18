@@ -1,5 +1,6 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { Manager, Popper, Reference } from 'react-popper'
 import { T } from '@zcool/util'
 import ClickOutSide from './click-outside'
 
@@ -34,112 +35,169 @@ export const PoppersContainer = styled.div`
   min-width: 100%;
 `
 
-class Dropdown extends React.Component {
-  static defaultProps = {
-    trigger: 'hover',
-    icon: 'angle-down',
-    iconSize: 10,
-    onToggle: () => {},
-    mouseLeaveDelay: 300
-  }
+function Dropdown(props) {
+  const [isOpen, setIsOpen] = useState(props.isOpen || false)
+  const [isChildOpen, setIsChildOpen] = useState(false)
+  const isControl = props.hasOwnProperty('isOpen')
+  const opened = isControl ? props.isOpen : isOpen
+  let timer = null
+  const { className, text, children, placement, childPlacement } = props
 
-  state = {
-    isOpen: this.props.isOpen || false
-  }
-
-  isControl = this.props.hasOwnProperty('isOpen')
-  timer = null
-
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.hasOwnProperty('isOpen')) {
-      return {
-        isOpen: nextProps.isOpen
-      }
-    }
-    return null
-  }
-
-  handleClick = e => {
-    if (this.props.trigger === 'click') {
-      if (!this.isControl) {
-        this.toggle(e)
+  const handleClick = e => {
+    if (props.trigger === 'click') {
+      if (!isControl) {
+        toggle(e)
       } else {
-        this.props.onToggle(e)
+        props.onToggle(e)
       }
     }
   }
 
-  handleLeave = e => {
-    if (this.timer) clearTimeout(this.timer)
-    this.timer = setTimeout(() => {
-      if (this.props.trigger === 'hover') {
-        if (!this.isControl) {
-          this.setState({ isOpen: false })
+  const handleLeave = e => {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      if (props.trigger === 'hover') {
+        if (!isControl) {
+          setIsOpen(false)
+          setIsChildOpen(false)
         } else {
-          this.props.onToggle(e)
+          props.onToggle(e)
         }
       }
-    }, this.props.mouseLeaveDelay)
+    }, props.mouseLeaveDelay)
   }
 
-  handleEnter = e => {
-    if (this.timer) clearTimeout(this.timer)
-    if (this.props.trigger === 'hover') {
-      if (!this.isControl) {
-        this.setState({ isOpen: true })
+  const handleEnter = e => {
+    if (timer) clearTimeout(timer)
+    if (props.trigger === 'hover') {
+      if (!isControl) {
+        setIsOpen(true)
+        setIsChildOpen(false)
       } else {
-        this.props.onToggle(e)
+        props.onToggle(e)
       }
     }
   }
 
-  handleClickOutSide = () => {
-    if (!this.isControl) {
-      this.setState({ isOpen: false })
+  const childHandleEnter = () => {
+    if (timer) clearTimeout(timer)
+    setIsChildOpen(true)
+  }
+
+  const childHandleLeave = () => {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      setIsChildOpen(false)
+      handleLeave()
+    }, props.mouseLeaveDelay)
+  }
+
+  const handleClickOutSide = () => {
+    if (!isControl) {
+      setIsOpen(false)
+      setIsChildOpen(false)
     }
   }
 
-  toggle = e => {
-    this.props.onToggle(e)
-
-    this.setState({ isOpen: !this.state.isOpen })
+  const toggle = e => {
+    props.onToggle(e)
+    setIsOpen(!isOpen)
   }
 
-  render() {
-    const { className, text, icon, iconSize, children } = this.props
+  const getSubMenuOrItem = item => {
+    const childrenItems = item.props.children
+    if (Array.isArray(childrenItems)) {
+      if (childrenItems && childrenItems.length > 0) {
+        return (
+          <Manager>
+            <div className={className}>
+              <Reference>
+                {({ ref }) => (
+                  <TextContainer
+                    ref={ref}
+                    data-text={true}
+                    aria-expanded={isOpen}
+                    onClick={handleClick}
+                    onMouseLeave={childHandleLeave}
+                    onMouseEnter={childHandleEnter}
+                  >
+                    {item.props.text}
+                  </TextContainer>
+                )}
+              </Reference>
 
-    const isOpen = this.isControl ? this.props.isOpen : this.state.isOpen
-
-    return (
-      <StyledClickOutSide onClick={this.handleClickOutSide}>
-        <div className={className}>
-          <TextContainer
-            data-text={true}
-            aria-expanded={isOpen}
-            onClick={this.handleClick}
-            onMouseLeave={this.handleLeave}
-            onMouseEnter={this.handleEnter}
-          >
-            {text}
-            {/* {icon ? <Icon glyph={icon} size={iconSize} /> : null} */}
-          </TextContainer>
-          {isOpen ? (
-            <PoppersContainer>
-              {this.isControl
-                ? children
-                : React.Children.map(children, child =>
-                    React.cloneElement(React.Children.only(child), {
-                      onClick: this.toggle,
-                      onMouseEnter: this.handleEnter,
-                      onMouseLeave: this.handleLeave
-                    })
+              {isChildOpen && (
+                <Popper placement={childPlacement}>
+                  {({ ref, style }) => (
+                    <PoppersContainer ref={ref} style={{ ...style }}>
+                      {childrenItems.map(item => {
+                        return React.cloneElement(React.Children.only(item), {
+                          onClick: toggle,
+                          onMouseLeave: childHandleLeave,
+                          onMouseEnter: childHandleEnter
+                        })
+                      })}
+                    </PoppersContainer>
                   )}
-            </PoppersContainer>
-          ) : null}
-        </div>
-      </StyledClickOutSide>
-    )
+                </Popper>
+              )}
+            </div>
+          </Manager>
+        )
+      }
+    } else {
+      return React.cloneElement(React.Children.only(item), {
+        onClick: toggle,
+        onMouseLeave: handleLeave,
+        onMouseEnter: handleEnter
+      })
+    }
   }
+
+  return (
+    <StyledClickOutSide onClick={handleClickOutSide}>
+      <Manager>
+        <div className={className}>
+          <Reference>
+            {({ ref }) => (
+              <TextContainer
+                ref={ref}
+                data-text={true}
+                aria-expanded={isOpen}
+                onClick={handleClick}
+                onMouseLeave={handleLeave}
+                onMouseEnter={handleEnter}
+              >
+                {text}
+              </TextContainer>
+            )}
+          </Reference>
+          {opened && (
+            <Popper placement={placement}>
+              {({ ref, style }) => (
+                <PoppersContainer ref={ref} style={{ ...style }}>
+                  {isControl
+                    ? children
+                    : React.Children.map(children, child => {
+                      return getSubMenuOrItem(child)
+                    })}
+                </PoppersContainer>
+              )}
+            </Popper>
+          )}
+        </div>
+      </Manager>
+    </StyledClickOutSide>
+  )
+}
+
+Dropdown.defaultProps = {
+  trigger: 'hover',
+  icon: 'angle-down',
+  iconSize: 10,
+  onToggle: () => {},
+  mouseLeaveDelay: 300,
+  childPlacement: 'right'
 }
 
 export default Dropdown
