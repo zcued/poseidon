@@ -8,6 +8,7 @@ import Tag from '../../../packages/tag'
 import Panel from '../../../packages/panel'
 import Tooltip from '../../../packages/tooltip'
 import Modal from '../../../packages/modal'
+import Pagination from '../../../packages/pagination'
 import { List, ListItem } from '../../../packages/list'
 
 const PreComponent = ({ className, ...props }) =>
@@ -22,6 +23,7 @@ const PreComponent = ({ className, ...props }) =>
         Panel,
         Tooltip,
         Modal,
+        Pagination,
         List,
         ListItem,
         GatsbyLink
