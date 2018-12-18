@@ -64,7 +64,6 @@
   "bugs": {
     "url": "https://github.com/zcued/poseidon/issues"
   },
-  "homepage": "https://github.com/zcued/poseidon#readme",
   "dependencies": {
     "react-popper": "^1.3.2"
   }
