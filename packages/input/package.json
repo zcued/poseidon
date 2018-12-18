@@ -1,6 +1,6 @@
 {
   "name": "@zcool/input",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "a input.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -25,7 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.7",
+    "@zcool/theme": "^0.1.8",
     "@zcool/util": "^0.1.1",
     "radio": "^0.2.0"
   }
