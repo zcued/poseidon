@@ -14,26 +14,22 @@ export const StyledClickOutSide = styled(ClickOutSide)`
 export const TextContainer = styled.div`
   padding: ${T('spacing.xs')}px 0;
   cursor: pointer;
-
-  & > [data-icon='true'] {
-    margin-left: ${T('spacing.xs')}px;
-  }
 `
 
 export const fadeIn = keyframes`
   from { opacity: 0; }
   to   { opacity: 1; }
 `
-
-export const PoppersContainer = styled.div`
+export const Poppers = styled(Popper)`
   opacity: 0;
   position: absolute;
   background-color: ${T('palette.white')};
   animation: ${fadeIn} 0.1s ease-in 0.1s forwards;
   z-index: 10;
-  box-shadow: 0 6px 12px ${T('palette.black16')};
   min-width: 100%;
 `
+
+export const PoppersContainer = styled.div``
 
 function Dropdown(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen || false)
@@ -41,7 +37,14 @@ function Dropdown(props) {
   const isControl = props.hasOwnProperty('isOpen')
   const opened = isControl ? props.isOpen : isOpen
   let timer = null
-  const { className, text, children, placement, childPlacement } = props
+  const {
+    className,
+    text,
+    children,
+    placement,
+    childPlacement,
+    hasSecondMenu
+  } = props
 
   const handleClick = e => {
     if (props.trigger === 'click') {
@@ -106,7 +109,7 @@ function Dropdown(props) {
 
   const getSubMenuOrItem = item => {
     const childrenItems = item.props.children
-    if (Array.isArray(childrenItems)) {
+    if (Array.isArray(childrenItems) && hasSecondMenu) {
       if (childrenItems && childrenItems.length > 0) {
         return (
           <Manager>
@@ -127,7 +130,7 @@ function Dropdown(props) {
               </Reference>
 
               {isChildOpen && (
-                <Popper placement={childPlacement}>
+                <Poppers placement={childPlacement}>
                   {({ ref, style }) => (
                     <PoppersContainer ref={ref} style={{ ...style }}>
                       {childrenItems.map(item => {
@@ -139,7 +142,7 @@ function Dropdown(props) {
                       })}
                     </PoppersContainer>
                   )}
-                </Popper>
+                </Poppers>
               )}
             </div>
           </Manager>
@@ -173,7 +176,7 @@ function Dropdown(props) {
             )}
           </Reference>
           {opened && (
-            <Popper placement={placement}>
+            <Poppers placement={placement}>
               {({ ref, style }) => (
                 <PoppersContainer ref={ref} style={{ ...style }}>
                   {isControl
@@ -183,7 +186,7 @@ function Dropdown(props) {
                     })}
                 </PoppersContainer>
               )}
-            </Popper>
+            </Poppers>
           )}
         </div>
       </Manager>
@@ -197,7 +200,8 @@ Dropdown.defaultProps = {
   iconSize: 10,
   onToggle: () => {},
   mouseLeaveDelay: 300,
-  childPlacement: 'right'
+  childPlacement: 'right',
+  hasSecondMenu: false
 }
 
 export default Dropdown

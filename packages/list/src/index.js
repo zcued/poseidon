@@ -16,6 +16,7 @@ List.defaultProps = {
 
 export const ListItem = styled.li`
   text-align: center;
+  list-style: none;
   white-space: nowrap;
   padding: ${T('spacing.xs')}px 0;
   overflow: hidden;
