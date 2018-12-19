@@ -1,17 +1,16 @@
 {
-  "name": "@zcool/flex",
+  "name": "@zcool/heading",
   "version": "0.1.0",
-  "description": "a flex.",
+  "description": "a heading.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Write some tests you bum!\"",
     "build": "node ../../shared/build-package",
     "lint": "eslint src"
   },
   "peerDependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "styled-components": "^4.1.2"
   },
   "author": "zhh",
@@ -24,5 +23,9 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@zcool/theme": "^0.1.7",
+    "@zcool/util": "^0.1.1"
   }
 }

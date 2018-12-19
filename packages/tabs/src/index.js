@@ -1,9 +1,9 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Flex from '@zcool/flex'
 import { T } from '@zcool/util'
 
-const Tabs = ({ children, align, ...rest }) => {
+const Tabs = ({ children, ...rest }) => {
   return (
     <Flex {...rest} halign="start">
       {children}
@@ -11,7 +11,7 @@ const Tabs = ({ children, align, ...rest }) => {
   )
 }
 
-const Tab = ({ children, selected, ...rest }) => (
+const Tab = ({ children, ...rest }) => (
   <Flex {...rest} halign="start">
     {children}
   </Flex>
