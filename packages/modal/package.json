@@ -26,6 +26,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.8"
+    "@zcool/theme": "^0.1.8",
+    "react-modal": "^3.8.1"
   }
 }
