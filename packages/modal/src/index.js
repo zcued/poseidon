@@ -14,8 +14,18 @@ const ModalContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 
+  .modal__close {
+    display: flex;
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    padding: 16px;
+    cursor: pointer;
+  }
+
   .modal__header {
-    line-height: 28px;
+    line-height: 56px;
+    background: #f5f8fa;
   }
 
   .modal__body {
@@ -83,6 +93,17 @@ function Modal(props) {
       {...rest}
     >
       <ModalContainer>
+        <span className="modal__close" onClick={onRequestClose}>
+          <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fill-rule="evenodd">
+              <path fill="none" d="M0 0h16v16H0z" />
+              <path
+                d="M7.99 7.99L1 1l6.99 6.99L1 14.98l6.99-6.99zm0 0L15 15 7.99 7.99 14.98 1 7.99 7.99z"
+                stroke="#979797"
+              />
+            </g>
+          </svg>
+        </span>
         {title ? <div className="modal__header">{title}</div> : null}
         <div className="modal__body">{children}</div>
         {footer ? <div className="modal__footer">{footer}</div> : null}
