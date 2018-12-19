@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 
 const H = ({ size = 3, children, ...rest }) =>
@@ -12,5 +13,9 @@ const Heading = styled(H)`
 `
 
 Heading.displayName = 'Heading'
+
+Heading.defaultProps = {
+  theme
+}
 
 export default Heading

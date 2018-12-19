@@ -24,8 +24,5 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@zcool/theme": "^0.1.6"
   }
 }

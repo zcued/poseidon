@@ -27,7 +27,6 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        ' '
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -37,12 +36,8 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        ' '<Header siteTitle={data.site.siteMetadata.title} />' '
-        <main
-          style={{
-            display: 'flex'
-          }}
-        >
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <main style={{ display: 'flex' }}>
           <ul>
             <li>
               <NavLink to="/button">Button</NavLink>
@@ -86,7 +81,6 @@ const Layout = ({ children }) => (
             {children}
           </div>
         </main>
-        ' '
       </>
     )}
   />
