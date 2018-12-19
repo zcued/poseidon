@@ -17,9 +17,24 @@ import Modal from '@zcool/modal'
 ```
 
 ```.jsx
-<>
-  <Modal isOpen={true}  title="修改格式">
-    this is a Modal
-  </Modal>
-</>
+() => {
+  function App() {
+    const [isOpen, toggleOpen] = React.useState(false)
+
+    function toggle() {
+      toggleOpen(!isOpen)
+    }
+
+    return (
+      <>
+        <Modal title="修改格式" isOpen={isOpen} onRequestClose={toggle}>
+          this is a Modal
+        </Modal>
+        <Button onClick={toggle}>打开</Button>
+      </>
+    )
+  }
+
+  return <App />
+}
 ```

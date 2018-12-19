@@ -1,14 +1,20 @@
 {
   "name": "@zcool/flex",
-  "version": "0.1.6",
+  "version": "0.1.1",
   "description": "a flex.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package"
+    "build": "node ../../shared/build-package",
+    "lint": "eslint src"
   },
-  "author": "cuining",
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.1.2"
+  },
+  "author": "zhh",
   "license": "MIT",
   "files": [
     "es",

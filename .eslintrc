@@ -1,5 +1,5 @@
 {
-  "extends": "eslint-config-zcool",
+  "extends": "zcool",
   "rules": {
     "comma-dangle": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]

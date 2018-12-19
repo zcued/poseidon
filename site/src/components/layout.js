@@ -37,11 +37,7 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main
-          style={{
-            display: 'flex'
-          }}
-        >
+        <main style={{ display: 'flex' }}>
           <ul>
             <li>
               <NavLink to="/button">Button</NavLink>
@@ -60,6 +56,12 @@ const Layout = ({ children }) => (
             </li>
             <li>
               <NavLink to="/list">List</NavLink>
+            </li>
+            <li>
+              <NavLink to="/flex">Flex</NavLink>
+            </li>
+            <li>
+              <NavLink to="/heading">Heading</NavLink>
             </li>
             <li>
               <NavLink to="/pagination">Pagination</NavLink>

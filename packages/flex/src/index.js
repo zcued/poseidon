@@ -1,31 +1,24 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const Flex = ({ children, type, direction, halign, flex, valign, ...rest }) =>
-  React.createElement(
-    type,
-    {
-      ...rest
-    },
-    children
-  )
-
-const StyledFlex = styled(Flex)`
+const Flex = styled.div`
   display: flex;
   flex-direction: ${props => props.direction};
   flex: ${props => props.flex};
+  flex-wrap: ${props => props.wrap};
   justify-content: ${props =>
     props.direction === 'row' ? props.halign : props.valign};
   align-items: ${props =>
     props.direction === 'row' ? props.valign : props.halign};
 `
 
-StyledFlex.defaultProps = {
+Flex.defaultProps = {
   direction: 'row',
   halign: 'flex-start',
   valign: 'flex-start',
   flex: 'initial',
-  type: 'div'
+  wrap: 'initial'
 }
 
-export default StyledFlex
+Flex.displayName = 'Flex'
+
+export default Flex

@@ -1,6 +1,6 @@
 {
   "name": "@zcool/tabs",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "a tabs.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -20,8 +20,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/flex": "^0.1.6",
-    "@zcool/theme": "^0.1.6",
+    "@zcool/flex": "^0.1.7",
+    "@zcool/theme": "^0.1.8",
     "@zcool/util": "^0.1.1"
   }
 }
