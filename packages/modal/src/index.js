@@ -3,6 +3,7 @@ import ReactModal from 'react-modal'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
+import Icon from '@zcool/icon'
 
 const ModalContainer = styled.div`
   text-align: center;
@@ -98,15 +99,7 @@ function Modal(props) {
     >
       <ModalContainer theme={props.theme}>
         <span className="modal__close" onClick={onRequestClose}>
-          <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fillRule="evenodd">
-              <path fill="none" d="M0 0h16v16H0z" />
-              <path
-                d="M7.99 7.99L1 1l6.99 6.99L1 14.98l6.99-6.99zm0 0L15 15 7.99 7.99 14.98 1 7.99 7.99z"
-                stroke="#979797"
-              />
-            </g>
-          </svg>
+          <Icon glyph="close" />
         </span>
         {title ? <div className="modal__header">{title}</div> : null}
         <div className="modal__body">{children}</div>

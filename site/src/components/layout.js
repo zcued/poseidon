@@ -26,7 +26,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <React.Fragment>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -75,6 +75,9 @@ const Layout = ({ children }) => (
             <li>
               <NavLink to="/checkbox">Checkbox</NavLink>
             </li>
+            <li>
+              <NavLink to="/radio">Radio</NavLink>
+            </li>
           </ul>
           <div
             style={{
@@ -87,7 +90,7 @@ const Layout = ({ children }) => (
             {children}
           </div>
         </main>
-      </>
+      </React.Fragment>
     )}
   />
 )
