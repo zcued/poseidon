@@ -80,21 +80,23 @@ function Tooltip(props) {
             </div>
           )}
         </Reference>
-        <Popper placement={placement}>
-          {({ ref, style }) => (
-            <div
-              className="tooltip__popper"
-              onMouseEnter={handleEnter}
-              onMouseLeave={handleLeave}
-              onClick={handlePopperClick}
-              ref={ref}
-              style={{ ...style, ...overlayStyle }}
-              data-placement={placement}
-            >
-              {title}
-            </div>
-          )}
-        </Popper>
+        {isHovering ? (
+          <Popper placement={placement}>
+            {({ ref, style }) => (
+              <div
+                className="tooltip__popper"
+                onMouseEnter={handleEnter}
+                onMouseLeave={handleLeave}
+                onClick={handlePopperClick}
+                ref={ref}
+                style={{ ...style, ...overlayStyle }}
+                data-placement={placement}
+              >
+                {title}
+              </div>
+            )}
+          </Popper>
+        ) : null}
       </Manager>
     </ToolTipContainer>
   )
