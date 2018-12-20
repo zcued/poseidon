@@ -2,24 +2,21 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
+import { T } from '@zcool/util'
 
 const ModalContainer = styled.div`
   text-align: center;
   margin: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+
   overflow-y: auto;
   overflow-x: hidden;
 
   .modal__close {
     display: flex;
     position: absolute;
-    right: 8px;
+    right: ${T('spacing.xs')}px;
     top: 4px;
-    padding: 16px;
+    padding: ${T('spacing.sm')}px;
     cursor: pointer;
   }
 
@@ -30,24 +27,31 @@ const ModalContainer = styled.div`
 
   .modal__body {
     height: auto;
+    padding: ${T('spacing.xl')}px;
   }
 
   .modal__footer {
-    & > button {
-      width: 128px;
-      padding: 8px;
-    }
+    margin-bottom: ${T('spacing.xl')}px;
   }
 `
 
 function Modal(props) {
   const MODAL_STYLES = {
     content: {
-      width: 528,
-      border: 'none',
       margin: 'auto',
+      width: 528,
+      border: 0,
       padding: 0,
-      borderRadius: 0
+      borderRadius: 0,
+      bottom: 'auto',
+      minHeight: '10rem',
+      left: '50%',
+      position: 'fixed',
+      right: 'auto',
+      top: '50%',
+      transform: 'translate(-50%,-50%)',
+      minWidth: '20rem',
+      maxWidth: '60rem'
     },
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.75)',
@@ -92,7 +96,7 @@ function Modal(props) {
       style={MODAL_STYLES}
       {...rest}
     >
-      <ModalContainer>
+      <ModalContainer theme={props.theme}>
         <span className="modal__close" onClick={onRequestClose}>
           <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fill-rule="evenodd">

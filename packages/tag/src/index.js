@@ -4,12 +4,20 @@ import { T } from '@zcool/util'
 
 const Tag = styled.span`
   display: inline-block;
-  padding: 8px 16px;
+  padding: ${T('spacing.xs')}px ${T('spacing.sm')}px;
   border-radius: 4px;
-  background-color: ${T('palette.daisy')};
-  color: ${T('palette.black')};
+  background-color: ${({ bgColor, theme }) =>
+    theme.palette[bgColor] || bgColor || theme.palette.white};
+  color: ${T('palette.spruce')};
+  font-size: ${T('font.size.md')}px;
+  cursor: pointer;
+
   & + & {
-    margin-left: 8px;
+    margin-left: ${T('spacing.sm')}px;
+  }
+
+  &:hover {
+    color: ${T('palette.primary')};
   }
 `
 
