@@ -27,7 +27,16 @@ import Modal from '@zcool/modal'
 
     return (
       <>
-        <Modal title="修改格式" isOpen={isOpen} onRequestClose={toggle}>
+        <Modal
+          title="修改格式"
+          isOpen={isOpen}
+          onRequestClose={toggle}
+          footer={
+            <Button>
+              知道了
+            </Button>
+          }
+        >
           this is a Modal
         </Modal>
         <Button onClick={toggle}>打开</Button>
