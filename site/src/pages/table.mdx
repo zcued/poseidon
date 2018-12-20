@@ -1,0 +1,38 @@
+import Helmet from 'react-helmet'
+
+<Helmet
+  title="Zcool UI - Table"
+  meta={[
+    {
+      name: 'description',
+      content: 'Zcool UI - Table'
+    }
+  ]}
+/>
+
+# Table
+
+```js
+import Table from '@zcool/table'
+```
+
+```.jsx
+<>
+  <Table 
+    col={[
+    { dataIndex: 'name', title: '名字' ,render:(text,record)=><div>{text+record.age}</div> },
+    { dataIndex: 'age', title: '年龄' ,render:(text)=>text+1 },
+    { dataIndex: 'sex', title: '性别' },
+    { dataIndex: 'habby', title: '爱好' },
+    { dataIndex: 'habby', title: '爱好' },
+    ]}
+
+    data={[
+    { name: '小明', age: '22', key: 1, sex: '男', habby: '吃' },
+    { name: '小王', age: '33', key: 2, sex: '男', habby: '上班' },
+    { name: '小李', age: '12', key: 2, sex: '男', habby: '玩耍' },
+    { name: '小红', age: '18', key: 2, sex: '女', habby: '打扮' },
+    ]}  
+  />
+</>
+```
