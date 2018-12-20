@@ -1,11 +1,11 @@
 const execSync = require('child_process').execSync
 
-let babel = `${__dirname}/../node_modules/.bin/babel`
+const babel = `${__dirname}/../node_modules/.bin/babel`
 
 const exec = (command, extraEnv) =>
   execSync(command, {
     stdio: 'inherit',
-    env: Object.assign({}, process.env, extraEnv)
+    env: { ...process.env, ...extraEnv }
   })
 
 console.log('\nBuilding ES modules ...')

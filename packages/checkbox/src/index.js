@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import theme from '@zcool/theme'
+import { T } from '@zcool/util'
 import Checked from './icon-checked'
 import UnChecked from './icon-unchecked'
 import DisableChecked from './icon-disable-checked'
@@ -15,12 +17,7 @@ const Label = styled.label`
   }
 `
 
-function Checkbox({
-  width = 16,
-  disable = false,
-  onCheck = () => {},
-  value = false
-}) {
+function Checkbox({ width, disable, onCheck, value }) {
   const [checked, setchecked] = useState(value)
 
   const handleChange = () => {
@@ -52,6 +49,12 @@ function Checkbox({
 
 Checkbox.displayName = 'Checkbox'
 
-Checkbox.defaultProps = {}
+Checkbox.defaultProps = {
+  theme,
+  width: T('icon.size.md'),
+  disable: false,
+  onCheck: () => {},
+  value: false
+}
 
 export default Checkbox

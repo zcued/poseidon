@@ -1,17 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import theme from '@zcool/theme'
+import { T } from '@zcool/util'
 
 const TableWrapper = styled.table`
   width: 100%;
-  text-align: left;
+  text-align: ${T('font.align')};
   border-spacing: 0;
 `
 
 const TableHead = styled.thead`
-  background: #383838;
-  font-size: 16px;
-  color: #ffffff;
+  background: ${T('palette.black2')};
+  font-size: ${T('font.title.size.sm')};
+  color: ${T('palette.white')};
   font-weight: 300;
+  opacity: 0.8;
 `
 
 const TableBody = styled.tbody``
@@ -31,13 +34,12 @@ export const Column = styled.td`
 
 const TableHeadColumn = styled(Column)`
   border-color: #2e3139;
-
   &:last-child {
     border-color: #2e3139;
   }
 `
 
-function Table({ col = [], data = [], ...rest }) {
+function Table({ col, data, ...rest }) {
   return (
     <TableWrapper {...rest}>
       <TableHead>
@@ -71,6 +73,10 @@ function Table({ col = [], data = [], ...rest }) {
 
 Table.displayName = 'Table'
 
-Table.defaultProps = {}
+Table.defaultProps = {
+  theme,
+  col: [],
+  data: []
+}
 
 export default Table

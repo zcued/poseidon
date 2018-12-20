@@ -13,6 +13,7 @@ export const palette = {
   secondary: '#ffd100',
   white: '#ffffff',
   black: '#1f1f1f',
+  black2: '#383838',
   spruce: '#666666',
   stone: '#a3a3a3',
   frost: '#dddddd',
@@ -29,6 +30,16 @@ export const spacing = {
   xl: unit * 5
 }
 
+export const icon = {
+  size: {
+    xs: 10,
+    sm: 12,
+    md: 16,
+    lg: 20,
+    xl: 26
+  }
+}
+
 export const font = {
   weight: {
     normal: 'normal',
@@ -41,7 +52,17 @@ export const font = {
     md: 20,
     lg: 24,
     xl: 32
-  }
+  },
+  title: {
+    size: {
+      xs: 14,
+      sm: 16,
+      md: 22,
+      lg: 26,
+      xl: 34
+    }
+  },
+  align: 'center'
 }
 
 export default {
