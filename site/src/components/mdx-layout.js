@@ -12,7 +12,9 @@ import Flex from '../../../packages/flex'
 import Heading from '../../../packages/heading'
 import Pagination from '../../../packages/pagination'
 import { List, ListItem } from '../../../packages/list'
+import Table from '../../../packages/table'
 import Dropdown from '../../../packages/dropdown'
+import Checkbox from '../../../packages/checkbox'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -32,6 +34,8 @@ const PreComponent = ({ className, ...props }) =>
         Flex,
         Heading,
         Dropdown,
+        Table,
+        Checkbox,
         GatsbyLink
       }}
     >
@@ -43,7 +47,7 @@ const PreComponent = ({ className, ...props }) =>
     <pre {...props} className="WHAT_THE_CRAP" />
   )
 
-const Table = props => <table className="u-full-width" {...props} />
+const Table2 = props => <table className="u-full-width" {...props} />
 
 let firstLoad = true
 
@@ -59,7 +63,7 @@ export default class MyPageLayout extends React.Component {
   render() {
     return (
       <Layout>
-        <MDXProvider components={{ pre: PreComponent, table: Table }}>
+        <MDXProvider components={{ pre: PreComponent, table: Table2 }}>
           <main
             ref={n => (this.node = n)}
             tabIndex="-1"
