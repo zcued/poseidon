@@ -23,7 +23,7 @@ export const ToolTipContainer = styled.div`
   .tooltip__popper {
     animation: 0.3s ${fadeIn} ease-out;
     background: ${T('palette.black60')};
-    font-size: ${T('font.size.sm')};
+    font-size: ${T('font.size.sm')}px;
     color: ${T('palette.white')};
     padding: ${T('spacing.xs')}px;
     margin: ${T('spacing.xs')}px;
@@ -80,23 +80,21 @@ function Tooltip(props) {
             </div>
           )}
         </Reference>
-        {isHovering ? (
-          <Popper placement={placement}>
-            {({ ref, style }) => (
-              <div
-                className="tooltip__popper"
-                onMouseEnter={handleEnter}
-                onMouseLeave={handleLeave}
-                onClick={handlePopperClick}
-                ref={ref}
-                style={{ ...style, ...overlayStyle }}
-                data-placement={placement}
-              >
-                {title}
-              </div>
-            )}
-          </Popper>
-        ) : null}
+        <Popper placement={placement}>
+          {({ ref, style }) => (
+            <div
+              className="tooltip__popper"
+              onMouseEnter={handleEnter}
+              onMouseLeave={handleLeave}
+              onClick={handlePopperClick}
+              ref={ref}
+              style={{ ...style, ...overlayStyle }}
+              data-placement={placement}
+            >
+              {title}
+            </div>
+          )}
+        </Popper>
       </Manager>
     </ToolTipContainer>
   )
