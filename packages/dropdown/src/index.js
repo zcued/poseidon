@@ -102,7 +102,10 @@ function Dropdown(props) {
     }
   }
 
-  const toggle = e => {
+  const toggle = (e, callback) => {
+    if (callback) {
+      callback(e)
+    }
     props.onToggle(e)
     setIsOpen(!isOpen)
   }
@@ -135,7 +138,7 @@ function Dropdown(props) {
                     <PoppersContainer ref={ref} style={{ ...style }}>
                       {childrenItems.map(item => {
                         return React.cloneElement(React.Children.only(item), {
-                          onClick: toggle,
+                          onClick: e => toggle(e, item.props.onClick),
                           onMouseLeave: childHandleLeave,
                           onMouseEnter: childHandleEnter
                         })
@@ -150,7 +153,7 @@ function Dropdown(props) {
       }
     } else {
       return React.cloneElement(React.Children.only(item), {
-        onClick: toggle,
+        onClick: e => toggle(e, item.props.onClick),
         onMouseLeave: handleLeave,
         onMouseEnter: handleEnter
       })
