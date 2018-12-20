@@ -1,46 +1,37 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
-// import { T } from '@zcool/util'
-import Checked from './icon-checked'
-import UnChecked from './icon-unchecked'
-import DisableChecked from './icon-disable-checked'
-import DisableUnChecked from './icon-disable-unchecked'
+import { T } from '@zcool/util'
+import Icon from '@zcool/icon'
 
 const Label = styled.label`
-  width: ${props => `${props.width}px`};
-  height: ${props => `${props.width}px`};
   cursor: ${props => `${props.disable ? 'not-allowed' : 'pointer'}`};
-  svg {
-    width: ${props => `${props.width}px`};
-    height: ${props => `${props.width}px`};
-  }
 `
 
 function Checkbox({ width, disable, onCheck, value }) {
-  const [checked, setchecked] = useState(value)
+  const [checked, setChecked] = useState(value)
 
   const handleChange = () => {
     if (disable) {
       return false
     }
     onCheck(!checked)
-    setchecked(!checked)
+    setChecked(!checked)
   }
 
   return (
     <div>
-      <Label onClick={handleChange} width={width} disable={disable}>
+      <Label onClick={handleChange} disable={disable}>
         {checked ? (
           disable ? (
-            <DisableChecked />
+            <Icon glyph="checkbox-checked-disabled" size={width} />
           ) : (
-            <Checked />
+            <Icon glyph="checkbox-checked" size={width} />
           )
         ) : disable ? (
-          <DisableUnChecked />
+          <Icon glyph="checkbox-disabled" size={width} />
         ) : (
-          <UnChecked />
+          <Icon glyph="checkbox" size={width} />
         )}
       </Label>
     </div>
@@ -51,8 +42,8 @@ Checkbox.displayName = 'Checkbox'
 
 Checkbox.defaultProps = {
   theme,
-  width: 16,
-  // width: T('icon.size.md'),
+  // width: 16,
+  width: T('icon.size.md'),
   disable: false,
   onCheck: () => {},
   value: false
