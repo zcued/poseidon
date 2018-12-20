@@ -1,6 +1,6 @@
 {
   "name": "@zcool/heading",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a heading.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -25,7 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.7",
-    "@zcool/util": "^0.1.1"
+    "@zcool/theme": "^0.1.9",
+    "@zcool/util": "^0.1.2"
   }
 }
