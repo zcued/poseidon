@@ -15,6 +15,7 @@ import { List, ListItem } from '../../../packages/list'
 import Table from '../../../packages/table'
 import Dropdown from '../../../packages/dropdown'
 import Checkbox from '../../../packages/checkbox'
+import Radio from '../../../packages/radio'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -36,6 +37,7 @@ const PreComponent = ({ className, ...props }) =>
         Dropdown,
         Table,
         Checkbox,
+        Radio,
         GatsbyLink
       }}
     >
