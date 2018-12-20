@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
-import { T } from '@zcool/util'
+// import { T } from '@zcool/util'
 import Checked from './icon-checked'
 import UnChecked from './icon-unchecked'
 import DisableChecked from './icon-disable-checked'
@@ -51,7 +51,8 @@ Checkbox.displayName = 'Checkbox'
 
 Checkbox.defaultProps = {
   theme,
-  width: T('icon.size.md'),
+  width: 16,
+  // width: T('icon.size.md'),
   disable: false,
   onCheck: () => {},
   value: false

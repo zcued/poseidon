@@ -69,5 +69,6 @@ export default {
   breakpoints,
   palette,
   spacing,
-  font
+  font,
+  icon
 }
