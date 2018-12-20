@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Manager, Popper, Reference } from 'react-popper'
 import theme from '@zcool/theme'
+import { T } from '@zcool/util'
 
 const fadeIn = keyframes`
   0% {
@@ -21,22 +22,11 @@ export const ToolTipContainer = styled.div`
 
   .tooltip__popper {
     animation: 0.3s ${fadeIn} ease-out;
-
-    &[data-placement|='top'] {
-      margin-bottom: 8px;
-    }
-
-    &[data-placement|='right'] {
-      margin-left: 8px;
-    }
-
-    &[data-placement|='bottom'] {
-      margin-top: 8px;
-    }
-
-    &[data-placement|='left'] {
-      margin-right: 8px;
-    }
+    background: ${T('palette.black60')};
+    font-size: ${T('font.size.sm')};
+    color: ${T('palette.white')};
+    padding: ${T('spacing.xs')}px;
+    margin: ${T('spacing.xs')}px;
   }
 `
 
@@ -77,6 +67,7 @@ function Tooltip(props) {
 
   return (
     <ToolTipContainer
+      theme={props.theme}
       className={className}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
@@ -89,7 +80,7 @@ function Tooltip(props) {
             </div>
           )}
         </Reference>
-        {isHovering && (
+        {isHovering ? (
           <Popper placement={placement}>
             {({ ref, style }) => (
               <div
@@ -105,7 +96,7 @@ function Tooltip(props) {
               </div>
             )}
           </Popper>
-        )}
+        ) : null}
       </Manager>
     </ToolTipContainer>
   )

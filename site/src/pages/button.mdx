@@ -17,7 +17,42 @@ import Button from '@zcool/button'
 ```
 
 ```.jsx
-<Button >
-  this is a button
-</Button>
+<>
+  <Flex halign="space-around">
+    primary button size:
+    <Button appearance="primary">
+      default
+    </Button>
+    <Button appearance="primary" size="large">
+      large
+    </Button>
+    <Button appearance="primary" size="small">
+      small
+    </Button>
+  </Flex>
+  <Flex halign="space-around">
+    secondary button size:
+    <Button appearance="secondary">
+      default
+    </Button>
+    <Button appearance="secondary" size="large">
+      large
+    </Button>
+    <Button appearance="secondary" size="small">
+      small
+    </Button>
+  </Flex>
+  <Flex halign="space-around">
+    default button size:
+    <Button>
+      default
+    </Button>
+    <Button size="large">
+      large
+    </Button>
+    <Button size="small">
+      small
+    </Button>
+  </Flex>
+</>
 ```

@@ -19,7 +19,8 @@ export const palette = {
   frost: '#dddddd',
   daisy: '#f0f4f5',
   black16: 'rgba(0, 0, 0, 0.16)',
-  black30: 'rgba(0, 0, 0, 0.3)'
+  black30: 'rgba(0, 0, 0, 0.3)',
+  black60: 'rgba(0, 0, 0, 0.6)'
 }
 
 export const spacing = {
