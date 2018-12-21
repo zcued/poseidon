@@ -12,10 +12,12 @@ import Flex from '../../../packages/flex'
 import Heading from '../../../packages/heading'
 import Pagination from '../../../packages/pagination'
 import { List, ListItem } from '../../../packages/list'
+import Spinner from '../../../packages/spinner'
 import Table from '../../../packages/table'
 import Dropdown from '../../../packages/dropdown'
 import Checkbox from '../../../packages/checkbox'
 import Radio from '../../../packages/radio'
+import Toast from '../../../packages/toast'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -35,9 +37,11 @@ const PreComponent = ({ className, ...props }) =>
         Flex,
         Heading,
         Dropdown,
+        Spinner,
         Table,
         Checkbox,
         Radio,
+        Toast,
         GatsbyLink
       }}
     >

@@ -25,7 +25,7 @@ cd site && yarn && yarn start
 
 > 测试组件功能
 
-- leran run build
+- lerna run build
 - cd site 修改 /components/mdx-layout.js 和 /components/layout.js
 - yarn start
 
