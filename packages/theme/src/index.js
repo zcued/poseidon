@@ -54,9 +54,10 @@ export const font = {
   size: {
     xs: 12,
     sm: 14,
-    md: 20,
-    lg: 24,
-    xl: 32
+    md: 16,
+    lg: 20,
+    xl: 24,
+    xxl: 32
   },
   title: {
     size: {

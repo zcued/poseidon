@@ -1,0 +1,45 @@
+import Helmet from 'react-helmet'
+
+<Helmet
+  title="Zcool UI - Tabs"
+  meta={[
+    {
+      name: 'description',
+      content: 'Zcool UI - Tabs'
+    }
+  ]}
+/>
+
+# Tabs
+
+```js
+import { Tabs, Tab } from '@zcool/tabs'
+```
+
+```.jsx
+<>
+  <Tabs>
+    <Tab selected={true}>111</Tab>
+    <Tab>222</Tab>
+  </Tabs>
+  <Tabs halign="space-around">
+    <Tab>111</Tab>
+    <Tab selected={true}>222</Tab>
+  </Tabs>
+</>
+```
+
+## props
+
+List Props
+
+| props           | type    | default |
+| :-------------: | :------:| :-----: |
+| align           | string  | left    |
+| width           | number  |         |
+
+ListItem Props
+
+| props           | type    | default |
+| :-------------: | :------:| :-----: |
+| selected        | boolean | false   |
