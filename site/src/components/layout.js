@@ -78,6 +78,9 @@ const Layout = ({ children }) => (
             <li>
               <NavLink to="/radio">Radio</NavLink>
             </li>
+            <li>
+              <NavLink to="/toast">Toast</NavLink>
+            </li>
           </ul>
           <div
             style={{
