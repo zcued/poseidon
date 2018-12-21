@@ -1,6 +1,6 @@
 {
   "name": "@zcool/list",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "a list.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.10",
-    "@zcool/util": "^0.1.4"
+    "@zcool/theme": "^0.1.12",
+    "@zcool/util": "^0.1.5"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@zcool/button",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "a button.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -25,6 +25,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.10"
+    "@zcool/theme": "^0.1.12"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@zcool/modal",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "a modal.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -26,9 +26,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/icon": "^0.1.1",
-    "@zcool/theme": "^0.1.10",
-    "@zcool/util": "^0.1.4",
+    "@zcool/icon": "^0.1.2",
+    "@zcool/theme": "^0.1.12",
+    "@zcool/util": "^0.1.5",
     "react-modal": "^3.8.1"
   }
 }
