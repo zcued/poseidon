@@ -32,6 +32,7 @@ export const StyledPopper = styled(Popper)`
 
 export const PopperContainer = styled.div`
   margin: ${T('spacing.xs')}px;
+  z-index: 4999;
 `
 
 function Dropdown(props) {
@@ -47,6 +48,10 @@ function Dropdown(props) {
 
   const [isOpen, setIsOpen] = useState(props.isOpen || false)
   const isControl = props.hasOwnProperty('isOpen')
+
+  // if (props.isOpen !== isOpen && isControl) {
+  //   setIsOpen(props.isOpen)
+  // }
 
   let timer = null
 
@@ -94,8 +99,12 @@ function Dropdown(props) {
     if (callback) {
       callback(e)
     }
-    onToggle(e)
-    setIsOpen(!isOpen)
+
+    const result = onToggle(e)
+
+    if (result !== false) {
+      setIsOpen(!isOpen)
+    }
   }
 
   return (
