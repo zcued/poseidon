@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { keyframes, ThemeProvider } from 'styled-components'
 import { Manager, Popper, Reference } from 'react-popper'
 import theme from '@zcool/theme'
-import { T } from '@zcool/util'
+import { T, zIndex } from '@zcool/util'
 import ClickOutSide from './click-outside'
 
 export const StyledClickOutSide = styled(ClickOutSide)`
@@ -32,7 +32,7 @@ export const StyledPopper = styled(Popper)`
 
 export const PopperContainer = styled.div`
   margin: ${T('spacing.xs')}px;
-  z-index: 4999;
+  z-index: ${zIndex.dropdown};
 `
 
 function Dropdown(props) {
@@ -48,10 +48,6 @@ function Dropdown(props) {
 
   const [isOpen, setIsOpen] = useState(props.isOpen || false)
   const isControl = props.hasOwnProperty('isOpen')
-
-  // if (props.isOpen !== isOpen && isControl) {
-  //   setIsOpen(props.isOpen)
-  // }
 
   let timer = null
 
