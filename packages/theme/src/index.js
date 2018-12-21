@@ -14,10 +14,12 @@ export const palette = {
   white: '#ffffff',
   black: '#1f1f1f',
   black2: '#383838',
+  black3: '#333333',
   spruce: '#666666',
   stone: '#a3a3a3',
   frost: '#dddddd',
   daisy: '#f0f4f5',
+  blue: '#4A90E2',
   black16: 'rgba(0, 0, 0, 0.16)',
   black30: 'rgba(0, 0, 0, 0.3)',
   black60: 'rgba(0, 0, 0, 0.6)'
