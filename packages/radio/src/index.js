@@ -4,13 +4,7 @@ import theme from '@zcool/theme'
 import Icon from '@zcool/icon'
 
 const Label = styled.label`
-  width: ${props => `${props.width}px`};
-  height: ${props => `${props.width}px`};
   cursor: ${props => `${props.disable ? 'not-allowed' : 'pointer'}`};
-  svg {
-    width: ${props => `${props.width}px`};
-    height: ${props => `${props.width}px`};
-  }
 `
 
 function Radio({ width, disable, onCheck, value }) {
@@ -26,7 +20,7 @@ function Radio({ width, disable, onCheck, value }) {
 
   return (
     <div>
-      <Label onClick={handleChange} width={width} disable={disable}>
+      <Label onClick={handleChange} disable={disable}>
         {checked ? (
           disable ? (
             <Icon glyph="radio-checked-disabled" size={width} />

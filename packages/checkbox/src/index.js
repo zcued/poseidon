@@ -5,13 +5,7 @@ import theme from '@zcool/theme'
 import Icon from '@zcool/icon'
 
 const Label = styled.label`
-  width: ${props => `${props.width}px`};
-  height: ${props => `${props.width}px`};
   cursor: ${props => `${props.disable ? 'not-allowed' : 'pointer'}`};
-  svg {
-    width: ${props => `${props.width}px`};
-    height: ${props => `${props.width}px`};
-  }
 `
 
 function Checkbox({ width, disable, onCheck, value }) {
