@@ -1,0 +1,67 @@
+import Helmet from 'react-helmet'
+
+<Helmet
+  title="Zcool UI - Spinner"
+  meta={[
+    {
+      name: 'description',
+      content: 'Zcool UI - Spinner'
+    }
+  ]}
+/>
+
+# Spinner
+
+```js
+import Spinner from '@zcool/Spinner'
+```
+
+```.jsx
+() => {
+  function App() {
+    const [spinning, setSpinning] = React.useState(false)
+
+    setTimeout(() => {
+      setSpinning(true)
+    }, 2000)
+
+    return (
+      <>
+        <Spinner />
+        <Spinner spinning={spinning}>
+          <div style={{ background: 'blue' }}>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+          </div>
+        </Spinner>
+        <Spinner spinning={spinning} size={24} color="blue" backgroundColor="#000" opacity={1} top={10} minHeight={300}>
+          <div style={{ background: 'blue' }}>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+          </div>
+        </Spinner>
+      </>
+    )
+  }
+
+  return <App />
+}
+```
+
+## props
+
+| props           | type    | default |
+| :-------------: | :------:| :-----: |
+| spinning        | boolean | true    |
+| size            | number  | 50      |
+| color           | string  | #ea4335 |
+| backgroundColor | string  | #fff    |
+| opacity         | number  | 0.8     |
+| top             | number  |         |
+| minHeight       | number  |         |

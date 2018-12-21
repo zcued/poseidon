@@ -12,6 +12,7 @@ import Flex from '../../../packages/flex'
 import Heading from '../../../packages/heading'
 import Pagination from '../../../packages/pagination'
 import { List, ListItem } from '../../../packages/list'
+import Spinner from '../../../packages/spinner'
 import Table from '../../../packages/table'
 import Dropdown from '../../../packages/dropdown'
 import Checkbox from '../../../packages/checkbox'
@@ -36,6 +37,7 @@ const PreComponent = ({ className, ...props }) =>
         Flex,
         Heading,
         Dropdown,
+        Spinner,
         Table,
         Checkbox,
         Radio,
