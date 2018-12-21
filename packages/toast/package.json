@@ -1,10 +1,11 @@
 {
-  "name": "@zcool/pagination",
-  "version": "0.1.13",
-  "description": "a pagination.",
+  "name": "@zcool/toast",
+  "version": "0.1.5",
+  "description": "a toast.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
+    "test": "echo \"Write some tests you bum!\"",
     "build": "node ../../shared/build-package",
     "lint": "eslint src"
   },
@@ -25,7 +26,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/input": "^0.1.13",
     "@zcool/theme": "^0.1.10",
     "@zcool/util": "^0.1.4"
   }

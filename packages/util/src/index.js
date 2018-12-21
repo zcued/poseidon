@@ -16,3 +16,20 @@ export const get = (from, ...selectors) =>
  * @param path
  */
 export const T = path => props => get(props, `theme.${path}`)
+
+export const zIndex = {
+  hide: -1,
+  base: 0,
+  loading: 3,
+  selected: 25,
+  active: 50,
+  nav: 1000,
+  navFixed: 1050,
+  dropdown: 2000,
+  popover: 3000,
+  tooltip: 4000,
+  banner: 5000,
+  overlay: 5998,
+  modal: 5999,
+  toast: 6000
+}
