@@ -70,6 +70,9 @@ const Layout = ({ children }) => (
               <NavLink to="/dropdown">Dropdown</NavLink>
             </li>
             <li>
+              <NavLink to="/spinner">Spinner</NavLink>
+            </li>
+            <li>
               <NavLink to="/table">Table</NavLink>
             </li>
             <li>
@@ -77,6 +80,9 @@ const Layout = ({ children }) => (
             </li>
             <li>
               <NavLink to="/radio">Radio</NavLink>
+            </li>
+            <li>
+              <NavLink to="/toast">Toast</NavLink>
             </li>
           </ul>
           <div

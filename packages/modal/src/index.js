@@ -2,7 +2,7 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
-import { T } from '@zcool/util'
+import { T, zIndex } from '@zcool/util'
 import Icon from '@zcool/icon'
 
 const ModalContainer = styled.div`
@@ -56,7 +56,7 @@ function Modal(props) {
     },
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.75)',
-      zIndex: 5999
+      zIndex: zIndex.modal
     }
   }
 
