@@ -1,43 +1,55 @@
-import * as React from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import Flex from '@zcool/flex'
+import theme from '@zcool/theme'
 import { T } from '@zcool/util'
+import Flex from '@zcool/flex'
 
-const Tabs = ({ children, ...rest }) => {
+const StyledTabs = ({ children, halign, ...rest }) => {
   return (
-    <Flex {...rest} halign="start">
+    <Flex halign={halign} {...rest}>
       {children}
     </Flex>
   )
 }
 
-const Tab = ({ children, ...rest }) => (
-  <Flex {...rest} halign="start">
-    {children}
-  </Flex>
-)
-
-export const StyledTabs = styled(Tabs)`
-  align-self: stretch;
-  margin: 0 ${T('spacing.lg')}px;
-  margin-top: ${T('spacing.sm')}px;
-  align-items: stretch;
-  min-height: ${T('spacing.xl')}px;
-  height: ${T('spacing.xl')}px;
+export const Tabs = styled(StyledTabs)`
+  border-bottom: 1px solid ${T('palette.daisy')};
+  font-size: ${T('font.size.md')}px;
+  font-weight: ${T('font.weight.bold')};
+  color: ${T('palette.spruce')};
+  line-height: 1.875;
 `
 
-export const StyledTab = styled(Tab)`
-  margin: 0 ${T('spacing.md')}px;
-  font-size: ${T('font.size.md')}px;
-  color: ${T('palette.black')};
-  cursor: pointer;
-  position: relative;
+Tabs.displayName = 'Tabs'
 
-  .icon {
-    margin-right: 10px;
+Tabs.defaultProps = {
+  theme,
+  halign: 'flex-start'
+}
+
+export const Tab = styled.span.attrs({
+  'data-selected': ({ selected }) => (selected ? 'true' : '')
+})`
+  display: inline-block;
+  margin: 0 ${T('spacing.sm')}px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &[data-selected='true'] {
+    color: ${T('palette.black3')};
+    border-bottom: 3px solid ${T('palette.primary')};
   }
 
-  &:hover {
+  :hover {
     color: ${T('palette.primary')};
   }
 `
+
+Tab.displayName = 'Tab'
+
+Tab.defaultProps = {
+  theme,
+  selected: false
+}
