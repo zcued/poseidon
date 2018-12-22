@@ -24,7 +24,7 @@ Tabs.displayName = 'Tabs'
 
 Tabs.defaultProps = {
   theme,
-  halign: 'start'
+  halign: 'flex-start'
 }
 
 export const Tab = styled.span.attrs({
