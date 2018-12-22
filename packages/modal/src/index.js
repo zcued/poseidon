@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T, zIndex } from '@zcool/util'
 import Icon from '@zcool/icon'
+import Spinner from '@zcool/spinner'
 
 const ModalContainer = styled.div`
   text-align: center;
@@ -19,6 +20,10 @@ const ModalContainer = styled.div`
     top: 4px;
     padding: ${T('spacing.sm')}px;
     cursor: pointer;
+
+    &.loading {
+      pointer-events: none;
+    }
   }
 
   .modal__header {
@@ -66,6 +71,8 @@ function Modal(props) {
     title,
     footer,
     children,
+    loading,
+    loadingPositionTop,
     onRequestClose,
     style,
     ariaHideApp,
@@ -98,12 +105,17 @@ function Modal(props) {
       {...rest}
     >
       <ModalContainer theme={props.theme}>
-        <span className="modal__close" onClick={onRequestClose}>
+        <span
+          className={`modal__close ${loading ? 'loading' : ''}`}
+          onClick={onRequestClose}
+        >
           <Icon glyph="close" />
         </span>
         {title ? <div className="modal__header">{title}</div> : null}
-        <div className="modal__body">{children}</div>
-        {footer ? <div className="modal__footer">{footer}</div> : null}
+        <Spinner spinning={loading} top={loadingPositionTop}>
+          <div className="modal__body">{children}</div>
+          {footer ? <div className="modal__footer">{footer}</div> : null}
+        </Spinner>
       </ModalContainer>
     </ReactModal>
   )
@@ -113,6 +125,7 @@ Modal.displayName = 'Modal'
 
 Modal.defaultProps = {
   theme,
+  loading: false,
   ariaHideApp: false,
   shouldCloseOnOverlayClick: false
 }
