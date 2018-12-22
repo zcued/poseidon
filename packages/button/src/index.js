@@ -1,7 +1,9 @@
+import React from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
+import Spinner from '@zcool/spinner'
 
-const appearances = {
+const type = {
   default: {
     color: theme.palette.primary,
     background: theme.palette.white,
@@ -11,7 +13,10 @@ const appearances = {
     hoverBorderColor: '#d6372a',
     activeColor: '#bc3024',
     activeBackground: theme.palette.white,
-    activeBorderColor: '#bc3024'
+    activeBorderColor: '#bc3024',
+    disabledColor: theme.palette.frost,
+    disabledBackground: theme.palette.white,
+    disabledBorderColor: theme.palette.frost
   },
   primary: {
     color: theme.palette.white,
@@ -22,7 +27,10 @@ const appearances = {
     hoverBorderColor: '#d6372a',
     activeColor: theme.palette.white,
     activeBackground: '#bc3024',
-    activeBorderColor: '#bc3024'
+    activeBorderColor: '#bc3024',
+    disabledColor: theme.palette.white,
+    disabledBackground: theme.palette.frost,
+    disabledBorderColor: theme.palette.frost
   },
   secondary: {
     color: theme.palette.spruce,
@@ -33,13 +41,16 @@ const appearances = {
     hoverBorderColor: '#333',
     activeColor: '#222',
     activeBackground: theme.palette.white,
-    activeBorderColor: '#222'
+    activeBorderColor: '#222',
+    disabledColor: theme.palette.frost,
+    disabledBackground: theme.palette.white,
+    disabledBorderColor: theme.palette.frost
   }
 }
 
 const size = {
   large: {
-    lineHeight: '48px',
+    lineHeight: 48,
     minWidth: '134px',
     maxWidth: '190px',
     fontSize: '18px',
@@ -47,7 +58,7 @@ const size = {
     padding: `0 ${theme.spacing.xl}px`
   },
   default: {
-    lineHeight: '40px',
+    lineHeight: 40,
     minWidth: '134px',
     maxWidth: '190px',
     fontSize: '18px',
@@ -55,7 +66,7 @@ const size = {
     padding: `0 ${theme.spacing.lg}px`
   },
   small: {
-    lineHeight: '32px',
+    lineHeight: 32,
     minWidth: 'auto',
     maxWidth: 'auto',
     fontSize: '14px',
@@ -65,27 +76,67 @@ const size = {
 }
 
 const getAttributes = props => {
-  const appearanceStyles = appearances[props.appearance] || appearances.default
+  const typeStyles = type[props.type] || type.default
   const sizeStyles = size[props.size] || size.default
 
-  return { ...appearanceStyles, ...sizeStyles }
+  return { ...typeStyles, ...sizeStyles }
 }
 
-const Button = styled.button`
-  outline: none;
-  border: 1px solid;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  color: ${props => getAttributes(props).color};
-  background: ${props => getAttributes(props).background};
-  border-color: ${props => getAttributes(props).borderColor};
-  line-height: ${props => getAttributes(props).lineHeight};
+const StyledSpinner = styled(Spinner)`
+  margin-right: ${({ theme }) => theme.spacing.xs}px;
+  vertical-align: middle;
+`
+
+function BaseButton({
+  className,
+  children,
+  type,
+  href,
+  target,
+  htmlType,
+  disabled,
+  loading
+}) {
+  return href ? (
+    <a
+      className={className}
+      href={href}
+      target={target}
+      disabled={loading || disabled}
+    >
+      <span>{children}</span>
+    </a>
+  ) : (
+    <button
+      className={className}
+      type={htmlType}
+      disabled={loading || disabled}
+    >
+      {loading && <StyledSpinner size={type === 'small' ? 14 : 18} />}
+      <span>{children}</span>
+    </button>
+  )
+}
+
+const Button = styled(BaseButton)`
+  padding: ${props => getAttributes(props).padding};
   min-width: ${props => getAttributes(props).minWidth};
   max-width: ${props => getAttributes(props).maxWidth};
   font-size: ${props => getAttributes(props).fontSize};
   font-weight: ${props => getAttributes(props).fontWeight};
-  padding: ${props => getAttributes(props).padding};
+  line-height: ${props => getAttributes(props).lineHeight}px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: ${props => getAttributes(props).color};
+  background: ${props => getAttributes(props).background};
+  outline: none;
+  border: 1px solid;
+  border-color: ${props => getAttributes(props).borderColor};
+  border-radius: ${props => getAttributes(props).lineHeight / 2}px;
+  overflow: hidden;
+  cursor: pointer;
 
   &:hover {
     color: ${props => getAttributes(props).hoverColor};
@@ -98,14 +149,28 @@ const Button = styled.button`
     background: ${props => getAttributes(props).activeBackground};
     border-color: ${props => getAttributes(props).activeBorderColor};
   }
+
+  &[disabled] {
+    pointer-events: none;
+    color: ${props => getAttributes(props).disabledColor};
+    background: ${props => getAttributes(props).disabledBackground};
+    border-color: ${props => getAttributes(props).disabledBorderColor};
+  }
+
+  span {
+    vertical-align: middle;
+  }
 `
 
 Button.displayName = 'Button'
 
 Button.defaultProps = {
   theme,
-  appearance: 'default',
-  size: 'default'
+  htmlType: 'button',
+  type: 'default',
+  size: 'default',
+  loading: false,
+  disabled: false
 }
 
 export default Button
