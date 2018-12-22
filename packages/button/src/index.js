@@ -53,7 +53,7 @@ const size = {
     lineHeight: 48,
     minWidth: '134px',
     maxWidth: '190px',
-    fontSize: '18px',
+    fontSize: 18,
     fontWeight: theme.font.weight.medium,
     padding: `0 ${theme.spacing.xl}px`
   },
@@ -61,7 +61,7 @@ const size = {
     lineHeight: 40,
     minWidth: '134px',
     maxWidth: '190px',
-    fontSize: '18px',
+    fontSize: 18,
     fontWeight: theme.font.weight.medium,
     padding: `0 ${theme.spacing.lg}px`
   },
@@ -69,7 +69,7 @@ const size = {
     lineHeight: 32,
     minWidth: 'auto',
     maxWidth: 'auto',
-    fontSize: '14px',
+    fontSize: 14,
     fontWeight: theme.font.weight.normal,
     padding: `0 ${theme.spacing.sm}px`
   }
@@ -87,16 +87,17 @@ const StyledSpinner = styled(Spinner)`
   vertical-align: middle;
 `
 
-function BaseButton({
-  className,
-  children,
-  type,
-  href,
-  target,
-  htmlType,
-  disabled,
-  loading
-}) {
+function BaseButton(props) {
+  const {
+    className,
+    children,
+    href,
+    target,
+    htmlType,
+    disabled,
+    loading
+  } = props
+
   return href ? (
     <a
       className={className}
@@ -112,7 +113,7 @@ function BaseButton({
       type={htmlType}
       disabled={loading || disabled}
     >
-      {loading && <StyledSpinner size={type === 'small' ? 14 : 18} />}
+      {loading && <StyledSpinner size={getAttributes(props).fontSize} />}
       <span>{children}</span>
     </button>
   )
@@ -122,7 +123,7 @@ const Button = styled(BaseButton)`
   padding: ${props => getAttributes(props).padding};
   min-width: ${props => getAttributes(props).minWidth};
   max-width: ${props => getAttributes(props).maxWidth};
-  font-size: ${props => getAttributes(props).fontSize};
+  font-size: ${props => getAttributes(props).fontSize}px;
   font-weight: ${props => getAttributes(props).fontWeight};
   line-height: ${props => getAttributes(props).lineHeight}px;
   text-align: center;
