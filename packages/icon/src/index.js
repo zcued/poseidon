@@ -95,7 +95,7 @@ export const Glyph = ({ glyph }) => {
 
     case 'close':
       return (
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path fill="none" d="M0 0h16v16H0z" />
           <path
             d="M7.99 7.99L1 1l6.99 6.99L1 14.98l6.99-6.99zm0 0L15 15 7.99 7.99 14.98 1 7.99 7.99z"

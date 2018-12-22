@@ -18,6 +18,23 @@ import Button from '@zcool/button'
 
 ```.jsx
 <>
+  <div>
+    <Button type="primary" href="#" target="_blank" disabled={true}>
+      link
+    </Button>
+    <Button type="primary" htmlType="submit">
+      submit
+    </Button>
+    <Button loading={true}>
+      loading
+    </Button>
+    <Button size="small" loading={true}>
+      loading
+    </Button>
+    <Button type="primary" disabled={true}>
+      disabled
+    </Button>
+  </div>
   <Flex halign="space-around">
     <Button type="primary" href="#" target="_blank" disabled={true}>
       link

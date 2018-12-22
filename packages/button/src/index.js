@@ -95,7 +95,8 @@ function BaseButton(props) {
     target,
     htmlType,
     disabled,
-    loading
+    loading,
+    onClick
   } = props
 
   return href ? (
@@ -112,6 +113,7 @@ function BaseButton(props) {
       className={className}
       type={htmlType}
       disabled={loading || disabled}
+      onClick={onClick}
     >
       {loading && <StyledSpinner size={getAttributes(props).fontSize} />}
       <span>{children}</span>
@@ -120,6 +122,7 @@ function BaseButton(props) {
 }
 
 const Button = styled(BaseButton)`
+  display: inline-block;
   padding: ${props => getAttributes(props).padding};
   min-width: ${props => getAttributes(props).minWidth};
   max-width: ${props => getAttributes(props).maxWidth};
@@ -131,6 +134,7 @@ const Button = styled(BaseButton)`
   text-overflow: ellipsis;
   white-space: nowrap;
   color: ${props => getAttributes(props).color};
+  vertical-align: middle;
   background: ${props => getAttributes(props).background};
   outline: none;
   border: 1px solid;
@@ -160,6 +164,10 @@ const Button = styled(BaseButton)`
 
   span {
     vertical-align: middle;
+  }
+
+  & + button {
+    margin-left: ${({ theme }) => theme.spacing.md}px;
   }
 `
 
