@@ -43,19 +43,10 @@ const Layout = ({ children }) => (
               <NavLink to="/button">Button</NavLink>
             </li>
             <li>
-              <NavLink to="/tag">Tag</NavLink>
+              <NavLink to="/checkbox">Checkbox</NavLink>
             </li>
             <li>
-              <NavLink to="/panel">Panel</NavLink>
-            </li>
-            <li>
-              <NavLink to="/tooltip">Tooltip</NavLink>
-            </li>
-            <li>
-              <NavLink to="/modal">Modal</NavLink>
-            </li>
-            <li>
-              <NavLink to="/list">List</NavLink>
+              <NavLink to="/dropdown">Dropdown</NavLink>
             </li>
             <li>
               <NavLink to="/flex">Flex</NavLink>
@@ -64,10 +55,19 @@ const Layout = ({ children }) => (
               <NavLink to="/heading">Heading</NavLink>
             </li>
             <li>
+              <NavLink to="/list">List</NavLink>
+            </li>
+            <li>
+              <NavLink to="/modal">Modal</NavLink>
+            </li>
+            <li>
               <NavLink to="/pagination">Pagination</NavLink>
             </li>
             <li>
-              <NavLink to="/dropdown">Dropdown</NavLink>
+              <NavLink to="/panel">Panel</NavLink>
+            </li>
+            <li>
+              <NavLink to="/radio">Radio</NavLink>
             </li>
             <li>
               <NavLink to="/spinner">Spinner</NavLink>
@@ -76,13 +76,16 @@ const Layout = ({ children }) => (
               <NavLink to="/table">Table</NavLink>
             </li>
             <li>
-              <NavLink to="/checkbox">Checkbox</NavLink>
+              <NavLink to="/tabs">Tabs</NavLink>
             </li>
             <li>
-              <NavLink to="/radio">Radio</NavLink>
+              <NavLink to="/tag">Tag</NavLink>
             </li>
             <li>
               <NavLink to="/toast">Toast</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tooltip">Tooltip</NavLink>
             </li>
           </ul>
           <div

@@ -4,20 +4,21 @@ import { MDXProvider } from '@mdx-js/tag'
 import Layout from './layout'
 import GatsbyLink from 'gatsby-link'
 import Button from '../../../packages/button'
-import Tag from '../../../packages/tag'
-import Panel from '../../../packages/panel'
-import Tooltip from '../../../packages/tooltip'
-import Modal from '../../../packages/modal'
+import Checkbox from '../../../packages/checkbox'
+import Dropdown from '../../../packages/dropdown'
 import Flex from '../../../packages/flex'
 import Heading from '../../../packages/heading'
-import Pagination from '../../../packages/pagination'
 import { List, ListItem } from '../../../packages/list'
+import Modal from '../../../packages/modal'
+import Pagination from '../../../packages/pagination'
+import Panel from '../../../packages/panel'
+import Radio from '../../../packages/radio'
 import Spinner from '../../../packages/spinner'
 import Table from '../../../packages/table'
-import Dropdown from '../../../packages/dropdown'
-import Checkbox from '../../../packages/checkbox'
-import Radio from '../../../packages/radio'
+import { Tabs, Tab } from '../../../packages/tabs'
+import Tag from '../../../packages/tag'
 import Toast from '../../../packages/toast'
+import Tooltip from '../../../packages/tooltip'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -27,21 +28,23 @@ const PreComponent = ({ className, ...props }) =>
       code={props.children.props.children}
       scope={{
         Button,
-        Tag,
-        Panel,
-        Tooltip,
-        Modal,
-        Pagination,
+        Checkbox,
+        Dropdown,
+        Heading,
+        Flex,
         List,
         ListItem,
-        Flex,
-        Heading,
-        Dropdown,
+        Modal,
+        Pagination,
+        Panel,
+        Radio,
         Spinner,
         Table,
-        Checkbox,
-        Radio,
+        Tabs,
+        Tab,
+        Tag,
         Toast,
+        Tooltip,
         GatsbyLink
       }}
     >
