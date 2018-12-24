@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import Input from '@zcool/input'
+import styled, { ThemeProvider } from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
+import Icon from '@zcool/icon'
+import Input from '@zcool/input'
 
 export const JumperInput = styled(Input)`
-  width: 56px;
-  height: 100%;
-  border: none;
-  border-bottom: 2px solid ${T('palette.black')};
-  text-align: center;
-  font-size: ${T('font.size.sm')}px;
   padding: 0;
+  width: 64px;
+  height: 100%;
+  font-size: ${T('font.size.sm')}px;
+  text-align: center;
+  color: ${T('palette.black3')};
+  border: none;
+  border-radius: 5px;
 
   &:focus {
-    border-color: ${T('palette.black')};
     box-shadow: none;
     outline: none;
   }
@@ -26,14 +27,19 @@ export const UL = styled.ul`
   list-style: none;
   margin: 0;
   font-size: ${T('font.size.sm')}px;
-  & > li:last-child {
-    color: ${T('palette.spruce')};
-    letter-spacing: 0;
-    text-align: center;
-  }
 
-  & > li[role] {
-    cursor: pointer;
+  > li {
+    vertical-align: middle;
+
+    &:last-child {
+      color: ${T('palette.spruce')};
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    &[role] {
+      cursor: pointer;
+    }
   }
 `
 
@@ -49,10 +55,11 @@ export const LI = styled.li`
     height: 100%;
     line-height: 1;
     background: transparent;
-    padding: 0 ${T('spacing.sm')}px;
+    padding: 0 ${T('spacing.xs')}px;
 
     &[disabled],
     &[disabled] [data-icon='true'] {
+      color: ${T('palette.frost')};
       cursor: not-allowed;
     }
   }
@@ -64,7 +71,7 @@ export const Count = styled.span`
 `
 
 function Pagination(props) {
-  const { total, className, onChange, current, defaultCurrent } = props
+  const { theme, total, className, onChange, current, defaultCurrent } = props
   const initialState = current || defaultCurrent || 1
 
   const [currentPage, setCurrentPage] = useState(initialState)
@@ -120,26 +127,32 @@ function Pagination(props) {
   }
 
   return (
-    <UL className={className}>
-      <LI onClick={handlePrev} role="prev">
-        <button disabled={currentPage === 1}>&lt;</button>
-      </LI>
-      <LI>
-        <JumperInput
-          type="text"
-          onKeyUp={handleKeyUp}
-          value={currentInput}
-          onChange={handleChange}
-          onBlur={handleBlur}
-        />
-      </LI>
-      <LI onClick={handleNext} role="next">
-        <button disabled={currentPage >= total}>&gt;</button>
-      </LI>
-      <LI>
-        总页数<Count>{total}</Count>页
-      </LI>
-    </UL>
+    <ThemeProvider theme={theme}>
+      <UL className={className}>
+        <LI onClick={handlePrev} role="prev">
+          <button disabled={currentPage <= 1}>
+            <Icon glyph="arrow-left" />
+          </button>
+        </LI>
+        <LI>
+          <JumperInput
+            type="text"
+            onKeyUp={handleKeyUp}
+            value={currentInput}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+        </LI>
+        <LI onClick={handleNext} role="next">
+          <button disabled={currentPage >= total}>
+            <Icon glyph="arrow-right" />
+          </button>
+        </LI>
+        <LI>
+          总页数 <Count>{total}</Count> 页
+        </LI>
+      </UL>
+    </ThemeProvider>
   )
 }
 
