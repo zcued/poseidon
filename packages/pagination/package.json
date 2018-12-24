@@ -6,6 +6,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "build": "node ../../shared/build-package",
+    "watch": "node ../../shared/watch-package",
     "lint": "eslint src"
   },
   "peerDependencies": {
@@ -25,6 +26,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@zcool/icon": "^0.1.1",
     "@zcool/input": "^0.1.13",
     "@zcool/theme": "^0.1.10",
     "@zcool/util": "^0.1.4"
