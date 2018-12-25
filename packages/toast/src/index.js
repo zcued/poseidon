@@ -20,6 +20,7 @@ const Toast = styled.div`
   pointer-events: none;
   z-index: ${zIndex.toast};
   overflow: hidden;
+  transform: translate(-50%, -50%);
 `
 
 Toast.displayName = 'Toast'
