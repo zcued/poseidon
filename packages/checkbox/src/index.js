@@ -8,15 +8,19 @@ const Label = styled.label`
   cursor: ${props => `${props.disable ? 'not-allowed' : 'pointer'}`};
 `
 
-function Checkbox({ width, disable, onCheck, value }) {
+function Checkbox({ size, disabled, onCheck, value }) {
   const [checked, setChecked] = useState(false)
 
   if (checked !== value) {
     setChecked(value)
   }
 
+  if (value !== checked) {
+    setChecked(value)
+  }
+
   const handleChange = () => {
-    if (disable) {
+    if (disabled) {
       return false
     }
     onCheck(!checked)
@@ -25,17 +29,17 @@ function Checkbox({ width, disable, onCheck, value }) {
 
   return (
     <div>
-      <Label onClick={handleChange} disable={disable}>
+      <Label onClick={handleChange} disable={disabled}>
         {checked ? (
-          disable ? (
-            <Icon glyph="checkbox-checked-disabled" size={width} />
+          disabled ? (
+            <Icon glyph="checkbox-checked-disabled" size={size} />
           ) : (
-            <Icon glyph="checkbox-checked" size={width} />
+            <Icon glyph="checkbox-checked" size={size} />
           )
-        ) : disable ? (
-          <Icon glyph="checkbox-disabled" size={width} />
+        ) : disabled ? (
+          <Icon glyph="checkbox-disabled" size={size} />
         ) : (
-          <Icon glyph="checkbox" size={width} />
+          <Icon glyph="checkbox" size={size} />
         )}
       </Label>
     </div>
@@ -46,11 +50,11 @@ Checkbox.displayName = 'Checkbox'
 
 Checkbox.defaultProps = {
   theme,
-  width: 16,
+  size: 16,
   // width: T('icon.size.md'),
-  disable: false,
-  onCheck: () => {},
-  value: false
+  disabled: false,
+  value: false,
+  onCheck: () => {}
 }
 
 export default Checkbox

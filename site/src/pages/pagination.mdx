@@ -17,7 +17,7 @@ import Pagination from '@zcool/pagination'
 ```
 
 ```.jsx
- () => {
+() => {
   function App() {
     const [current, setCurrent] = React.useState(10)
 
@@ -27,7 +27,7 @@ import Pagination from '@zcool/pagination'
     }
 
     return (
-      <div>
+      <div style={{ background: '#f0f4f5' }}>
         <Pagination defaultCurrent={1} total={25} pageSize={10} />
         <Pagination current={current} total={25} pageSize={10} onChange={handleChange} />
       </div>
