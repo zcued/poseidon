@@ -3,6 +3,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { MDXProvider } from '@mdx-js/tag'
 import Layout from './layout'
 import GatsbyLink from 'gatsby-link'
+import Badge from '../../../packages/badge'
 import Button from '../../../packages/button'
 import Checkbox from '../../../packages/checkbox'
 import Dropdown from '../../../packages/dropdown'
@@ -27,6 +28,7 @@ const PreComponent = ({ className, ...props }) =>
       mountStylesheet={false}
       code={props.children.props.children}
       scope={{
+        Badge,
         Button,
         Checkbox,
         Dropdown,
