@@ -9,7 +9,11 @@ const Label = styled.label`
 `
 
 function Checkbox({ width, disable, onCheck, value }) {
-  const [checked, setChecked] = useState(value)
+  const [checked, setChecked] = useState(false)
+
+  if (checked !== value) {
+    setChecked(value)
+  }
 
   const handleChange = () => {
     if (disable) {
