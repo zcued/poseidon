@@ -4,33 +4,37 @@ import theme from '@zcool/theme'
 import Icon from '@zcool/icon'
 
 const Label = styled.label`
-  cursor: ${props => `${props.disable ? 'not-allowed' : 'pointer'}`};
+  cursor: ${props => `${props.disabled ? 'not-allowed' : 'pointer'}`};
 `
 
-function Radio({ width, disable, onCheck, value }) {
+function Radio({ size, disabled, onCheck, value }) {
   const [checked, setChecked] = useState(value)
 
+  if (value !== checked) {
+    setChecked(value)
+  }
+
   const handleChange = () => {
-    if (disable) {
+    if (disabled) {
       return false
     }
-    onCheck(!checked)
     setChecked(!checked)
+    onCheck(!checked)
   }
 
   return (
     <div>
-      <Label onClick={handleChange} disable={disable}>
+      <Label onClick={handleChange} disabled={disabled}>
         {checked ? (
-          disable ? (
-            <Icon glyph="radio-checked-disabled" size={width} />
+          disabled ? (
+            <Icon glyph="radio-checked-disabled" size={size} />
           ) : (
-            <Icon glyph="radio-checked" size={width} />
+            <Icon glyph="radio-checked" size={size} />
           )
-        ) : disable ? (
-          <Icon glyph="radio-disabled" size={width} />
+        ) : disabled ? (
+          <Icon glyph="radio-disabled" size={size} />
         ) : (
-          <Icon glyph="radio" size={width} />
+          <Icon glyph="radio" size={size} />
         )}
       </Label>
     </div>
@@ -41,10 +45,10 @@ Radio.displayName = 'Radio'
 
 Radio.defaultProps = {
   theme,
-  width: 16,
-  disable: false,
-  onCheck: () => {},
-  value: false
+  size: 16,
+  disabled: false,
+  value: false,
+  onCheck: () => {}
 }
 
 export default Radio
