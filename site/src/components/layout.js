@@ -40,6 +40,9 @@ const Layout = ({ children }) => (
         <main style={{ display: 'flex' }}>
           <ul>
             <li>
+              <NavLink to="/badge">Badge</NavLink>
+            </li>
+            <li>
               <NavLink to="/button">Button</NavLink>
             </li>
             <li>
