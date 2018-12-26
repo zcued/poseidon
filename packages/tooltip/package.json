@@ -1,12 +1,13 @@
 {
   "name": "@zcool/tooltip",
-  "version": "0.1.5",
+  "version": "0.1.9",
   "description": "a tooltip.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
     "build": "node ../../shared/build-package",
+    "watch": "node ../../shared/watch-package",
     "lint": "eslint src"
   },
   "peerDependencies": {
@@ -26,8 +27,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.10",
-    "@zcool/util": "^0.1.4",
-    "react-popper": "^1.3.2"
+    "@zcool/theme": "^0.1.13",
+    "@zcool/util": "^0.1.5",
+    "react-popper": "^1.3.2",
+    "react-portal": "^4.2.0"
   }
 }

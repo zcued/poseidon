@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import theme from '@zcool/theme'
-import { T } from '@zcool/util'
+import { T, zIndex } from '@zcool/util'
 
 const Toast = styled.div`
   position: fixed;
@@ -18,8 +18,9 @@ const Toast = styled.div`
   background: ${T('palette.black60')};
   border-radius: 4px;
   pointer-events: none;
-  z-index: 999;
+  z-index: ${zIndex.toast};
   overflow: hidden;
+  transform: translate(-50%, -50%);
 `
 
 Toast.displayName = 'Toast'
