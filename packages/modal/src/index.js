@@ -127,7 +127,7 @@ Modal.defaultProps = {
   theme,
   loading: false,
   ariaHideApp: false,
-  shouldCloseOnOverlayClick: false
+  shouldCloseOnOverlayClick: true
 }
 
 export default Modal

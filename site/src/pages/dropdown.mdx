@@ -28,7 +28,7 @@ import Dropdown from '@zcool/dropdown'
     }
 
     return (
-      <Dropdown text="选择水果" onToggle={toggle}>
+      <Dropdown text="选择水果" onToggle={toggle} >
         <div>
           <div>
             苹果
@@ -37,7 +37,7 @@ import Dropdown from '@zcool/dropdown'
             香蕉
           </div>
           <div>
-            <Dropdown text="更多" icon="none">
+            <Dropdown text="更多" icon="none" isOpen={isOpen}>
               <div>
                 <div>
                   猕猴桃

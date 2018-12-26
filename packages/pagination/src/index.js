@@ -82,6 +82,11 @@ function Pagination({
   const [currentPage, setCurrentPage] = useState(initialState)
   const [currentInput, setCurrentInput] = useState(initialState)
 
+  if (currentPage !== current) {
+    setCurrentPage(current)
+    setCurrentInput(current)
+  }
+
   function handleChange(e) {
     const value = parseInt(e.target.value, 10)
 
@@ -126,6 +131,7 @@ function Pagination({
     setCurrentInput(nextPage)
     onChange(nextPage)
   }
+  console.log(currentPage)
 
   return (
     <ThemeProvider theme={theme}>
