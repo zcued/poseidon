@@ -13,15 +13,43 @@ import Helmet from 'react-helmet'
 # Radio
 
 ```js
-import Radio from '@zcool/Radio'
+import Radio from '@zcool/radio'
 ```
 
+
 ```.jsx
-<>
-  <Radio disabled={true}/>
-  <Radio />
-  <Radio size={30} />
-  <Radio value={true} />
-  <Radio value={true} disabled={true} />
-</>
+() => {
+  function App() {
+    const [value, setValue] = React.useState('')
+
+    function handleChange(e, checked) {
+      const value = e.target.getAttribute('value')
+      setValue(value)
+    }
+
+    return (
+      <>
+        <Radio name="radio" value="0" checked={value === '0'} disabled={true} onChange={handleChange} />
+        <Radio name="radio" value="1" checked={value === '1'} label="复选框" onChange={handleChange} />
+        <Radio name="radio" value="2" checked={value === '2'} size={30} onChange={handleChange} />
+        <Radio name="radio" value="3" checked={value === '3'} onChange={handleChange} />
+        <Radio name="radio" value="4" checked={value === '4'} disabled={true} onChange={handleChange} />
+      </>
+    )
+  }
+
+  return <App />
+}
 ```
+
+## props
+
+| props           | type      | default            |
+| :-------------: | :--------:| :----------------: |
+| name            | string    |                    |
+| value           | string    |                    |
+| label           | string    |                    |
+| checked         | boolean   | false              |
+| disabled        | boolean   | false              |
+| size            | number    | 16                 |
+| onChange        | function  | (e, checked) => {} |
