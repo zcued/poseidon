@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Manager, Popper, Reference } from 'react-popper'
+import { Portal } from 'react-portal'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 
@@ -13,29 +14,24 @@ const fadeIn = keyframes`
   }
 `
 
-export const ToolTipContainer = styled.div`
-  display: inline-block;
-
-  .tooltip__reference {
-    display: inline-block;
-  }
-
-  .tooltip__popper {
-    animation: 0.3s ${fadeIn} ease-out;
-    background: ${T('palette.black60')};
-    font-size: ${T('font.size.sm')}px;
-    color: ${T('palette.white')};
-    padding: ${T('spacing.xs')}px;
-    margin: ${T('spacing.xs')}px;
-  }
+export const ToolTipPopper = styled.div`
+  animation: 0.3s ${fadeIn} ease-out;
+  background: ${T('palette.black60')};
+  font-size: ${T('font.size.sm')}px;
+  color: ${T('palette.white')};
+  padding: ${T('spacing.xs')}px;
+  margin: ${T('spacing.xs')}px;
 `
+
+ToolTipPopper.defaultProps = {
+  theme
+}
 
 function Tooltip(props) {
   const {
     placement,
     children,
     title,
-    className,
     mouseEnterDelay,
     mouseLeaveDelay,
     defaultHovering,
@@ -66,46 +62,45 @@ function Tooltip(props) {
   }
 
   return (
-    <ToolTipContainer
-      theme={props.theme}
-      className={className}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-    >
+    <React.Fragment>
       <Manager>
         <Reference>
           {({ ref }) => (
-            <div className="tooltip__reference" ref={ref}>
+            <span
+              ref={ref}
+              onMouseEnter={handleEnter}
+              onMouseLeave={handleLeave}
+            >
               {children}
-            </div>
+            </span>
           )}
         </Reference>
         {isHovering ? (
-          <Popper placement={placement}>
-            {({ ref, style }) => (
-              <div
-                className="tooltip__popper"
-                onMouseEnter={handleEnter}
-                onMouseLeave={handleLeave}
-                onClick={handlePopperClick}
-                ref={ref}
-                style={{ ...style, ...overlayStyle }}
-                data-placement={placement}
-              >
-                {title}
-              </div>
-            )}
-          </Popper>
+          <Portal>
+            <Popper placement={placement}>
+              {({ ref, style }) => (
+                <ToolTipPopper
+                  onMouseEnter={handleEnter}
+                  onMouseLeave={handleLeave}
+                  onClick={handlePopperClick}
+                  ref={ref}
+                  style={{ ...style, ...overlayStyle }}
+                  data-placement={placement}
+                >
+                  {title}
+                </ToolTipPopper>
+              )}
+            </Popper>
+          </Portal>
         ) : null}
       </Manager>
-    </ToolTipContainer>
+    </React.Fragment>
   )
 }
 
 Tooltip.displayName = 'Tooltip'
 
 Tooltip.defaultProps = {
-  theme,
   mouseEnterDelay: 0,
   mouseLeaveDelay: 0,
   defaultHovering: false,
