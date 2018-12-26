@@ -68,6 +68,7 @@ function Tooltip(props) {
           {({ ref }) => (
             <span
               ref={ref}
+              style={{ display: 'inline-block' }}
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
             >
