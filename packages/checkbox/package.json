@@ -1,6 +1,6 @@
 {
   "name": "@zcool/checkbox",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "CheckBox",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/icon": "^0.1.4",
+    "@zcool/icon": "^0.1.5",
     "@zcool/theme": "^0.1.13",
     "@zcool/util": "^0.1.5"
   }
