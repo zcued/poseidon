@@ -1,60 +1,79 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
-// import { T } from '@zcool/util'
 import Icon from '@zcool/icon'
 
-const Label = styled.label`
-  cursor: ${props => `${props.disable ? 'not-allowed' : 'pointer'}`};
-`
+function BaseCheckbox(props) {
+  const { className, name, value, label, size, disabled, onChange } = props
+  const [checked, setChecked] = useState(props.checked || false)
 
-function Checkbox({ size, disabled, onCheck, value }) {
-  const [checked, setChecked] = useState(false)
+  useEffect(
+    () => {
+      setChecked(props.checked)
+    },
+    [props.checked]
+  )
 
-  if (checked !== value) {
-    setChecked(value)
-  }
-
-  if (value !== checked) {
-    setChecked(value)
-  }
-
-  const handleChange = () => {
+  const handleChange = e => {
     if (disabled) {
       return false
     }
-    onCheck(!checked)
+    onChange(e, !checked)
     setChecked(!checked)
   }
 
   return (
-    <div>
-      <Label onClick={handleChange} disable={disabled}>
-        {checked ? (
-          disabled ? (
-            <Icon glyph="checkbox-checked-disabled" size={size} />
-          ) : (
-            <Icon glyph="checkbox-checked" size={size} />
-          )
-        ) : disabled ? (
-          <Icon glyph="checkbox-disabled" size={size} />
+    <label className={className} disabled={disabled}>
+      <input
+        type="checkbox"
+        onChange={handleChange}
+        disabled={disabled}
+        name={name}
+        value={value}
+        checked={checked}
+      />
+      {checked ? (
+        disabled ? (
+          <Icon glyph="checkbox-checked-disabled" size={size} />
         ) : (
-          <Icon glyph="checkbox" size={size} />
-        )}
-      </Label>
-    </div>
+          <Icon glyph="checkbox-checked" size={size} />
+        )
+      ) : disabled ? (
+        <Icon glyph="checkbox-disabled" size={size} />
+      ) : (
+        <Icon glyph="checkbox" size={size} />
+      )}
+      {label ? typeof label === 'string' ? <span>{label}</span> : label : null}
+    </label>
   )
 }
+
+const Checkbox = styled(BaseCheckbox)`
+  font-size: ${({ size }) => size}px;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+
+  * {
+    vertical-align: middle;
+  }
+
+  input {
+    display: none;
+  }
+
+  span {
+    display: inline-block;
+    margin-left: 8px;
+  }
+`
 
 Checkbox.displayName = 'Checkbox'
 
 Checkbox.defaultProps = {
   theme,
   size: 16,
-  // width: T('icon.size.md'),
+  checked: false,
   disabled: false,
-  value: false,
-  onCheck: () => {}
+  onChange: () => {}
 }
 
 export default Checkbox
