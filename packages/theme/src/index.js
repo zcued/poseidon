@@ -11,15 +11,17 @@ export const breakpoints = {
 export const palette = {
   primary: '#ea4335',
   secondary: '#ffd100',
+  blue: '#4a90e2',
   white: '#ffffff',
   black: '#1f1f1f',
   black2: '#383838',
   black3: '#333333',
   spruce: '#666666',
+  pewter: '#999999',
   stone: '#a3a3a3',
   frost: '#dddddd',
   daisy: '#f0f4f5',
-  blue: '#4A90E2',
+  pearl: '#f5f8fa',
   black16: 'rgba(0, 0, 0, 0.16)',
   black30: 'rgba(0, 0, 0, 0.3)',
   black60: 'rgba(0, 0, 0, 0.6)'
@@ -52,9 +54,10 @@ export const font = {
   size: {
     xs: 12,
     sm: 14,
-    md: 20,
-    lg: 24,
-    xl: 32
+    md: 16,
+    lg: 20,
+    xl: 24,
+    xxl: 32
   },
   title: {
     size: {

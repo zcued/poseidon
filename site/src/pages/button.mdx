@@ -18,27 +18,61 @@ import Button from '@zcool/button'
 
 ```.jsx
 <>
+  <div>
+    <Button type="primary" href="#" target="_blank" disabled={true}>
+      link
+    </Button>
+    <Button type="primary" htmlType="submit">
+      submit
+    </Button>
+    <Button loading={true}>
+      loading
+    </Button>
+    <Button size="small" loading={true}>
+      loading
+    </Button>
+    <Button type="primary" disabled={true}>
+      disabled
+    </Button>
+  </div>
+  <Flex halign="space-around">
+    <Button type="primary" href="#" target="_blank" disabled={true}>
+      link
+    </Button>
+    <Button type="primary" htmlType="submit">
+      submit
+    </Button>
+    <Button loading={true}>
+      loading
+    </Button>
+    <Button size="small" loading={true}>
+      loading
+    </Button>
+    <Button type="primary" disabled={true}>
+      disabled
+    </Button>
+  </Flex>
   <Flex halign="space-around">
     primary button size:
-    <Button appearance="primary">
+    <Button type="primary">
       default
     </Button>
-    <Button appearance="primary" size="large">
+    <Button type="primary" size="large">
       large
     </Button>
-    <Button appearance="primary" size="small">
+    <Button type="primary" size="small">
       small
     </Button>
   </Flex>
   <Flex halign="space-around">
     secondary button size:
-    <Button appearance="secondary">
+    <Button type="secondary">
       default
     </Button>
-    <Button appearance="secondary" size="large">
+    <Button type="secondary" size="large">
       large
     </Button>
-    <Button appearance="secondary" size="small">
+    <Button type="secondary" size="small">
       small
     </Button>
   </Flex>
@@ -56,3 +90,16 @@ import Button from '@zcool/button'
   </Flex>
 </>
 ```
+
+## props
+
+| props           | type     | default |
+| :-------------: | :------: | :-----: |
+| htmlType        | string   | button  |
+| type            | string   | default |
+| size            | string   | default |
+| loading         | boolean  | false   |
+| disabled        | boolean  | false   |
+| href            | string   |         |
+| target          | string   |         |
+| onClick         | function |         |

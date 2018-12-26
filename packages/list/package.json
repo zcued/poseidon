@@ -6,8 +6,9 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package --watch",
-    "lint": "eslint src"
+    "build": "node ../../shared/build-package",
+    "lint": "eslint src",
+    "watch": "node ../../shared/watch-package"
   },
   "peerDependencies": {
     "react": "^16.7.0-alpha.2",

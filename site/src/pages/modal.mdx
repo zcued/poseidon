@@ -20,16 +20,31 @@ import Modal from '@zcool/modal'
 () => {
   function App() {
     const [isOpen, toggleOpen] = React.useState(false)
+    const [loading, setLoading] = React.useState(true)
+    let timer = null
+
+    React.useEffect(() => {
+      timer = setTimeout(() => {
+        setLoading(false)
+      }, 10000)
+
+      return function cleanUp() {
+        clearTimeout(timer)
+      }
+    })
 
     function toggle() {
       toggleOpen(!isOpen)
     }
+
 
     return (
       <>
         <Modal
           title="修改格式"
           isOpen={isOpen}
+          loading={loading}
+          loadingPositionTop={10}
           onRequestClose={toggle}
           footer={
             <Button>
@@ -47,3 +62,17 @@ import Modal from '@zcool/modal'
   return <App />
 }
 ```
+
+## props
+
+| props                     | type         | default |
+| :-----------------------: | :----------: | :-----: |
+| title                     | string       |         |
+| footer                    | string/array |         |
+| width                     | number       | 528     |
+| height                    | number       |         |
+| loading                   | boolean      | false   |
+| loadingPositionTop        | number       |         |
+| ariaHideApp               | boolean      | false   |
+| shouldCloseOnOverlayClick | boolean      | false   |
+| style                     | object       |         |

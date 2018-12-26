@@ -17,11 +17,38 @@ import Checkbox from '@zcool/checkbox'
 ```
 
 ```.jsx
-<>
-  <Checkbox disable={true}/>
-  <Checkbox />
-  <Checkbox width={30} />
-  <Checkbox value={true} />
-  <Checkbox value={true} disable={true} />
-</>
+() => {
+  function App() {
+    const [checked, setChecked] = React.useState(false)
+
+    function handleChange(e, checked) {
+      setChecked(checked)
+    }
+
+    return (
+      <>
+        <Checkbox disabled={true}/>
+        <Checkbox label="复选框" checked={checked} onChange={handleChange} />
+        <Checkbox size={30} />
+        <Checkbox checked={true} />
+        <Checkbox checked={true} disabled={true} />
+      </>
+    )
+  }
+
+  return <App />
+}
 ```
+
+## props
+
+| props           | type      | default            |
+| :-------------: | :--------:| :----------------: |
+| name            | string    |                    |
+| value           | string    |                    |
+| label           | string    |                    |
+| checked         | boolean   | false              |
+| disabled        | boolean   | false              |
+| size            | number    | 16                 |
+| onChange        | function  | (e, checked) => {} |
+

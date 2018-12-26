@@ -1,7 +1,7 @@
 {
-  "name": "@zcool/button",
-  "version": "0.1.11",
-  "description": "a button.",
+  "name": "@zcool/badge",
+  "version": "1.0.0",
+  "description": "a badge.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
@@ -10,11 +10,11 @@
     "lint": "eslint src"
   },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "styled-components": "^4.1.2"
   },
-  "author": "cuining",
+  "author": "Martin0809 <maning0809@gmail.com>",
   "license": "MIT",
   "files": [
     "es",
@@ -26,7 +26,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/spinner": "^1.0.0",
-    "@zcool/theme": "^0.1.10"
+    "@zcool/theme": "^0.1.8"
   }
 }

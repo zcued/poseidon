@@ -6,7 +6,8 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package --watch",
+    "build": "node ../../shared/build-package",
+    "watch": "node ../../shared/watch-package",
     "lint": "eslint src"
   },
   "peerDependencies": {
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "@zcool/icon": "^0.1.1",
+    "@zcool/spinner": "^1.0.0",
     "@zcool/theme": "^0.1.10",
     "@zcool/util": "^0.1.4",
     "react-modal": "^3.8.1"

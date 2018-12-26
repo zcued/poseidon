@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes, ThemeProvider } from 'styled-components'
 import { Manager, Popper, Reference } from 'react-popper'
+import Icon from '@zcool/icon'
 import theme from '@zcool/theme'
 import { T, zIndex } from '@zcool/util'
 import ClickOutSide from './click-outside'
@@ -14,6 +15,10 @@ export const StyledClickOutSide = styled(ClickOutSide)`
 
 export const TextContainer = styled.div`
   cursor: pointer;
+
+  [data-icon='true'] {
+    margin-left: 4px;
+  }
 `
 
 export const fadeIn = keyframes`
@@ -42,6 +47,8 @@ function Dropdown(props) {
     trigger,
     children,
     placement,
+    icon,
+    iconSize,
     onToggle,
     mouseLeaveDelay
   } = props
@@ -119,6 +126,9 @@ function Dropdown(props) {
                   onMouseEnter={handleEnter}
                 >
                   {text}
+                  {icon === 'none' ? null : (
+                    <Icon glyph={icon} size={iconSize} />
+                  )}
                 </TextContainer>
               )}
             </Reference>
@@ -155,8 +165,8 @@ function Dropdown(props) {
 Dropdown.defaultProps = {
   theme,
   trigger: 'hover',
-  icon: 'angle-down',
-  iconSize: 10,
+  icon: 'arrow-down',
+  iconSize: 16,
   onToggle: () => {},
   mouseLeaveDelay: 300
 }
