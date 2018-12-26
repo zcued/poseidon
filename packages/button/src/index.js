@@ -96,7 +96,8 @@ function BaseButton(props) {
     htmlType,
     disabled,
     loading,
-    onClick
+    onClick,
+    ...rest
   } = props
 
   return href ? (
@@ -105,6 +106,7 @@ function BaseButton(props) {
       href={href}
       target={target}
       disabled={loading || disabled}
+      {...rest}
     >
       <span>{children}</span>
     </a>
@@ -114,6 +116,7 @@ function BaseButton(props) {
       type={htmlType}
       disabled={loading || disabled}
       onClick={onClick}
+      {...rest}
     >
       {loading && <StyledSpinner size={getAttributes(props).fontSize} />}
       <span>{children}</span>
