@@ -8,7 +8,11 @@ const Label = styled.label`
 `
 
 function Radio({ size, disabled, onCheck, value }) {
-  const [checked, setChecked] = useState(value)
+  const [checked, setChecked] = useState(false)
+
+  if (checked !== value) {
+    setChecked(value)
+  }
 
   if (value !== checked) {
     setChecked(value)
