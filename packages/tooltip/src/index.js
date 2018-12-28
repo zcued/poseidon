@@ -72,7 +72,7 @@ function Tooltip(props) {
     mouseLeaveDelay,
     defaultHovering,
     overlayStyle,
-    hasTip
+    hasArrow
   } = props
   const [isHovering, setHovering] = useState(defaultHovering)
 
@@ -123,7 +123,7 @@ function Tooltip(props) {
                   onClick={handlePopperClick}
                   ref={ref}
                   style={{ ...style, ...overlayStyle }}
-                  data-placement={hasTip ? placement : null}
+                  data-placement={hasArrow ? placement : null}
                 >
                   {title}
                 </ToolTipPopper>
@@ -143,7 +143,7 @@ Tooltip.defaultProps = {
   mouseLeaveDelay: 0,
   defaultHovering: false,
   overlayStyle: {},
-  hasTip: true
+  hasArrow: true
 }
 
 export default Tooltip
