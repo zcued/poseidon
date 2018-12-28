@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
@@ -70,21 +70,22 @@ export const Count = styled.span`
   margin: 0 4px;
 `
 
-function Pagination(props) {
-  const { theme, total, className, onChange, current, defaultCurrent } = props
+function Pagination({
+  theme,
+  total,
+  className,
+  onChange = () => {},
+  current,
+  defaultCurrent
+}) {
   const initialState = current || defaultCurrent || 1
-
   const [currentPage, setCurrentPage] = useState(initialState)
   const [currentInput, setCurrentInput] = useState(initialState)
 
-  useEffect(
-    () => {
-      if (onChange) {
-        onChange(currentPage)
-      }
-    },
-    [currentPage]
-  )
+  if (currentPage !== current) {
+    setCurrentPage(current)
+    setCurrentInput(current)
+  }
 
   function handleChange(e) {
     const value = parseInt(e.target.value, 10)
@@ -109,22 +110,28 @@ function Pagination(props) {
 
       setCurrentPage(targetCurrent)
       setCurrentInput(targetCurrent)
+      onChange(targetCurrent)
     }
   }
 
   function handleNext() {
     if (currentPage >= total) return
 
-    setCurrentPage(currentPage + 1)
-    setCurrentInput(currentPage + 1)
+    const nextPage = currentPage + 1
+    setCurrentPage(nextPage)
+    setCurrentInput(nextPage)
+    onChange(nextPage)
   }
 
   function handlePrev() {
     if (currentPage === 1) return
 
-    setCurrentPage(currentPage - 1)
-    setCurrentInput(currentPage - 1)
+    const nextPage = currentPage - 1
+    setCurrentPage(nextPage)
+    setCurrentInput(nextPage)
+    onChange(nextPage)
   }
+  console.log(currentPage)
 
   return (
     <ThemeProvider theme={theme}>

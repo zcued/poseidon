@@ -97,6 +97,7 @@ function BaseButton(props) {
     disabled,
     loading,
     onClick,
+    theme, // eslint-disable-line
     ...rest
   } = props
 
@@ -170,7 +171,7 @@ const Button = styled(BaseButton)`
   }
 
   & + button {
-    margin-left: ${({ theme }) => theme.spacing.md}px;
+    margin-left: ${({ theme }) => theme.spacing.sm}px;
   }
 `
 
