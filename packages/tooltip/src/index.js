@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Manager, Popper, Reference } from 'react-popper'
+import { Portal } from 'react-portal'
+import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 
 const fadeIn = keyframes`
@@ -12,58 +14,54 @@ const fadeIn = keyframes`
   }
 `
 
-export const ToolTipContainer = styled.div`
-  display: inline-block;
+export const ToolTipPopper = styled.div`
+  animation: 0.3s ${fadeIn} ease-out;
+  background: ${T('palette.black60')};
+  font-size: ${T('font.size.sm')}px;
+  color: ${T('palette.white')};
+  padding: ${T('spacing.xs')}px;
+  margin: 10px;
 
-  .tooltip__reference {
-    display: inline-block;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
   }
 
-  .tooltip__popper {
-    animation: 0.3s ${fadeIn} ease-out;
-    background: ${T('palette.black60')};
-    font-size: ${T('font.size.sm')}px;
-    color: ${T('palette.white')};
-    padding: ${T('spacing.xs')}px;
-    margin: 10px;
+  &[data-placement='top']::after {
+    top: 100%;
+    left: 50%;
+    border-top-color: ${T('palette.black60')};
+    transform: translateX(-50%);
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-      border: 8px solid transparent;
-    }
+  &[data-placement='bottom']::after {
+    top: -16px;
+    left: 50%;
+    border-bottom-color: ${T('palette.black60')};
+    transform: translateX(-50%);
+  }
 
-    &[tip-placement='top']::after {
-      top: 100%;
-      left: 50%;
-      border-top-color: ${T('palette.black60')};
-      transform: translateX(-50%);
-    }
+  &[data-placement='left']::after {
+    left: 100%;
+    top: 50%;
+    border-left-color: ${T('palette.black60')};
+    transform: translateY(-50%);
+  }
 
-    &[tip-placement='bottom']::after {
-      top: -16px;
-      left: 50%;
-      border-bottom-color: ${T('palette.black60')};
-      transform: translateX(-50%);
-    }
-
-    &[tip-placement='left']::after {
-      left: 100%;
-      top: 50%;
-      border-left-color: ${T('palette.black60')};
-      transform: translateY(-50%);
-    }
-
-    &[tip-placement='right']::after {
-      top: 50%;
-      left: -16px;
-      border-right-color: ${T('palette.black60')};
-      transform: translateY(-50%);
-    }
+  &[data-placement='right']::after {
+    top: 50%;
+    left: -16px;
+    border-right-color: ${T('palette.black60')};
+    transform: translateY(-50%);
   }
 `
+
+ToolTipPopper.defaultProps = {
+  theme
+}
 
 function Tooltip(props) {
   const {
@@ -116,21 +114,22 @@ function Tooltip(props) {
           )}
         </Reference>
         {isHovering ? (
-          <Popper placement={placement}>
-            {({ ref, style }) => (
-              <div
-                className="tooltip__popper"
-                onMouseEnter={handleEnter}
-                onMouseLeave={handleLeave}
-                onClick={handlePopperClick}
-                ref={ref}
-                style={{ ...style, ...overlayStyle }}
-                tip-placement={hasTip ? placement : null}
-              >
-                {title}
-              </div>
-            )}
-          </Popper>
+          <Portal>
+            <Popper placement={placement}>
+              {({ ref, style }) => (
+                <ToolTipPopper
+                  onMouseEnter={handleEnter}
+                  onMouseLeave={handleLeave}
+                  onClick={handlePopperClick}
+                  ref={ref}
+                  style={{ ...style, ...overlayStyle }}
+                  data-placement={hasTip ? placement : null}
+                >
+                  {title}
+                </ToolTipPopper>
+              )}
+            </Popper>
+          </Portal>
         ) : null}
       </Manager>
     </React.Fragment>
