@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { Manager, Popper, Reference } from 'react-popper'
 import { Portal } from 'react-portal'
 import theme from '@zcool/theme'
-import { T } from '@zcool/util'
+import { T, zIndex } from '@zcool/util'
 
 const fadeIn = keyframes`
   0% {
@@ -21,6 +21,7 @@ export const ToolTipPopper = styled.div`
   color: ${T('palette.white')};
   padding: ${T('spacing.xs')}px;
   margin: 10px;
+  z-index: ${zIndex.tooltip} 
 
   &::after {
     content: '';
