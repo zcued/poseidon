@@ -21,7 +21,7 @@ export const ToolTipPopper = styled.div`
   color: ${T('palette.white')};
   padding: ${T('spacing.xs')}px;
   margin: 10px;
-  z-index: ${zIndex.tooltip} 
+  z-index: ${zIndex.tooltip};
 
   &::after {
     content: '';
@@ -116,7 +116,7 @@ function Tooltip(props) {
         </Reference>
         {isHovering ? (
           <Portal>
-            <Popper placement={placement}>
+            <Popper positionFixed={true} placement={placement}>
               {({ ref, style }) => (
                 <ToolTipPopper
                   onMouseEnter={handleEnter}
