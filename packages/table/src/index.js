@@ -3,71 +3,77 @@ import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 
-const TableWrapper = styled.table`
+const TableContainer = styled.table`
   width: 100%;
   text-align: ${T('font.align')};
   border-spacing: 0;
-`
 
-const TableHead = styled.thead`
-  background: ${T('palette.black2')};
-  font-size: ${T('font.title.size.sm')};
-  color: ${T('palette.white')};
-  font-weight: 300;
-  opacity: 0.8;
-`
-
-const TableBody = styled.tbody``
-
-export const Row = styled.tr`
-  &:nth-child(even) {
+  thead {
+    background: ${T('palette.black2')};
+    font-size: ${T('font.title.size.sm')}px;
+    color: ${T('palette.white')};
+    opacity: 0.8;
   }
-`
 
-export const Column = styled.td`
-  padding: 14px 16px;
-  box-sizing: border-box;
-  text-align: center;
-  &:last-child {
+  tbody {
+    border-left: 2px solid ${T('palette.daisy')};
+    border-right: 2px solid ${T('palette.daisy')};
+
+    tr {
+      border-bottom: 2px solid #f0f4f5;
+    }
   }
-`
 
-const TableHeadColumn = styled(Column)`
-  border-color: #2e3139;
-  &:last-child {
-    border-color: #2e3139;
+  th,
+  td {
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  td {
+    padding: 14px 16px;
+  }
+
+  th {
+    line-height: 56px;
   }
 `
 
 function Table({ col, data, ...rest }) {
   return (
-    <TableWrapper {...rest}>
-      <TableHead>
-        <Row>
+    <TableContainer {...rest}>
+      <thead>
+        <tr>
           {col.map((column, index) => (
-            <TableHeadColumn as="th" key={column.key || index}>
+            <th
+              key={column.key || index}
+              style={{ width: column.width || 'auto' }}
+            >
               {column.title}
-            </TableHeadColumn>
+            </th>
           ))}
-        </Row>
-      </TableHead>
+        </tr>
+      </thead>
 
       {data && data.length > 0 && (
-        <TableBody>
+        <tbody>
           {data.map((item, index) => (
-            <Row key={index}>
-              {col.map((column, index) => (
-                <Column key={column.key || index}>
+            <tr key={index}>
+              {col.map((column, i) => (
+                <td
+                  key={column.key || i}
+                  style={{ width: column.width || 'auto' }}
+                >
                   {column.render
-                    ? column.render(item[column.dataIndex], item, index)
+                    ? column.render(item[column.dataIndex], item, i)
                     : item[column.dataIndex]}
-                </Column>
+                </td>
               ))}
-            </Row>
+            </tr>
           ))}
-        </TableBody>
+        </tbody>
       )}
-    </TableWrapper>
+    </TableContainer>
   )
 }
 
