@@ -1,6 +1,6 @@
 {
   "name": "@zcool/badge",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "a badge.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -26,6 +26,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.8"
+    "@zcool/theme": "^1.0.2"
   }
 }
