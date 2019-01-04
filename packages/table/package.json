@@ -1,6 +1,6 @@
 {
   "name": "@zcool/table",
-  "version": "0.0.6",
+  "version": "1.0.1",
   "description": "Table",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/theme": "^0.1.13",
-    "@zcool/util": "^0.1.5"
+    "@zcool/theme": "^1.0.1",
+    "@zcool/util": "^1.0.1"
   }
 }
