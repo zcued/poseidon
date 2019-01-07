@@ -50,7 +50,7 @@ const type = {
 
 const size = {
   large: {
-    lineHeight: 48,
+    height: 48,
     minWidth: '134px',
     maxWidth: '190px',
     fontSize: 18,
@@ -58,7 +58,7 @@ const size = {
     padding: `0 ${theme.spacing.xl}px`
   },
   default: {
-    lineHeight: 40,
+    height: 40,
     minWidth: '134px',
     maxWidth: '190px',
     fontSize: 18,
@@ -66,7 +66,7 @@ const size = {
     padding: `0 ${theme.spacing.lg}px`
   },
   small: {
-    lineHeight: 32,
+    height: 32,
     minWidth: 'auto',
     maxWidth: 'auto',
     fontSize: 14,
@@ -132,7 +132,7 @@ const Button = styled(BaseButton)`
   max-width: ${props => getAttributes(props).maxWidth};
   font-size: ${props => getAttributes(props).fontSize}px;
   font-weight: ${props => getAttributes(props).fontWeight};
-  line-height: ${props => getAttributes(props).lineHeight}px;
+  height: ${props => getAttributes(props).height}px;
   text-align: center;
   text-decoration: none;
   text-overflow: ellipsis;
@@ -143,7 +143,7 @@ const Button = styled(BaseButton)`
   outline: none;
   border: 1px solid;
   border-color: ${props => getAttributes(props).borderColor};
-  border-radius: ${props => getAttributes(props).lineHeight / 2}px;
+  border-radius: ${props => getAttributes(props).height / 2}px;
   overflow: hidden;
   cursor: pointer;
 
@@ -166,7 +166,7 @@ const Button = styled(BaseButton)`
     border-color: ${props => getAttributes(props).disabledBorderColor};
   }
 
-  span {
+  > span {
     vertical-align: middle;
   }
 
