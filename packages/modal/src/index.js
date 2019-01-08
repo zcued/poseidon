@@ -76,6 +76,8 @@ function Modal(props) {
     onRequestClose,
     style,
     ariaHideApp,
+    shouldCloseOnEsc,
+    shouldCloseOnOverlayClick,
     ...rest
   } = props
 
@@ -99,6 +101,8 @@ function Modal(props) {
     <ReactModal
       ariaHideApp={ariaHideApp}
       onRequestClose={onRequestClose}
+      shouldCloseOnEsc={!loading && shouldCloseOnEsc}
+      shouldCloseOnOverlayClick={!loading && shouldCloseOnOverlayClick}
       style={MODAL_STYLES}
       {...rest}
     >
@@ -124,7 +128,9 @@ Modal.displayName = 'Modal'
 Modal.defaultProps = {
   theme,
   loading: false,
-  ariaHideApp: false
+  ariaHideApp: false,
+  shouldCloseOnEsc: true,
+  shouldCloseOnOverlayClick: true
 }
 
 export default Modal
