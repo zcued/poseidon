@@ -38,6 +38,7 @@ export const StyledPopper = styled(Popper)`
 export const PopperContainer = styled.div`
   margin: ${T('spacing.xs')}px;
   z-index: ${zIndex.dropdown};
+  box-shadow: 0 2px 8px ${T('palette.black16')};
 `
 
 function Dropdown(props) {
