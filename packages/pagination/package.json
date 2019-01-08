@@ -1,6 +1,6 @@
 {
   "name": "@zcool/pagination",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a pagination.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -26,9 +26,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/icon": "^1.0.3",
-    "@zcool/input": "^1.0.3",
-    "@zcool/theme": "^1.0.3",
-    "@zcool/util": "^1.0.3"
+    "@zcool/icon": "^1.0.4",
+    "@zcool/input": "^1.0.4",
+    "@zcool/theme": "^1.0.4",
+    "@zcool/util": "^1.0.4"
   }
 }
