@@ -23,6 +23,10 @@ export const ToolTipPopper = styled.div`
   margin: 10px;
   z-index: ${zIndex.tooltip};
 
+  &[data-margin='true'] {
+    margin: 18px;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -124,6 +128,7 @@ function Tooltip(props) {
                 ref={ref}
                 style={{ ...style, ...overlayStyle }}
                 data-placement={hasArrow ? placement : null}
+                data-margin={hasArrow}
               >
                 {title}
               </ToolTipPopper>
