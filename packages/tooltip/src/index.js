@@ -104,41 +104,39 @@ function Tooltip(props) {
   }
 
   return (
-    <React.Fragment>
-      <Manager>
-        <Reference>
-          {({ ref }) => (
-            <span
-              ref={ref}
-              style={{ display: 'inline-block' }}
-              onMouseEnter={handleEnter}
-              onMouseLeave={handleLeave}
-            >
-              {children}
-            </span>
-          )}
-        </Reference>
-        {isHovering ? (
-          <Portal>
-            <Popper positionFixed={true} placement={placement}>
-              {({ ref, style }) => (
-                <ToolTipPopper
-                  onMouseEnter={handleEnter}
-                  onMouseLeave={handleLeave}
-                  onClick={handlePopperClick}
-                  ref={ref}
-                  style={{ ...style, ...overlayStyle }}
-                  data-placement={hasArrow ? placement : null}
-                  data-margin={hasArrow}
-                >
-                  {title}
-                </ToolTipPopper>
-              )}
-            </Popper>
-          </Portal>
-        ) : null}
-      </Manager>
-    </React.Fragment>
+    <Manager>
+      <Reference>
+        {({ ref }) => (
+          <span
+            ref={ref}
+            className="tooltip__reference"
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+          >
+            {children}
+          </span>
+        )}
+      </Reference>
+      {isHovering ? (
+        <Portal>
+          <Popper positionFixed={true} placement={placement}>
+            {({ ref, style }) => (
+              <ToolTipPopper
+                onMouseEnter={handleEnter}
+                onMouseLeave={handleLeave}
+                onClick={handlePopperClick}
+                ref={ref}
+                style={{ ...style, ...overlayStyle }}
+                data-placement={hasArrow ? placement : null}
+                data-margin={hasArrow}
+              >
+                {title}
+              </ToolTipPopper>
+            )}
+          </Popper>
+        </Portal>
+      ) : null}
+    </Manager>
   )
 }
 

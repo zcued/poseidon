@@ -1,6 +1,6 @@
 {
   "name": "@zcool/tabs",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "a tabs.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@zcool/flex": "^0.1.7",
-    "@zcool/theme": "^1.0.2",
-    "@zcool/util": "^1.0.2"
+    "@zcool/theme": "^1.0.5",
+    "@zcool/util": "^1.0.5"
   }
 }
