@@ -57,6 +57,10 @@ export const LI = styled.li`
     background: transparent;
     padding: 0 ${T('spacing.xs')}px;
 
+    & > [data-icon='true'] {
+      color: ${T('palette.spruce')};
+    }
+
     &[disabled],
     &[disabled] [data-icon='true'] {
       color: ${T('palette.frost')};
