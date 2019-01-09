@@ -25,7 +25,7 @@ export const zIndex = {
   active: 50,
   nav: 1000,
   navFixed: 1050,
-  dropdown: 2000,
+  dropdown: 999,
   popover: 3000,
   tooltip: 4000,
   banner: 5000,
