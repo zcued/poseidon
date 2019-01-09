@@ -24,7 +24,8 @@ export const palette = {
   pearl: '#f5f8fa',
   black16: 'rgba(0, 0, 0, 0.16)',
   black30: 'rgba(0, 0, 0, 0.3)',
-  black60: 'rgba(0, 0, 0, 0.6)'
+  black60: 'rgba(0, 0, 0, 0.6)',
+  black80: 'rgba(0, 0, 0, 0.8)'
 }
 
 export const spacing = {
@@ -48,7 +49,7 @@ export const icon = {
 export const font = {
   weight: {
     normal: 'normal',
-    medium: 600,
+    medium: 500,
     bold: 'bold'
   },
   size: {

@@ -18,6 +18,7 @@ export const TextContainer = styled.div`
 
   [data-icon='true'] {
     margin-left: 4px;
+    vertical-align: -3px;
   }
 `
 
