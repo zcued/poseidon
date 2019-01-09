@@ -135,7 +135,6 @@ function Pagination({
     setCurrentInput(nextPage)
     onChange(nextPage)
   }
-  console.log(currentPage)
 
   return (
     <ThemeProvider theme={theme}>
