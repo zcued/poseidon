@@ -1,6 +1,6 @@
 {
   "name": "@zcool/datepicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a datepicker.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -26,9 +26,9 @@
     "access": "public"
   },
   "dependencies": {
+    "@zcool/dropdown": "latest",
     "@zcool/icon": "latest",
     "@zcool/theme": "latest",
-    "@zcool/util": "latest",
-    "@zcool/dropdown": "latest"
+    "@zcool/util": "latest"
   }
 }
