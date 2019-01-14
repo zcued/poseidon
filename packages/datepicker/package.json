@@ -1,0 +1,34 @@
+{
+  "name": "@zcool/datepicker",
+  "version": "1.0.0",
+  "description": "a datepicker.",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Write some tests you bum!\"",
+    "build": "node ../../shared/build-package",
+    "watch": "node ../../shared/watch-package"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "styled-components": "^4.1.2"
+  },
+  "author": "cuining",
+  "license": "MIT",
+  "files": [
+    "es",
+    "src",
+    "lib",
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@zcool/icon": "latest",
+    "@zcool/theme": "latest",
+    "@zcool/util": "latest",
+    "@zcool/dropdown": "latest"
+  }
+}
