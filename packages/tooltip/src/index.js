@@ -23,16 +23,12 @@ export const ToolTipPopper = styled.div`
   margin: 10px;
   z-index: ${zIndex.tooltip};
 
-  &[data-margin='true'] {
-    margin: 18px;
-  }
-
   &::after {
     content: '';
     position: absolute;
     width: 0;
     height: 0;
-    border: 8px solid transparent;
+    border: 4px solid transparent;
   }
 
   &[data-placement='top']::after {
@@ -43,7 +39,7 @@ export const ToolTipPopper = styled.div`
   }
 
   &[data-placement='bottom']::after {
-    top: -16px;
+    top: -8px;
     left: 50%;
     border-bottom-color: ${T('palette.black60')};
     transform: translateX(-50%);
@@ -58,7 +54,7 @@ export const ToolTipPopper = styled.div`
 
   &[data-placement='right']::after {
     top: 50%;
-    left: -16px;
+    left: -8px;
     border-right-color: ${T('palette.black60')};
     transform: translateY(-50%);
   }
@@ -128,7 +124,6 @@ function Tooltip(props) {
                 ref={ref}
                 style={{ ...style, ...overlayStyle }}
                 data-placement={hasArrow ? placement : null}
-                data-margin={hasArrow}
               >
                 {title}
               </ToolTipPopper>

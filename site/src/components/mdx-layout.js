@@ -20,6 +20,7 @@ import { Tabs, Tab } from '../../../packages/tabs'
 import Tag from '../../../packages/tag'
 import Toast from '../../../packages/toast'
 import Tooltip from '../../../packages/tooltip'
+import { DatePicker, RangePicker } from '../../../packages/datepicker'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -47,7 +48,9 @@ const PreComponent = ({ className, ...props }) =>
         Tag,
         Toast,
         Tooltip,
-        GatsbyLink
+        GatsbyLink,
+        DatePicker,
+        RangePicker
       }}
     >
       <LiveEditor tabIndex="-1" />
