@@ -48,9 +48,7 @@ function RangePicker(props) {
   const changeDate = (value, type) => {
     setValue({
       ...values,
-      ...{
-        [type]: value
-      }
+      [type]: value
     })
   }
 

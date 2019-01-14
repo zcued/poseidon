@@ -28,6 +28,7 @@
   "dependencies": {
     "@zcool/icon": "latest",
     "@zcool/theme": "latest",
-    "@zcool/util": "latest"
+    "@zcool/util": "latest",
+    "@zcool/dropdown": "latest"
   }
 }

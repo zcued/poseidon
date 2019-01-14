@@ -3,7 +3,7 @@ import {
   StyledClickOutSide,
   PopperContainer,
   TextContainer
-} from '../../dropdown/lib'
+} from '@zcool/dropdown'
 import Calender from './calender'
 import Icon from '@zcool/icon'
 import theme from '@zcool/theme'
