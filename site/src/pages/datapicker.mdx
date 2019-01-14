@@ -1,0 +1,44 @@
+import Helmet from 'react-helmet'
+
+<Helmet
+  title="Zcool UI - DataPicker"
+  meta={[
+    {
+      name: 'description',
+      content: 'Zcool UI - DataPicker'
+    }
+  ]}
+/>
+
+# DataPicker
+
+```js
+import { DataPicker } from '@zcool/datapicker'
+```
+
+```.jsx
+() => {
+  function App() {
+    function onChange(e) {
+      console.log('点一个：',e)
+    }
+
+    return (
+      <>
+        <DatePicker placeholder="下载时间" onChange={onChange} />
+        <RangePicker
+          startPlaceholder="开始时间"
+          endPlaceholder="结束时间"
+          defaultValue={{
+            from: '2019-01-01',
+            to: '2019-01-31'
+          }}
+          onChange={onChange}
+        />
+      </>
+    )
+  }
+
+  return <App />
+}
+```
