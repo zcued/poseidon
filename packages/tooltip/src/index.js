@@ -73,7 +73,8 @@ function Tooltip(props) {
     mouseLeaveDelay,
     defaultHovering,
     overlayStyle,
-    hasArrow
+    hasArrow,
+    modifiers
   } = props
   const [isHovering, setHovering] = useState(defaultHovering)
 
@@ -115,7 +116,11 @@ function Tooltip(props) {
       </Reference>
       {isHovering ? (
         <Portal>
-          <Popper positionFixed={true} placement={placement}>
+          <Popper
+            positionFixed={true}
+            placement={placement}
+            modifiers={modifiers}
+          >
             {({ ref, style }) => (
               <ToolTipPopper
                 onMouseEnter={handleEnter}
