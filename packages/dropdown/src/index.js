@@ -52,7 +52,8 @@ function Dropdown(props) {
     icon,
     iconSize,
     onToggle,
-    mouseLeaveDelay
+    mouseLeaveDelay,
+    modifiers
   } = props
 
   const [isOpen, setIsOpen] = useState(props.isOpen || false)
@@ -135,7 +136,7 @@ function Dropdown(props) {
               )}
             </Reference>
             {isOpen && (
-              <StyledPopper placement={placement}>
+              <StyledPopper placement={placement} modifiers={modifiers}>
                 {({ ref, style }) => (
                   <PopperContainer
                     ref={ref}
