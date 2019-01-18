@@ -61,6 +61,10 @@ function Dropdown(props) {
 
   let timer = null
 
+  if (isControl && props.isOpen !== isOpen) {
+    setIsOpen(props.isOpen)
+  }
+
   const handleClick = e => {
     if (trigger === 'click') {
       if (!isControl) {
@@ -95,9 +99,11 @@ function Dropdown(props) {
     }
   }
 
-  const handleClickOutSide = () => {
+  const handleClickOutSide = e => {
     if (!isControl) {
       setIsOpen(false)
+    } else {
+      onToggle(e)
     }
   }
 
