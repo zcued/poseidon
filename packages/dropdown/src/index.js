@@ -99,9 +99,14 @@ function Dropdown(props) {
     }
   }
 
-  const handleClickOutSide = () => {
+  const handleClickOutSide = e => {
+    if (!isOpen) {
+      return
+    }
     if (!isControl) {
       setIsOpen(false)
+    } else {
+      onToggle(e)
     }
   }
 
