@@ -30,10 +30,9 @@ const SplitLine = styled.div`
 
 function RangePicker(props) {
   const {
-    startValue,
-    endValue,
     startPlaceholder,
     endPlaceholder,
+    value,
     defaultValue,
     className,
     onChange
@@ -57,15 +56,15 @@ function RangePicker(props) {
     <DateRangeWrapper className={className}>
       <DatePicker
         placeholder={startPlaceholder}
-        value={startValue}
         defaultValue={defaultValue ? defaultValue.from : null}
+        value={value ? value.from : null}
         onChange={e => changeDate(e, 'from')}
       />
       <SplitLine />
       <DatePicker
         placeholder={endPlaceholder}
-        value={endValue}
         defaultValue={defaultValue ? defaultValue.to : null}
+        value={value ? value.to : null}
         onChange={e => changeDate(e, 'to')}
         disabledDates={from}
       />
