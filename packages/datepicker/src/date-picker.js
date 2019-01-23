@@ -11,7 +11,7 @@ import styled from 'styled-components'
 
 const Outside = styled(StyledClickOutSide)`
   position: relative;
-  background-color: white;
+  background-color: ${theme.palette.white};
   border: 1px solid ${theme.palette.daisy};
 `
 
@@ -44,6 +44,7 @@ const PoppersContainerStyled = styled(PopperContainer)`
   border-radius: 0;
   box-shadow: 0px 4px 16px ${theme.palette.black30};
   box-sizing: border-box;
+  background-color: ${theme.palette.white};
 `
 
 export default function DatePicker(props) {
@@ -58,12 +59,9 @@ export default function DatePicker(props) {
   const [isOpen, setOpen] = useState(false)
   const [value, setValue] = useState(getValue())
 
-  useEffect(
-    () => {
-      onChange(value)
-    },
-    [isOpen, value]
-  )
+  useEffect(() => {
+    onChange(value)
+  }, [isOpen, value])
 
   function getValue() {
     if (defaultValue) {

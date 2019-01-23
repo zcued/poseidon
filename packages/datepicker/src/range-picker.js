@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import DatePicker from './data-picker'
+import DatePicker from './date-picker'
 import theme from '@zcool/theme'
 
 const DateRangeWrapper = styled.div`
@@ -23,13 +23,15 @@ const DateRangeWrapper = styled.div`
 `
 
 const SplitLine = styled.div`
-  width: 16px;
-  height: 2px;
-  background: ${theme.palette.black};
+  width: 9px;
+  height: 1px;
+  background-color: ${theme.palette.pewter};
 `
 
 function RangePicker(props) {
   const {
+    startValue,
+    endValue,
     startPlaceholder,
     endPlaceholder,
     defaultValue,
@@ -38,12 +40,9 @@ function RangePicker(props) {
   } = props
   const [values, setValue] = useState({ from: null, to: null })
 
-  useEffect(
-    () => {
-      onChange(values)
-    },
-    [values]
-  )
+  useEffect(() => {
+    onChange(values)
+  }, [values])
 
   const changeDate = (value, type) => {
     setValue({
@@ -58,12 +57,14 @@ function RangePicker(props) {
     <DateRangeWrapper className={className}>
       <DatePicker
         placeholder={startPlaceholder}
+        value={startValue}
         defaultValue={defaultValue ? defaultValue.from : null}
         onChange={e => changeDate(e, 'from')}
       />
       <SplitLine />
       <DatePicker
         placeholder={endPlaceholder}
+        value={endValue}
         defaultValue={defaultValue ? defaultValue.to : null}
         onChange={e => changeDate(e, 'to')}
         disabledDates={from}
