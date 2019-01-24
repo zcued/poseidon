@@ -1,6 +1,6 @@
 {
   "name": "@zcool/radio",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a radio.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@zcool/icon": "^1.0.6",
-    "@zcool/theme": "^1.0.5",
+    "@zcool/theme": "^1.0.6",
     "@zcool/util": "^1.0.5"
   }
 }
