@@ -24,12 +24,13 @@ const FlexCenter = styled.div`
   cursor: pointer;
 
   [data-text] {
+    width: 78px;
     margin-right: 8px;
     padding: 0;
     font-size: ${theme.font.size.sm}px;
     color: ${theme.palette.spruce};
     line-height: 20px;
-    text-align: left;
+    text-align: center;
 
     &.value {
       color: ${theme.palette.black};
