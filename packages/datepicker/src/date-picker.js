@@ -132,7 +132,7 @@ export default function DatePicker(props) {
             aria-expanded={isOpen}
           >
             {value &&
-              `${
+              `${value.year}-${
                 value.month + 1 < 10 ? `0${value.month + 1}` : value.month + 1
               }-${value.day < 10 ? `0${value.day}` : value.day}`}
           </TextContainer>
