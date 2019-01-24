@@ -52,13 +52,18 @@ function Dropdown(props) {
     icon,
     iconSize,
     onToggle,
-    mouseLeaveDelay
+    mouseLeaveDelay,
+    modifiers
   } = props
 
   const [isOpen, setIsOpen] = useState(props.isOpen || false)
   const isControl = props.hasOwnProperty('isOpen')
 
   let timer = null
+
+  if (isControl && props.isOpen !== isOpen) {
+    setIsOpen(props.isOpen)
+  }
 
   const handleClick = e => {
     if (trigger === 'click') {
@@ -94,9 +99,14 @@ function Dropdown(props) {
     }
   }
 
-  const handleClickOutSide = () => {
+  const handleClickOutSide = e => {
+    if (!isOpen) {
+      return
+    }
     if (!isControl) {
       setIsOpen(false)
+    } else {
+      onToggle(e)
     }
   }
 
@@ -135,7 +145,7 @@ function Dropdown(props) {
               )}
             </Reference>
             {isOpen && (
-              <StyledPopper placement={placement}>
+              <StyledPopper placement={placement} modifiers={modifiers}>
                 {({ ref, style }) => (
                   <PopperContainer
                     ref={ref}
