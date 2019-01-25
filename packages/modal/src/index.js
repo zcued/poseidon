@@ -29,6 +29,8 @@ const ModalContainer = styled.div`
   .modal__header {
     line-height: 56px;
     background: #f5f8fa;
+    font-size: 18px;
+    color: ${theme.palette.black3};
   }
 
   .modal__body {
