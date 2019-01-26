@@ -24,7 +24,7 @@ const FlexCenter = styled.div`
   cursor: pointer;
 
   [data-text] {
-    width: 78px;
+    width: 80px;
     margin-right: 8px;
     padding: 0;
     font-size: ${theme.font.size.sm}px;
@@ -54,7 +54,8 @@ export default function DatePicker(props) {
     placeholder,
     defaultValue,
     onChange,
-    disabledDates
+    disabledDatesOfEnd,
+    disabledDatesOfStart
   } = props
 
   const [isOpen, setOpen] = useState(false)
@@ -102,21 +103,33 @@ export default function DatePicker(props) {
   }
 
   const disabledDate = e => {
-    if (!disabledDates) {
+    if (!disabledDatesOfStart && !disabledDatesOfEnd) {
       return false
     }
 
     const selectedDate = +new Date(`${e.year}-${e.month + 1}-${e.day}`)
-
-    return (
-      selectedDate -
-        +new Date(
-          `${disabledDates.year}-${disabledDates.month + 1}-${
-            disabledDates.day
-          }`
-        ) <
-      0
-    )
+    if (disabledDatesOfStart) {
+      return (
+        selectedDate -
+          +new Date(
+            `${disabledDatesOfStart.year}-${disabledDatesOfStart.month + 1}-${
+              disabledDatesOfStart.day
+            }`
+          ) >
+        0
+      )
+    }
+    if (disabledDatesOfEnd) {
+      return (
+        selectedDate -
+          +new Date(
+            `${disabledDatesOfEnd.year}-${disabledDatesOfEnd.month + 1}-${
+              disabledDatesOfEnd.day
+            }`
+          ) <
+        0
+      )
+    }
   }
 
   return (
