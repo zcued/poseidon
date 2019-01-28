@@ -98,7 +98,7 @@ export default function DatePicker(props) {
     if (!isControl) {
       setValue(e)
     } else {
-      onChange(e ? `${e.year}-${e.month + 1}-${e.day}` : null)
+      onChange(e)
     }
   }
 
