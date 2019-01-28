@@ -28,12 +28,12 @@ const FlexCenter = styled.div`
     margin-right: 8px;
     padding: 0;
     font-size: ${theme.font.size.sm}px;
-    color: ${theme.palette.spruce};
+    color: ${theme.palette.pewter};
     line-height: 20px;
     text-align: center;
 
     &.value {
-      color: ${theme.palette.black};
+      color: ${theme.palette.black3};
     }
   }
 `
