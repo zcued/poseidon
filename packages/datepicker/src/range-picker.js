@@ -11,6 +11,7 @@ const DateRangeWrapper = styled.div`
   height: 32px;
   background-color: white;
   border: 1px solid ${theme.palette.black16};
+  border-radius: 4px;
 
   > div {
     border: none;
