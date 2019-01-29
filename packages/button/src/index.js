@@ -6,7 +6,7 @@ import Spinner from '@zcool/spinner'
 const type = {
   default: {
     color: theme.palette.primary,
-    background: theme.palette.white,
+    background: 'transparent',
     borderColor: theme.palette.primary,
     hoverColor: '#d6372a',
     hoverBackground: theme.palette.white,
@@ -34,7 +34,7 @@ const type = {
   },
   secondary: {
     color: theme.palette.spruce,
-    background: theme.palette.white,
+    background: 'transparent',
     borderColor: theme.palette.spruce,
     hoverColor: '#333',
     hoverBackground: theme.palette.white,
