@@ -63,7 +63,7 @@ function Modal(props) {
       maxWidth: '60rem'
     },
     overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.75)',
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
       zIndex: zIndex.modal
     }
   }
