@@ -20,6 +20,7 @@ const DateRangeWrapper = styled.div`
     &:first-child,
     &:last-child {
       height: 30px;
+      background-color: transparent;
     }
   }
 `
