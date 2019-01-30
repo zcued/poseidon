@@ -141,7 +141,7 @@ function Dropdown(props) {
                 >
                   {text}
                   {icon === 'none' ? null : (
-                    <Icon glyph={icon} size={iconSize} data-icon={true} />
+                    <Icon glyph={icon} size={iconSize} />
                   )}
                 </TextContainer>
               )}
