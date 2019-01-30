@@ -9,12 +9,13 @@ const DateRangeWrapper = styled.div`
   justify-content: space-between;
   width: 253px;
   height: 32px;
-  background-color: white;
-  border: 1px solid ${theme.palette.black16};
+  background-color: ${theme.palette.white};
+  border: 1px solid #ccc;
   border-radius: 4px;
 
   > div {
     border: none;
+    background-color: transparent;
 
     &:first-child,
     &:last-child {

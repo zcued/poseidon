@@ -15,8 +15,10 @@ export const StyledClickOutSide = styled(ClickOutSide)`
 
 export const TextContainer = styled.div`
   cursor: pointer;
+  color: ${T('palette.black3')};
 
   [data-icon='true'] {
+    color: ${T('palette.spruce')};
     margin-left: 4px;
     vertical-align: -3px;
   }
