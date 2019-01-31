@@ -15,7 +15,6 @@ const DateRangeWrapper = styled.div`
 
   > div {
     border: none;
-    background-color: transparent;
 
     &:first-child,
     &:last-child {
