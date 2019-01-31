@@ -82,10 +82,7 @@ const getAttributes = props => {
   return { ...typeStyles, ...sizeStyles }
 }
 
-const StyledSpinner = styled(Spinner)`
-  margin-right: ${({ theme }) => theme.spacing.xs}px;
-  vertical-align: middle;
-`
+const StyledSpinner = styled(Spinner)``
 
 function BaseButton(props) {
   const {
@@ -166,8 +163,9 @@ const Button = styled(BaseButton)`
     border-color: ${props => getAttributes(props).disabledBorderColor};
   }
 
-  > span {
-    vertical-align: middle;
+  > div {
+    margin-right: ${({ theme }) => theme.spacing.xs}px;
+    vertical-align: -3px;
   }
 
   & + button {
