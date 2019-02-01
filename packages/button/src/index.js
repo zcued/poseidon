@@ -9,13 +9,13 @@ const type = {
     background: 'transparent',
     borderColor: theme.palette.primary,
     hoverColor: '#d6372a',
-    hoverBackground: theme.palette.white,
+    hoverBackground: 'transparent',
     hoverBorderColor: '#d6372a',
     activeColor: '#bc3024',
-    activeBackground: theme.palette.white,
+    activeBackground: 'transparent',
     activeBorderColor: '#bc3024',
     disabledColor: theme.palette.frost,
-    disabledBackground: theme.palette.white,
+    disabledBackground: 'transparent',
     disabledBorderColor: theme.palette.frost
   },
   primary: {
@@ -37,13 +37,13 @@ const type = {
     background: 'transparent',
     borderColor: theme.palette.spruce,
     hoverColor: '#333',
-    hoverBackground: theme.palette.white,
+    hoverBackground: 'transparent',
     hoverBorderColor: '#333',
     activeColor: '#222',
-    activeBackground: theme.palette.white,
+    activeBackground: 'transparent',
     activeBorderColor: '#222',
     disabledColor: theme.palette.frost,
-    disabledBackground: theme.palette.white,
+    disabledBackground: 'transparent',
     disabledBorderColor: theme.palette.frost
   }
 }
