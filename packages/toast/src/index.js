@@ -8,7 +8,7 @@ const Toast = styled.div`
   left: 50%;
   box-sizing: border-box;
   margin: auto;
-  padding: 10px 40px;
+  padding: 10px 30px;
   max-width: 528px;
   font-size: 18px;
   font-weight: ${T('font.weight.medium')};
