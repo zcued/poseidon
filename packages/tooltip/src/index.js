@@ -80,7 +80,9 @@ function Tooltip(props) {
 
   let timer = null
 
-  function handleEnter() {
+  function handleEnter(e) {
+    e.stopPropagation()
+
     if (timer) clearTimeout(timer)
     if (!isHovering) {
       timer = setTimeout(() => {
@@ -89,7 +91,9 @@ function Tooltip(props) {
     }
   }
 
-  function handleLeave() {
+  function handleLeave(e) {
+    e.stopPropagation()
+
     if (timer) clearTimeout(timer)
     timer = setTimeout(() => {
       setHovering(false)
