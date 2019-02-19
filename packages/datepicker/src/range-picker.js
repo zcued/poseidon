@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import DatePicker from './date-picker'
 import theme from '@zcool/theme'
@@ -40,9 +40,11 @@ function RangePicker(props) {
     onChange
   } = props
 
+  const [refresh, setRefresh] = useState(false)
   const changeDate = (v, type) => {
     value[type] = v
     onChange(value)
+    setRefresh(!refresh)
   }
 
   const { from, to } = value

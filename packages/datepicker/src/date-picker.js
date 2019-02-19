@@ -71,7 +71,7 @@ export default function DatePicker(props) {
       const dateReg = /(\d{4}).+(\d{1,2}).+(\d{2})/
       const matchedDate = defaultValue.match(dateReg)
 
-      if (!defaultValue) {
+      if (!matchedDate) {
         throw new Error('日期格式错误，请使用 xxxx-xx-xx 格式')
       }
 
