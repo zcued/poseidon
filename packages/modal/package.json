@@ -2,8 +2,8 @@
   "name": "@zcool/modal",
   "version": "2.0.3",
   "description": "a modal.",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
     "watch": "npm run build && tsc -w"
@@ -19,7 +19,8 @@
     "access": "public"
   },
   "files": [
-    "build"
+    "index.js",
+    "index.d.ts"
   ],
   "dependencies": {
     "@zcool/icon": "^1.0.6",
