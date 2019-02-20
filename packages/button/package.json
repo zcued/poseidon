@@ -18,6 +18,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "build"
+  ],
   "dependencies": {
     "@zcool/spinner": "^1.1.7",
     "@zcool/theme": "^1.0.7"

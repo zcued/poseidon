@@ -18,6 +18,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "build"
+  ],
   "dependencies": {
     "@zcool/flex": "^0.1.7",
     "@zcool/theme": "^1.0.7",

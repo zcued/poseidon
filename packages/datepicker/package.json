@@ -18,6 +18,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "build"
+  ],
   "dependencies": {
     "@zcool/dropdown": "latest",
     "@zcool/icon": "latest",
