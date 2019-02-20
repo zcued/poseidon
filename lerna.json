@@ -1,6 +1,8 @@
 {
   "lerna": "3.6.0",
-  "packages": ["packages/*"],
-  "version": "independent",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "2.0.4",
   "registry": "https://registry.npmjs.org/"
 }

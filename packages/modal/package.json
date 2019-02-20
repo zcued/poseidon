@@ -1,14 +1,12 @@
 {
   "name": "@zcool/modal",
-  "version": "1.1.1",
+  "version": "2.0.4",
   "description": "a modal.",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package",
-    "watch": "node ../../shared/watch-package",
-    "lint": "eslint src"
+    "build": "tsc",
+    "watch": "npm run build && tsc -w"
   },
   "peerDependencies": {
     "react": "^16.7.0-alpha.2",
@@ -17,20 +15,23 @@
   },
   "author": "cuining",
   "license": "MIT",
-  "files": [
-    "es",
-    "src",
-    "lib",
-    "index.js"
-  ],
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "dependencies": {
     "@zcool/icon": "^1.0.6",
-    "@zcool/spinner": "^1.1.5",
-    "@zcool/theme": "^1.0.5",
+    "@zcool/spinner": "^1.1.7",
+    "@zcool/theme": "^1.0.7",
     "@zcool/util": "^1.0.5",
     "react-modal": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/react-modal": "^3.8.1",
+    "@types/styled-components": "^4.1.10",
+    "typescript": "^3.3.3"
   }
 }

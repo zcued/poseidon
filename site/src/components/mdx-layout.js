@@ -20,7 +20,7 @@ import { Tabs, Tab } from '../../../packages/tabs'
 import Tag from '../../../packages/tag'
 import Toast from '../../../packages/toast'
 import Tooltip from '../../../packages/tooltip'
-import { DatePicker, RangePicker } from '../../../packages/datepicker'
+import { DatePicker, RangePicker } from '../../../packages/datepicker/src'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&

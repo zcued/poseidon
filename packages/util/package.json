@@ -1,23 +1,22 @@
 {
   "name": "@zcool/util",
-  "version": "1.0.5",
+  "version": "2.0.3",
   "description": "a util.",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Write some tests you bum!\"",
-    "build": "node ../../shared/build-package --watch",
-    "lint": "eslint src"
+    "build": "tsc",
+    "watch": "npm run build && tsc -w"
   },
   "author": "cuining",
   "license": "MIT",
-  "files": [
-    "es",
-    "src",
-    "lib",
-    "index.js"
-  ],
   "publishConfig": {
     "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "typescript": "^3.3.3"
   }
 }
