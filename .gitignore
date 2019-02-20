@@ -18,3 +18,7 @@ coverage
 lib
 es
 *.tgz
+
+packages/*/*.js
+packages/*/*.d.ts
+packages/datepicker/*

@@ -1,13 +1,12 @@
 {
   "name": "@zcool/pagination",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "a pagination.",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "build": "node ../../shared/build-package",
-    "watch": "node ../../shared/watch-package",
-    "lint": "eslint src"
+    "build": "tsc",
+    "watch": "npm run build && tsc -w"
   },
   "peerDependencies": {
     "react": "^16.7.0-alpha.2",
@@ -16,12 +15,6 @@
   },
   "author": "cuining",
   "license": "MIT",
-  "files": [
-    "es",
-    "src",
-    "lib",
-    "index.js"
-  ],
   "publishConfig": {
     "access": "public"
   },
@@ -30,5 +23,9 @@
     "@zcool/input": "^1.0.7",
     "@zcool/theme": "^1.0.7",
     "@zcool/util": "^1.0.5"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^4.1.10",
+    "typescript": "^3.3.3"
   }
 }
