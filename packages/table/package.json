@@ -1,6 +1,6 @@
 {
   "name": "@zcool/table",
-  "version": "1.0.7",
+  "version": "2.0.1",
   "description": "Table",
   "main": "build/index.js",
   "types": "build/index.d.ts",
