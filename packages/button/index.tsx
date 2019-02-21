@@ -92,7 +92,7 @@ export interface ButtonProps {
   htmlType?: 'submit' | 'reset' | 'button'
   disabled?: boolean
   loading?: boolean
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   type?: 'default' | 'primary' | 'secondary'
   size?: 'default' | 'large' | 'small'
 }

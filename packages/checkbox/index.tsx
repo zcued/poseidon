@@ -6,7 +6,7 @@ import Icon from '@zcool/icon'
 export interface CheckboxProps {
   className?: string
   name?: string
-  value: string
+  value: string | number | boolean
   label?: React.ReactNode
   size?: number
   disabled?: boolean
@@ -26,12 +26,9 @@ function BaseCheckbox({
 }: CheckboxProps) {
   const [checkedState, setChecked] = useState(checked || false)
 
-  useEffect(
-    () => {
-      setChecked(checked)
-    },
-    [checked]
-  )
+  useEffect(() => {
+    setChecked(checked)
+  }, [checked])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) {
