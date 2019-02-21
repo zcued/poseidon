@@ -85,13 +85,14 @@ export const getAttributes = props => {
 export interface ButtonProps {
   theme?: any
   className?: string
+  style?: React.CSSProperties
   children: React.ReactNode
   href?: string
   target?: string
   htmlType?: 'submit' | 'reset' | 'button'
   disabled?: boolean
   loading?: boolean
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   type?: 'default' | 'primary' | 'secondary'
   size?: 'default' | 'large' | 'small'
 }

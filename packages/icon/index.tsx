@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export interface IconProps {
   glyph: string
   size?: number
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
 
 export const Glyph = ({ glyph }: { glyph: string }) => {

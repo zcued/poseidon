@@ -8,8 +8,8 @@ export interface RadioProps {
   checked?: boolean
   disabled?: boolean
   onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void
-  name: string
-  value: string
+  name?: string
+  value?: string | number
   label?: React.ReactNode
   className?: string
 }
