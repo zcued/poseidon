@@ -10,9 +10,10 @@ import {
 export interface FlexProps {
   direction?: FlexDirectionProperty
   halign?: JustifyContentProperty
-  valign: AlignItemsProperty
-  flex: FlexProperty<number>
-  wrap: FlexWrapProperty
+  valign?: AlignItemsProperty
+  flex?: FlexProperty<number>
+  wrap?: FlexWrapProperty
+  children: React.ReactNode
 }
 
 const Flex = styled.div<FlexProps>`

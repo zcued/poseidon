@@ -51,12 +51,12 @@ export interface DropdownProps {
   text: React.ReactNode
   trigger?: 'click' | 'hover'
   children: React.ReactNode
-  placement: PopperJS.Placement
+  placement?: PopperJS.Placement
   icon?: string
   iconSize?: number
-  onToggle: (e: React.MouseEvent<HTMLElement>) => void | boolean
+  onToggle?: (e: React.MouseEvent<HTMLElement>) => void | boolean
   mouseLeaveDelay?: number
-  modifiers: PopperJS.Modifiers
+  modifiers?: PopperJS.Modifiers
   isOpen?: boolean
 }
 
