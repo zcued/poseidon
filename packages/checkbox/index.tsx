@@ -6,7 +6,7 @@ import Icon from '@zcool/icon'
 export interface CheckboxProps {
   className?: string
   name?: string
-  value: string | number | boolean
+  value: string | string[] | number
   label?: React.ReactNode
   size?: number
   disabled?: boolean
