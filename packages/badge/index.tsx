@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
 
-function BaseBadge({ className, children, count, dot }) {
+function BaseBadge({ className, children, count, dot }: BadgeProps) {
   return (
     <div className={className}>
       {children}
@@ -13,9 +13,13 @@ function BaseBadge({ className, children, count, dot }) {
 
 export interface BadgeProps {
   offset?: Array<number>
+  dot?: boolean
+  className?: string
+  children?: React.ReactNode
+  count?: number | string
 }
 
-const Badge = styled(BaseBadge)<BadgeProps>`
+const Badge = styled(BaseBadge)`
   display: inline-block;
   position: relative;
 

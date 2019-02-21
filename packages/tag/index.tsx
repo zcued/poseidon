@@ -3,7 +3,8 @@ import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 
 export interface TagProps {
-  bgColor: string
+  bgColor?: string
+  children: React.ReactNode
 }
 
 const Tag = styled.span<TagProps>`

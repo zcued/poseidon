@@ -76,11 +76,11 @@ export const Count = styled.span`
 
 export interface PaginationProps {
   total: number
-  className: string
+  className?: string
   onChange: (page: number) => void
   current: number
-  defaultCurrent: number
-  theme: any
+  defaultCurrent?: number
+  theme?: any
 }
 
 function Pagination({

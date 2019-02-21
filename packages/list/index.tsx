@@ -1,15 +1,18 @@
+import React from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 import { TextAlignProperty } from 'csstype'
 
 export interface ListProps {
-  width: number
-  align: TextAlignProperty
+  width?: number
+  align?: TextAlignProperty
+  children: React.ReactNode
 }
 
 export interface ListItemProps {
-  selected: boolean
+  selected?: boolean
+  onClick?: (e: React.MouseEvent<HTMLLIElement>) => void
 }
 
 export const List = styled.ul<ListProps>`

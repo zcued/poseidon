@@ -44,8 +44,8 @@ const ModalContainer = styled.div`
   }
 `
 
-export interface ModalProps extends ReactModal.Props {
-  theme: any
+export interface ModalProps {
+  theme?: any
   width?: number
   height?: number | string
   title?: React.ReactNode
@@ -55,7 +55,7 @@ export interface ModalProps extends ReactModal.Props {
   loadingPositionTop?: number
 }
 
-function Modal(props: ModalProps) {
+function Modal(props: ModalProps & ReactModal.Props) {
   const MODAL_STYLES: ReactModal.Styles = {
     content: {
       margin: 'auto',
