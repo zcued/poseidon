@@ -85,6 +85,7 @@ export const getAttributes = props => {
 export interface ButtonProps {
   theme?: any
   className?: string
+  style?: React.CSSProperties
   children: React.ReactNode
   href?: string
   target?: string
