@@ -8,10 +8,10 @@ export interface CheckboxProps {
   name: string
   value: string
   label: React.ReactNode
-  size: number
-  disabled: boolean
-  checked: boolean
-  onChange: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void
+  size?: number
+  disabled?: boolean
+  checked?: boolean
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void
 }
 
 function BaseCheckbox({
