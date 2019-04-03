@@ -39,8 +39,8 @@ export const palette = {
   /** #a3a3a3 */
   stone: '#a3a3a3',
 
-  /** #eeeeee */
-  gray: '#eeeeee',
+  /** #cccccc */
+  gray: '#cccccc',
 
   /** #dddddd */
   frost: '#dddddd',
