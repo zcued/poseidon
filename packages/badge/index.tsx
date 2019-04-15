@@ -17,7 +17,10 @@ export interface BadgeProps {
   className?: string
   children?: React.ReactNode
   count?: number | string
+<<<<<<< HEAD
   visible?: boolean
+=======
+>>>>>>> theme
 }
 
 const Badge = styled(BaseBadge)`

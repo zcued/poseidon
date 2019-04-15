@@ -3,17 +3,20 @@ import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 import Flex from '@zcool/flex'
-import { JustifyContentProperty } from 'csstype'
+import { JustifyContentProperty, AlignItemsProperty } from 'csstype'
 
-const StyledTabs = ({ children, halign, ...rest }) => {
+const StyledTabs = ({ children, halign, valign, theme, ...rest }) => {
   return (
-    <Flex halign={halign} {...rest}>
+    <Flex halign={halign} valign={valign} {...rest}>
       {children}
     </Flex>
   )
 }
 
-export const Tabs = styled(StyledTabs)<{ halign?: JustifyContentProperty }>`
+export const Tabs = styled(StyledTabs)<{
+  halign?: JustifyContentProperty
+  valign?: AlignItemsProperty
+}>`
   border-bottom: 1px solid ${T('palette.daisy')};
   font-size: ${T('font.size.md')}px;
   font-weight: ${T('font.weight.bold')};
