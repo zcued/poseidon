@@ -14,27 +14,33 @@ import Helmet from 'react-helmet'
 
 ```js
 import { DatePicker } from '@zcool/datepicker'
-
 ```
 
 ```.jsx
 () => {
   function App() {
+    const [dateValue,setDateValue] = React.useState({
+      from: {day: 1,month: 0,year: 2019},
+      to: {day: 30,month: 0,year: 2019}
+    })
+
     function onChange(e) {
       console.log('点一个：',e)
+      setDateValue({...e})
     }
 
     return (
       <>
-        <DatePicker placeholder="下载时间" onChange={onChange} />
+        <DatePicker
+            placeholder="下载时间"
+            onChange={onChange}
+            defaultValue='2019-02-01'
+        />
         <RangePicker
           startPlaceholder="开始时间"
           endPlaceholder="结束时间"
-          defaultValue={{
-            from: '2019-01-01',
-            to: '2019-01-31'
-          }}
           onChange={onChange}
+          value={dateValue}
         />
       </>
     )
