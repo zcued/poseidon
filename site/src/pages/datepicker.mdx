@@ -10,7 +10,7 @@ import Helmet from 'react-helmet'
   ]}
 />
 
-# DataPicker
+# DatePicker
 
 ```js
 import { DatePicker } from '@zcool/datepicker'
@@ -20,8 +20,8 @@ import { DatePicker } from '@zcool/datepicker'
 () => {
   function App() {
     const [dateValue,setDateValue] = React.useState({
-      from: {day: 1,month: 0,year: 2019},
-      to: {day: 30,month: 0,year: 2019}
+      from: null,
+      to: null
     })
 
     function onChange(e) {
