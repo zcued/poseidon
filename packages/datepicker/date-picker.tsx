@@ -24,7 +24,7 @@ const FlexCenter = styled.div`
   cursor: pointer;
 
   [data-text] {
-    width: 82px;
+    min-width: 82px;
     margin-right: 8px;
     padding: 0;
     font-size: ${theme.font.size.sm}px;
