@@ -60,8 +60,6 @@ function RangePicker(props: RangePickerProps) {
     onChange(value)
   }
 
-  const { from, to } = value
-
   return (
     <DateRangeWrapper className={className}>
       <DatePicker
@@ -69,7 +67,7 @@ function RangePicker(props: RangePickerProps) {
         defaultValue={defaultValue ? defaultValue.from : null}
         value={value ? value.from : null}
         onChange={e => changeDate(e, 'from')}
-        disabledDatesOfStart={to}
+        disabledDatesOfStart={value ? value.to : null}
       />
       <SplitLine />
       <DatePicker
@@ -77,7 +75,7 @@ function RangePicker(props: RangePickerProps) {
         defaultValue={defaultValue ? defaultValue.to : null}
         value={value ? value.to : null}
         onChange={e => changeDate(e, 'to')}
-        disabledDatesOfEnd={from}
+        disabledDatesOfEnd={value ? value.from : null}
       />
     </DateRangeWrapper>
   )

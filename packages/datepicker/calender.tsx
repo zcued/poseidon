@@ -84,11 +84,8 @@ const Cell = styled.button`
   cursor: pointer;
   transition: all 0.3s;
 
+  &.selected,
   &:hover {
-    background: ${theme.palette.primary};
-  }
-
-  &.selected {
     background: ${theme.palette.primary};
     color: ${theme.palette.white};
   }
