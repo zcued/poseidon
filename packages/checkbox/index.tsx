@@ -80,10 +80,6 @@ const Checkbox = styled(BaseCheckbox)`
     display: inline-block;
     margin-left: 8px;
   }
-
-  &:hover {
-    color: ${({ theme, disabled }) => (disabled ? '' : theme.palette.primary)};
-  }
 `
 
 Checkbox.displayName = 'Checkbox'
