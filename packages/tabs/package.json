@@ -1,6 +1,6 @@
 {
   "name": "@zcool/tabs",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "a tabs.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
