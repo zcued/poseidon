@@ -90,6 +90,7 @@ export const icon = {
 
 export const font = {
   weight: {
+    light: 200,
     normal: 'normal',
     medium: 500,
     bold: 'bold'
