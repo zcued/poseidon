@@ -21,7 +21,7 @@ export const palette = {
   /** #ffffff */
   white: '#ffffff',
 
-  /** #4a90e2 */
+  /** #1f1f1f */
   black: '#1f1f1f',
 
   /** #383838 */
@@ -38,6 +38,9 @@ export const palette = {
 
   /** #a3a3a3 */
   stone: '#a3a3a3',
+
+  /** #cccccc */
+  gray: '#cccccc',
 
   /** #dddddd */
   frost: '#dddddd',
