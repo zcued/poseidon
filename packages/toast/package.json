@@ -1,6 +1,6 @@
 {
   "name": "@zcool/toast",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "a toast.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
