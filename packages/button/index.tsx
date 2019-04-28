@@ -107,6 +107,7 @@ function BaseButton(props: ButtonProps) {
     disabled,
     loading,
     onClick,
+    type, // eslint-disable-line
     theme, // eslint-disable-line
     ...rest
   } = props
