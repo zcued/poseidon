@@ -1,6 +1,6 @@
 {
   "name": "@zcool/checkbox",
-  "version": "2.0.8",
+  "version": "2.0.12",
   "description": "CheckBox",
   "main": "build/index.js",
   "types": "build/index.d.ts",

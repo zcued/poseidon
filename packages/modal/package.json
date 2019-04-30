@@ -1,6 +1,6 @@
 {
   "name": "@zcool/modal",
-  "version": "2.0.7",
+  "version": "2.0.12",
   "description": "a modal.",
   "main": "index.js",
   "types": "index.d.ts",
