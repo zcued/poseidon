@@ -20,6 +20,12 @@ const CalenderHeader = styled.div`
 const CalenderHeaderBox = styled.div`
   display: flex;
   align-items: center;
+  svg {
+    color: ${theme.palette.spruce};
+    :hover {
+      color: ${theme.palette.primary};
+    }
+  }
 `
 
 const CalenderHeaderLeft = styled(CalenderHeaderBox)`
@@ -274,16 +280,20 @@ function Calender(props: CalenderProps) {
     <Wrapper>
       <CalenderHeader>
         <CalenderHeaderLeft>
-          <Icon
-            glyph="arrow-left-collapse"
-            size={16}
-            onClick={changeDates.bind(this, -1, 'year')}
-          />
-          <Icon
-            glyph="angle-left"
-            size={16}
-            onClick={changeDates.bind(this, -1)}
-          />
+          <span title="上一年">
+            <Icon
+              glyph="arrow-left-collapse"
+              size={16}
+              onClick={changeDates.bind(this, -1, 'year')}
+            />
+          </span>
+          <span title="上一月">
+            <Icon
+              glyph="angle-left"
+              size={16}
+              onClick={changeDates.bind(this, -1)}
+            />
+          </span>
         </CalenderHeaderLeft>
         <div>
           <Title>
@@ -294,16 +304,20 @@ function Calender(props: CalenderProps) {
           </Title>
         </div>
         <CalenderHeaderRight>
-          <Icon
-            size={16}
-            glyph="angle-right"
-            onClick={changeDates.bind(this, 1)}
-          />
-          <Icon
-            size={16}
-            glyph="arrow-right-collapse"
-            onClick={changeDates.bind(this, 1, 'year')}
-          />
+          <span title="下一月">
+            <Icon
+              size={16}
+              glyph="angle-right"
+              onClick={changeDates.bind(this, 1)}
+            />
+          </span>
+          <span title="下一年">
+            <Icon
+              size={16}
+              glyph="arrow-right-collapse"
+              onClick={changeDates.bind(this, 1, 'year')}
+            />
+          </span>
         </CalenderHeaderRight>
       </CalenderHeader>
       <CalenderBody>
