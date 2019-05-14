@@ -90,7 +90,7 @@ function Pagination({
   total,
   current,
   defaultCurrent,
-  showTotal = () => {},
+  showTotal,
   onChange = () => {}
 }: PaginationProps) {
   const initialState = current || defaultCurrent || 1
@@ -175,7 +175,7 @@ function Pagination({
           </button>
         </LI>
         <LI>
-          {showTotal(total) ? showTotal(total) : (
+          {showTotal ? showTotal(total) : (
             <React.Fragment>
               总页数 < Count > {total}</Count> 页
             </React.Fragment>
