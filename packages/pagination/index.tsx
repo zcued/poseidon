@@ -75,21 +75,23 @@ export const Count = styled.span`
 `
 
 export interface PaginationProps {
-  total: number
   className?: string
-  onChange: (page: number) => void
+  theme?: any
+  total: number
   current: number
   defaultCurrent?: number
-  theme?: any
+  showTotal?: (total: number) => any
+  onChange: (page: number) => void
 }
 
 function Pagination({
+  className,
   theme,
   total,
-  className,
-  onChange = () => {},
   current,
-  defaultCurrent
+  defaultCurrent,
+  showTotal,
+  onChange = () => {}
 }: PaginationProps) {
   const initialState = current || defaultCurrent || 1
   const [currentPage, setCurrentPage] = useState(initialState)
@@ -173,7 +175,11 @@ function Pagination({
           </button>
         </LI>
         <LI>
-          总页数 <Count>{total}</Count> 页
+          {showTotal ? showTotal(total) : (
+            <React.Fragment>
+              总页数 < Count > {total}</Count> 页
+            </React.Fragment>
+          )}
         </LI>
       </UL>
     </ThemeProvider>
