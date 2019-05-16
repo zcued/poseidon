@@ -13,6 +13,12 @@ const ModalContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 
+  svg {
+    :hover {
+      color: ${T('palette.primary')};
+    }
+  }
+
   .modal__close {
     display: flex;
     position: absolute;
@@ -125,6 +131,7 @@ function Modal(props: ModalProps & ReactModal.Props) {
         <span
           className={`modal__close ${loading ? 'loading' : ''}`}
           onClick={(e: any) => onRequestClose(e)}
+          title="关闭"
         >
           <Icon glyph="close" />
         </span>

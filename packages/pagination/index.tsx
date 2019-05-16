@@ -59,6 +59,9 @@ export const LI = styled.li`
 
     & > [data-icon='true'] {
       color: ${T('palette.spruce')};
+      :hover {
+        color: ${T('palette.primary')};
+      }
     }
 
     &[disabled],
@@ -154,7 +157,7 @@ function Pagination({
     <ThemeProvider theme={theme}>
       <UL className={className}>
         <LI onClick={handlePrev} role="prev">
-          <button disabled={currentPage <= 1}>
+          <button disabled={currentPage <= 1} title="上一页">
             <Icon glyph="arrow-left" />
           </button>
         </LI>
@@ -168,7 +171,7 @@ function Pagination({
           />
         </LI>
         <LI onClick={handleNext} role="next">
-          <button disabled={currentPage >= total}>
+          <button disabled={currentPage >= total} title="下一页">
             <Icon glyph="arrow-right" />
           </button>
         </LI>
