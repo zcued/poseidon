@@ -72,11 +72,6 @@ const Radio = styled(BaseRadio)`
     display: inline-block;
     margin-left: 8px;
   }
-
-  &:hover {
-    // color: ${({ theme, disabled }) =>
-      disabled ? '' : theme.palette.primary};
-  }
 `
 
 Radio.displayName = 'Radio'
