@@ -18,12 +18,9 @@ function BaseRadio(props: RadioProps) {
   const { className, name, value, label, size, disabled, onChange } = props
   const [checked, setChecked] = useState(props.checked || false)
 
-  useEffect(
-    () => {
-      setChecked(props.checked)
-    },
-    [props.checked]
-  )
+  useEffect(() => {
+    setChecked(props.checked)
+  }, [props.checked])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) {
@@ -74,10 +71,6 @@ const Radio = styled(BaseRadio)`
   span {
     display: inline-block;
     margin-left: 8px;
-  }
-
-  &:hover {
-    color: ${({ theme, disabled }) => (disabled ? '' : theme.palette.primary)};
   }
 `
 
