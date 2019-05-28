@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
@@ -95,10 +95,10 @@ function Pagination({
   const [currentPage, setCurrentPage] = useState(initialState)
   const [currentInput, setCurrentInput] = useState<number | ''>(initialState)
 
-  if (currentPage !== current) {
+  useEffect(() => {
     setCurrentPage(current)
     setCurrentInput(current)
-  }
+  }, [current])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = parseInt(e.target.value, 10)
