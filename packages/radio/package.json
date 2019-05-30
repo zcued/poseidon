@@ -1,6 +1,6 @@
 {
   "name": "@zcool/radio",
-  "version": "2.0.14",
+  "version": "2.0.17",
   "description": "a radio.",
   "main": "build/index.js",
   "types": "build/index.d.ts",

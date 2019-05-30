@@ -1,6 +1,6 @@
 {
   "name": "@zcool/dropdown",
-  "version": "2.0.12",
+  "version": "2.0.17",
   "description": "a dropdown.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
