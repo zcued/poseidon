@@ -164,7 +164,7 @@ export default function DatePicker(props: DatePickerProps) {
         <Icon size={16} glyph="date" />
       </FlexCenter>
       {isOpen ? (
-        <PoppersContainerStyled>
+        <PoppersContainerStyled className="poppers__container">
           <Calender
             defaultValue={value}
             changeDate={changeDate}
