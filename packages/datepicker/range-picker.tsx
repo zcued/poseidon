@@ -42,6 +42,8 @@ export interface RangePickerProps {
   value?: Value
   defaultValue?: { from: string; to: string }
   className?: string
+  endDatePickerClassName?: string
+  startDatePickerClassName?: string
   onChange: (value: Value) => void
 }
 
@@ -52,6 +54,8 @@ function RangePicker(props: RangePickerProps) {
     value,
     defaultValue,
     className,
+    endDatePickerClassName,
+    startDatePickerClassName,
     onChange
   } = props
 
@@ -63,6 +67,7 @@ function RangePicker(props: RangePickerProps) {
   return (
     <DateRangeWrapper className={className}>
       <DatePicker
+        className={startDatePickerClassName}
         placeholder={startPlaceholder}
         defaultValue={defaultValue ? defaultValue.from : null}
         value={value ? value.from : null}
@@ -71,6 +76,7 @@ function RangePicker(props: RangePickerProps) {
       />
       <SplitLine />
       <DatePicker
+        className={endDatePickerClassName}
         placeholder={endPlaceholder}
         defaultValue={defaultValue ? defaultValue.to : null}
         value={value ? value.to : null}
