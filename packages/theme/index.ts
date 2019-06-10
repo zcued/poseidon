@@ -63,7 +63,7 @@ export const palette = {
   /** rgba(0, 0, 0, 0.8) */
   black80: 'rgba(0, 0, 0, 0.8)',
 
-  /** rgba(0, 0, 0, 8) */
+  /** rgba(0, 0, 0, 1) */
   black100: 'rgba(0, 0, 0, 1)'
 }
 
