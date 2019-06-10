@@ -22,8 +22,8 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/spinner": "^1.1.7",
-    "@zcool/theme": "^1.0.7"
+    "@zcool/spinner": "^2.0.17",
+    "@zcool/theme": "^2.0.17"
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.10",

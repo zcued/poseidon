@@ -22,10 +22,10 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/dropdown": "latest",
-    "@zcool/icon": "latest",
-    "@zcool/theme": "latest",
-    "@zcool/util": "latest"
+    "@zcool/dropdown": "^2.0.17",
+    "@zcool/icon": "^2.0.17",
+    "@zcool/theme": "^2.0.17",
+    "@zcool/util": "^2.0.17"
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.10",

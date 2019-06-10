@@ -22,7 +22,7 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/theme": "^1.0.7"
+    "@zcool/theme": "^2.0.17"
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.10",
