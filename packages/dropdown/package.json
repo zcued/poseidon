@@ -1,6 +1,6 @@
 {
   "name": "@zcool/dropdown",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "description": "a dropdown.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@zcool/icon": "^2.0.17",
-    "@zcool/theme": "^2.0.17",
+    "@zcool/theme": "^2.0.18",
     "@zcool/util": "^2.0.17",
     "react-popper": "^1.3.2"
   },
