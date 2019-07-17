@@ -7,7 +7,7 @@ export interface RadioProps {
   size?: number
   checked?: boolean
   disabled?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => boolean | void
   name?: string
   value?: string | number
   label?: React.ReactNode
@@ -26,7 +26,11 @@ function BaseRadio(props: RadioProps) {
     if (disabled) {
       return false
     }
-    onChange(e, !checked)
+    
+    if(onChange(e, !checked) === false) {
+      return false
+    }
+
     setChecked(!checked)
   }
 

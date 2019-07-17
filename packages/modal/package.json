@@ -1,6 +1,6 @@
 {
   "name": "@zcool/modal",
-  "version": "2.0.12",
+  "version": "2.0.18",
   "description": "a modal.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -23,15 +23,16 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@zcool/icon": "^1.0.6",
-    "@zcool/spinner": "^1.1.7",
-    "@zcool/theme": "^1.0.7",
-    "@zcool/util": "^1.0.5",
+    "@zcool/icon": "^2.0.17",
+    "@zcool/spinner": "^2.0.18",
+    "@zcool/theme": "^2.0.18",
+    "@zcool/util": "^2.0.17",
     "react-modal": "^3.8.1"
   },
   "devDependencies": {
     "@types/react-modal": "^3.8.1",
     "@types/styled-components": "^4.1.10",
     "typescript": "^3.3.3"
-  }
+  },
+  "gitHead": "6818f4c80a535586a6b5879ed12ee77ecdf2b23b"
 }

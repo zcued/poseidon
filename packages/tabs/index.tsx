@@ -31,9 +31,9 @@ Tabs.defaultProps = {
   halign: 'flex-start'
 }
 
-export const Tab = styled.span.attrs({
-  'data-selected': ({ selected }) => (selected ? 'true' : '')
-})<{ selected?: boolean }>`
+export const Tab = styled.span.attrs<{ selected?: boolean }>(props => ({
+  'data-selected': props.selected
+}))<{ selected?: boolean }>`
   display: inline-block;
   margin: 0 ${T('spacing.sm')}px;
   padding-bottom: 14px;
