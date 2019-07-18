@@ -162,6 +162,7 @@ function Calender(props: CalenderProps) {
     month: today.getMonth(),
     day: today.getDate()
   }
+  const disabledToday = disabledDate(todayDate)
 
   function getDefaultValue(key: string, value: any) {
     return defaultValue ? defaultValue[key] : value
@@ -296,6 +297,9 @@ function Calender(props: CalenderProps) {
   }
 
   function backToToday() {
+    if (disabledToday) {
+      return
+    }
     handleDaySelect(todayDate)
   }
 
@@ -357,7 +361,7 @@ function Calender(props: CalenderProps) {
       </CalenderBody>
       <CalenderFooter>
         <ClearDate onClick={() => handleDaySelect(null)}>清空日期</ClearDate>
-        <Today disabled={disabledDate(todayDate)} onClick={backToToday}>
+        <Today disabled={disabledToday} onClick={backToToday}>
           今天
         </Today>
       </CalenderFooter>
