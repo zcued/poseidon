@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Icon from '@zcool/icon'
 import theme from '@zcool/theme'
+import DateDropdown from './date-dropdown'
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -37,17 +38,6 @@ const CalenderHeaderLeft = styled(CalenderHeaderBox)`
 const CalenderHeaderRight = styled(CalenderHeaderBox)`
   div[data-icon='true']:nth-child(2) {
     margin: 0 0 0 16px;
-  }
-`
-
-const Title = styled.div`
-  font-size: ${theme.font.size.md}px;
-  font-weight: ${theme.font.weight.bold};
-  color: #282828;
-  line-height: 26px;
-
-  span {
-    margin-right: 12px;
   }
 `
 
@@ -90,8 +80,11 @@ const Cell = styled.button`
   cursor: pointer;
   transition: all 0.3s;
 
-  &.selected,
   &:hover {
+    background: rgba(234, 67, 53, 0.2);
+  }
+
+  &.selected {
     background: ${theme.palette.primary};
     color: ${theme.palette.white};
   }
@@ -114,12 +107,25 @@ const CalenderFooter = styled.div`
 
 const ClearDate = styled.span`
   color: ${theme.palette.spruce};
-  font-size: 14px;
   cursor: pointer;
   transition: color 0.3s;
   &:hover {
     color: ${theme.palette.primary};
   }
+`
+
+const Today = styled(ClearDate)<{ disabled: boolean }>`
+  margin-left: 16px;
+  ${props =>
+    props.disabled
+      ? css`
+          cursor: not-allowed;
+          color: ${theme.palette.gray};
+          &:hover {
+            color: ${theme.palette.gray};
+          }
+        `
+      : null}
 `
 
 const weekDayNames = ['一', '二', '三', '四', '五', '六', '日']
@@ -149,13 +155,20 @@ function Calender(props: CalenderProps) {
     getDefaultValue('month', new Date().getMonth())
   )
 
+  // 今天
+  const today = new Date()
+  const todayDate = {
+    year: today.getFullYear(),
+    month: today.getMonth(),
+    day: today.getDate()
+  }
+
   function getDefaultValue(key: string, value: any) {
     return defaultValue ? defaultValue[key] : value
   }
 
   // 当前月各天的时间状态
   function getDates() {
-    // const { currentYear, currentMonth } = state
     const dates = []
     let d
 
@@ -274,6 +287,18 @@ function Calender(props: CalenderProps) {
     )
   }
 
+  function changeYear(y: number) {
+    setCurrentYear(y)
+  }
+
+  function changeMonth(m: number) {
+    setCurrentMonth(m)
+  }
+
+  function backToToday() {
+    handleDaySelect(todayDate)
+  }
+
   const dates = getDates()
 
   return (
@@ -295,14 +320,12 @@ function Calender(props: CalenderProps) {
             />
           </span>
         </CalenderHeaderLeft>
-        <div>
-          <Title>
-            {currentYear}
-            <span>年</span>
-            {currentMonth + 1 < 10 ? `0${currentMonth + 1}` : currentMonth + 1}
-            月
-          </Title>
-        </div>
+        <DateDropdown
+          currentYear={currentYear}
+          currentMonth={currentMonth}
+          onChangeYear={changeYear}
+          onChangeMonth={changeMonth}
+        />
         <CalenderHeaderRight>
           <span title="下一月">
             <Icon
@@ -334,6 +357,9 @@ function Calender(props: CalenderProps) {
       </CalenderBody>
       <CalenderFooter>
         <ClearDate onClick={() => handleDaySelect(null)}>清空日期</ClearDate>
+        <Today disabled={disabledDate(todayDate)} onClick={backToToday}>
+          今天
+        </Today>
       </CalenderFooter>
     </Wrapper>
   )
