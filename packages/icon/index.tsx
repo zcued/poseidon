@@ -175,6 +175,29 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
           fillRule="evenodd"
         />
       )
+    case 'boult-right':
+      return (
+        <g fill="currentColor" fillRule="evenodd">
+          <path fill="currentColor" d="M2 8h12v1H2z" />
+          <path stroke="currentColor" d="M10 4.5l4 4-4 4" />
+        </g>
+      )
+    case 'boult-left':
+      return (
+        <g fill="currentColor" fillRule="evenodd">
+          <path fill="currentColor" d="M14 8H2v1h12z" />
+          <path stroke="currentColor" d="M6 4.5l-4 4 4 4" />
+        </g>
+      )
+    case 'date-close':
+      return (
+        <path
+          d="M8 8L4 4l4 4-4 4 4-4zm0 0l4 4-4-4 4-4-4 4z"
+          stroke="currentColor"
+          fill="none"
+          fillRule="evenodd"
+        />
+      )
     default:
       return null
   }
