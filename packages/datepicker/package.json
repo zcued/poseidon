@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@zcool/dropdown": "^2.0.18",
-    "@zcool/icon": "^2.0.17",
+    "@zcool/icon": "^2.0.18",
     "@zcool/theme": "^2.0.18",
     "@zcool/util": "^2.0.17"
   },
