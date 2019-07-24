@@ -116,6 +116,7 @@ const ClearDate = styled.span`
 
 const Today = styled(ClearDate)<{ disabled: boolean }>`
   margin-left: 16px;
+  color: ${theme.palette.blue};
   ${props =>
     props.disabled
       ? css`

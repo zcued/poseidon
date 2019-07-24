@@ -40,6 +40,7 @@ const FlexCenter = styled.div`
 
 const PoppersContainerStyled = styled(PopperContainer)`
   position: absolute;
+  margin: 0;
   margin-top: 8px;
   top: 100%;
   border-radius: 0;

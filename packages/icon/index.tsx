@@ -177,14 +177,14 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
       )
     case 'boult-right':
       return (
-        <g fill="currentColor" fillRule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path fill="currentColor" d="M2 8h12v1H2z" />
           <path stroke="currentColor" d="M10 4.5l4 4-4 4" />
         </g>
       )
     case 'boult-left':
       return (
-        <g fill="currentColor" fillRule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path fill="currentColor" d="M14 8H2v1h12z" />
           <path stroke="currentColor" d="M6 4.5l-4 4 4 4" />
         </g>

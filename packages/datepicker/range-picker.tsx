@@ -8,7 +8,7 @@ const DateRangeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 253px;
+  min-width: 253px;
   height: 32px;
   background-color: ${theme.palette.white};
   border: 1px solid #ccc;
