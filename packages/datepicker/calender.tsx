@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
-import Icon from '@zcool/icon'
-import theme from '@zcool/theme'
-import DateDropdown from './date-dropdown'
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import Icon from "@zcool/icon";
+import theme from "@zcool/theme";
+import DateDropdown from "./date-dropdown";
 
 const Wrapper = styled.div`
   padding: 16px;
-`
+`;
 
 const CalenderHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  [data-icon='true'] {
+  [data-icon="true"] {
     cursor: pointer;
   }
-`
+`;
 
 const CalenderHeaderBox = styled.div`
   display: flex;
@@ -27,23 +27,23 @@ const CalenderHeaderBox = styled.div`
       color: ${theme.palette.primary};
     }
   }
-`
+`;
 
 const CalenderHeaderLeft = styled(CalenderHeaderBox)`
-  div[data-icon='true']:nth-child(2) {
+  div[data-icon="true"]:nth-child(2) {
     margin: 0 0 0 16px;
   }
-`
+`;
 
 const CalenderHeaderRight = styled(CalenderHeaderBox)`
-  div[data-icon='true']:nth-child(2) {
+  div[data-icon="true"]:nth-child(2) {
     margin: 0 0 0 16px;
   }
-`
+`;
 
 const CalenderBody = styled.div`
   margin-top: 16px;
-`
+`;
 
 const Table = styled.table`
   font-size: ${theme.font.size.sm}px;
@@ -65,7 +65,7 @@ const Table = styled.table`
     outline: none;
     border: 0;
   }
-`
+`;
 
 const Cell = styled.button`
   display: inline-block;
@@ -98,12 +98,12 @@ const Cell = styled.button`
     color: ${theme.palette.frost};
     cursor: not-allowed;
   }
-`
+`;
 
 const CalenderFooter = styled.div`
   padding-top: 8px;
   font-size: 14px;
-`
+`;
 
 const ClearDate = styled.span`
   color: ${theme.palette.spruce};
@@ -112,7 +112,7 @@ const ClearDate = styled.span`
   &:hover {
     color: ${theme.palette.primary};
   }
-`
+`;
 
 const Today = styled(ClearDate)<{ disabled: boolean }>`
   margin-left: 16px;
@@ -127,60 +127,60 @@ const Today = styled(ClearDate)<{ disabled: boolean }>`
           }
         `
       : null}
-`
+`;
 
-const weekDayNames = ['一', '二', '三', '四', '五', '六', '日']
+const weekDayNames = ["一", "二", "三", "四", "五", "六", "日"];
 
 export interface DateValue {
-  year: number
-  month: number
-  day: number
+  year: number;
+  month: number;
+  day: number;
 }
 
 export interface CalenderProps {
-  defaultValue?: DateValue
-  changeDate: (date?: DateValue) => void
-  disabledDate?: Function
+  defaultValue?: DateValue;
+  changeDate: (date?: DateValue) => void;
+  disabledDate?: Function;
 }
 
 function Calender(props: CalenderProps) {
-  const { defaultValue, changeDate, disabledDate } = props
+  const { defaultValue, changeDate, disabledDate } = props;
 
-  const [year, setYear] = useState(getDefaultValue('year', null))
-  const [month, setMonth] = useState(getDefaultValue('month', null))
-  const [day, setDay] = useState(getDefaultValue('day', null))
+  const [year, setYear] = useState(getDefaultValue("year", null));
+  const [month, setMonth] = useState(getDefaultValue("month", null));
+  const [day, setDay] = useState(getDefaultValue("day", null));
   const [currentYear, setCurrentYear] = useState(
-    getDefaultValue('year', new Date().getFullYear())
-  )
+    getDefaultValue("year", new Date().getFullYear())
+  );
   const [currentMonth, setCurrentMonth] = useState(
-    getDefaultValue('month', new Date().getMonth())
-  )
+    getDefaultValue("month", new Date().getMonth())
+  );
 
   // 今天
-  const today = new Date()
+  const today = new Date();
   const todayDate = {
     year: today.getFullYear(),
     month: today.getMonth(),
     day: today.getDate()
-  }
-  const disabledToday = disabledDate(todayDate)
+  };
+  const disabledToday = disabledDate(todayDate);
 
   function getDefaultValue(key: string, value: any) {
-    return defaultValue ? defaultValue[key] : value
+    return defaultValue ? defaultValue[key] : value;
   }
 
   // 当前月各天的时间状态
   function getDates() {
-    const dates = []
-    let d
+    const dates = [];
+    let d;
 
     // 上月
-    d = new Date(currentYear, currentMonth, 1)
-    const dayInWeek = d.getDay() || 7
+    d = new Date(currentYear, currentMonth, 1);
+    const dayInWeek = d.getDay() || 7;
 
     if (dayInWeek > 1) {
-      d.setDate(0)
-      const lastMonthDaysCount = d.getDate()
+      d.setDate(0);
+      const lastMonthDaysCount = d.getDate();
 
       for (let i = dayInWeek - 1; i--; ) {
         dates.push({
@@ -188,25 +188,25 @@ function Calender(props: CalenderProps) {
           month: d.getMonth(),
           day: lastMonthDaysCount - i,
           notThisMonth: true
-        })
+        });
       }
     }
 
     // 本月
-    d = new Date(currentYear, currentMonth + 1, 0)
-    const thisMonthDaysCount = d.getDate()
+    d = new Date(currentYear, currentMonth + 1, 0);
+    const thisMonthDaysCount = d.getDate();
 
     for (let i = 0; i < thisMonthDaysCount; i++) {
       dates.push({
         year: d.getFullYear(),
         month: d.getMonth(),
         day: i + 1
-      })
+      });
     }
 
     // 下月
-    d = new Date(currentYear, currentMonth + 1, 1)
-    const _len = dates.length
+    d = new Date(currentYear, currentMonth + 1, 1);
+    const _len = dates.length;
 
     for (let i = 0, len = (_len <= 35 ? 35 : 42) - _len; i < len; i++) {
       dates.push({
@@ -214,51 +214,51 @@ function Calender(props: CalenderProps) {
         month: d.getMonth(),
         day: i + 1,
         notThisMonth: true
-      })
+      });
     }
 
-    return dates
+    return dates;
   }
 
   function handleDaySelect(date?: any) {
     if (date) {
-      const { year, month, day } = date
-      setYear(year)
-      setMonth(month)
-      setDay(day)
-      setCurrentYear(year)
-      setCurrentMonth(month)
+      const { year, month, day } = date;
+      setYear(year);
+      setMonth(month);
+      setDay(day);
+      setCurrentYear(year);
+      setCurrentMonth(month);
 
       changeDate({
         year,
         month,
         day
-      })
+      });
     } else {
-      changeDate(null)
+      changeDate(null);
     }
   }
 
   function changeDates(change: number, type?: string) {
-    const d = new Date(currentYear, currentMonth)
+    const d = new Date(currentYear, currentMonth);
 
-    if (type === 'year') {
-      d.setFullYear(d.getFullYear() + change)
-      setCurrentYear(d.getFullYear())
+    if (type === "year") {
+      d.setFullYear(d.getFullYear() + change);
+      setCurrentYear(d.getFullYear());
     } else {
-      d.setMonth(d.getMonth() + change)
-      setCurrentYear(d.getFullYear())
-      setCurrentMonth(d.getMonth())
+      d.setMonth(d.getMonth() + change);
+      setCurrentYear(d.getFullYear());
+      setCurrentMonth(d.getMonth());
     }
   }
 
   function renderCalender(dates: any[]) {
-    const chunks = []
+    const chunks = [];
 
     for (let i = 0; i < dates.length; i += 1) {
-      if (i % 7 === 0) chunks.push([])
+      if (i % 7 === 0) chunks.push([]);
 
-      chunks[Math.floor(i / 7)].push(dates[i])
+      chunks[Math.floor(i / 7)].push(dates[i]);
     }
 
     return (
@@ -274,7 +274,7 @@ function Calender(props: CalenderProps) {
                       year === date.year &&
                       month === date.month &&
                       day === date.day &&
-                      'selected'
+                      "selected"
                     }
                     onClick={handleDaySelect.bind(this, date)}
                   >
@@ -286,25 +286,25 @@ function Calender(props: CalenderProps) {
           </tr>
         ))}
       </React.Fragment>
-    )
+    );
   }
 
   function changeYear(y: number) {
-    setCurrentYear(y)
+    setCurrentYear(y);
   }
 
   function changeMonth(m: number) {
-    setCurrentMonth(m)
+    setCurrentMonth(m);
   }
 
   function backToToday() {
     if (disabledToday) {
-      return
+      return;
     }
-    handleDaySelect(todayDate)
+    handleDaySelect(todayDate);
   }
 
-  const dates = getDates()
+  const dates = getDates();
 
   return (
     <Wrapper>
@@ -314,7 +314,7 @@ function Calender(props: CalenderProps) {
             <Icon
               glyph="arrow-left-collapse"
               size={16}
-              onClick={changeDates.bind(this, -1, 'year')}
+              onClick={changeDates.bind(this, -1, "year")}
             />
           </span>
           <span title="上一月">
@@ -343,7 +343,7 @@ function Calender(props: CalenderProps) {
             <Icon
               size={16}
               glyph="arrow-right-collapse"
-              onClick={changeDates.bind(this, 1, 'year')}
+              onClick={changeDates.bind(this, 1, "year")}
             />
           </span>
         </CalenderHeaderRight>
@@ -367,11 +367,11 @@ function Calender(props: CalenderProps) {
         </Today>
       </CalenderFooter>
     </Wrapper>
-  )
+  );
 }
 
-export default Calender
+export default Calender;
 
 Calender.defaultProps = {
   disabledDate: () => {}
-}
+};

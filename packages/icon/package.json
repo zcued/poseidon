@@ -1,6 +1,6 @@
 {
   "name": "@zcool/icon",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "description": "a icon.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
