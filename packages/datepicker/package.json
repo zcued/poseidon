@@ -1,6 +1,6 @@
 {
   "name": "@zcool/datepicker",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "description": "a datepicker.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -22,8 +22,8 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/dropdown": "^2.0.19",
-    "@zcool/icon": "^2.0.18",
+    "@zcool/dropdown": "^2.0.20",
+    "@zcool/icon": "^2.0.19",
     "@zcool/theme": "^2.0.18",
     "@zcool/util": "^2.0.17"
   },
