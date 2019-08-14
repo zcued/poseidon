@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import Icon from '@zcool/icon'
 import theme from '@zcool/theme'
 import { StyledClickOutSide } from '@zcool/dropdown'
+import { LocalProps } from './interface'
 
 const Wrap = styled.div`
   position: relative;
 `
 
 const Container = styled.div`
+  font-size: 14px;
   width: 112px;
   height: 192px;
   position: absolute;
@@ -79,10 +81,17 @@ interface Props {
   currentMonth: number
   onChangeYear: (y: number) => void
   onChangeMonth: (m: number) => void
+  local: LocalProps
 }
 
 export default function DateDropdown(props: Props) {
-  const { currentYear, currentMonth, onChangeYear, onChangeMonth } = props
+  const {
+    currentYear,
+    currentMonth,
+    onChangeYear,
+    onChangeMonth,
+    local
+  } = props
   const [showYearDropdown, setShowYearDropdown] = useState(false)
   const [showMonthDropdown, setShowMonthDropdown] = useState(false)
 
@@ -119,15 +128,13 @@ export default function DateDropdown(props: Props) {
             style={{ color: showYearDropdown ? theme.palette.primary : null }}
             onClick={toggleYearDropdown}
           >
-            {currentYear}
-            <span>年</span>
+            {local.renderYear(currentYear)}
           </span>
           <span
             style={{ color: showMonthDropdown ? theme.palette.primary : null }}
             onClick={toggleMonthDropdown}
           >
-            {currentMonth + 1 < 10 ? `0${currentMonth + 1}` : currentMonth + 1}
-            <span>月</span>
+            {local.monthsShort[currentMonth]}
           </span>
         </Title>
         {showYearDropdown && (
@@ -138,7 +145,11 @@ export default function DateDropdown(props: Props) {
           />
         )}
         {showMonthDropdown && (
-          <MonthDropdown month={currentMonth} onChangeMonth={changeMonth} />
+          <MonthDropdown
+            month={currentMonth}
+            onChangeMonth={changeMonth}
+            months={local.monthsShort}
+          />
         )}
       </Wrap>
     </StyledClickOutSide>
@@ -147,10 +158,10 @@ export default function DateDropdown(props: Props) {
 
 function MonthDropdown(props: {
   month: number
+  months: string[]
   onChangeMonth: (m: number) => void
 }) {
-  const { month, onChangeMonth } = props
-  const months = Array.from(new Array(12), (_, index) => index)
+  const { month, onChangeMonth, months } = props
 
   function handleChange(m: number) {
     onChangeMonth(m)
@@ -159,9 +170,13 @@ function MonthDropdown(props: {
   return (
     <Container>
       <ColumnFlex>
-        {months.map(m => (
-          <Item key={m} isCurrent={m === month} onClick={() => handleChange(m)}>
-            {m + 1}月
+        {months.map((m, index) => (
+          <Item
+            key={index}
+            isCurrent={index === month}
+            onClick={() => handleChange(index)}
+          >
+            {m}
           </Item>
         ))}
       </ColumnFlex>

@@ -59,6 +59,12 @@ export interface ModalProps {
   children: React.ReactNode
   loading?: boolean
   loadingPositionTop?: number
+  language: 'zh' | 'en'
+  locals?: {
+    [localKey: string]: {
+      closeLabel: string
+    }
+  }
 }
 
 function Modal(props: ModalProps & ReactModal.Props) {
@@ -99,6 +105,8 @@ function Modal(props: ModalProps & ReactModal.Props) {
     ariaHideApp,
     shouldCloseOnEsc,
     shouldCloseOnOverlayClick,
+    locals,
+    language,
     ...rest
   } = props
 
@@ -131,7 +139,7 @@ function Modal(props: ModalProps & ReactModal.Props) {
         <span
           className={`modal__close ${loading ? 'loading' : ''}`}
           onClick={(e: any) => onRequestClose(e)}
-          title="关闭"
+          title={locals[language].closeLabel}
         >
           <Icon glyph="close" />
         </span>
@@ -152,7 +160,16 @@ Modal.defaultProps = {
   loading: false,
   ariaHideApp: false,
   shouldCloseOnEsc: true,
-  shouldCloseOnOverlayClick: true
+  shouldCloseOnOverlayClick: true,
+  language: 'zh',
+  locals: {
+    zh: {
+      closeLabel: '关闭'
+    },
+    en: {
+      closeLabel: 'Close'
+    }
+  }
 }
 
 export default Modal
