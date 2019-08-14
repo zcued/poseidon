@@ -59,7 +59,7 @@ export interface ModalProps extends ReactModal.Props {
   children: React.ReactNode
   loading?: boolean
   loadingPositionTop?: number
-  language: 'zh' | 'en'
+  language?: 'zh' | 'en'
   locals?: {
     [localKey: string]: {
       closeLabel: string
