@@ -62,18 +62,71 @@ export interface DatePickerProps {
   locals?: {
     [localKey: string]: LocalProps
   }
+  isIcon?: boolean
+}
+
+const defaultLocals = {
+  en: {
+    daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    monthsShort: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
+    ],
+    nextMonth: 'Next month',
+    nextYear: 'Next year',
+    prevYear: 'Prev year',
+    renderYear: year => year,
+    prevMonth: 'Prev month',
+    clear: 'Clear',
+    today: 'Today'
+  },
+  zh: {
+    daysShort: ['一', '二', '三', '四', '五', '六', '日'],
+    monthsShort: [
+      '1月',
+      '2月',
+      '3月',
+      '4月',
+      '5月',
+      '6月',
+      '7月',
+      '8月',
+      '9月',
+      '10月',
+      '11月',
+      '12月'
+    ],
+    nextMonth: '下一月',
+    nextYear: '下一年',
+    prevYear: '上一年',
+    renderYear: year => `${year}年`,
+    prevMonth: '上一月',
+    clear: '清空日期',
+    today: '今天'
+  }
 }
 
 export default function DatePicker(props: DatePickerProps) {
   const {
     className,
-    placeholder,
+    placeholder = '请选择',
     defaultValue,
     onChange,
     disabledDatesOfEnd,
     disabledDatesOfStart,
-    language,
-    locals
+    language = 'zh',
+    locals = defaultLocals,
+    isIcon = true
   } = props
 
   const [isOpen, setOpen] = useState(false)
@@ -169,7 +222,7 @@ export default function DatePicker(props: DatePickerProps) {
                 1}-${value.day < 10 ? '0' : ''}${value.day}`}
           </TextContainer>
         )}
-        <Icon size={16} glyph="date" />
+        {isIcon && <Icon size={16} glyph="date" />}
       </FlexCenter>
       {isOpen ? (
         <PoppersContainerStyled className="poppers__container">
@@ -183,59 +236,4 @@ export default function DatePicker(props: DatePickerProps) {
       ) : null}
     </Outside>
   )
-}
-
-DatePicker.defaultProps = {
-  placeholder: '请选择',
-  language: 'zh',
-  locals: {
-    en: {
-      daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-      monthsShort: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec'
-      ],
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevYear: 'Prev year',
-      renderYear: year => year,
-      prevMonth: 'Prev month',
-      clear: 'Clear',
-      today: 'Today'
-    },
-    zh: {
-      daysShort: ['一', '二', '三', '四', '五', '六', '日'],
-      monthsShort: [
-        '1月',
-        '2月',
-        '3月',
-        '4月',
-        '5月',
-        '6月',
-        '7月',
-        '8月',
-        '9月',
-        '10月',
-        '11月',
-        '12月'
-      ],
-      nextMonth: '下一月',
-      nextYear: '下一年',
-      prevYear: '上一年',
-      renderYear: year => `${year}年`,
-      prevMonth: '上一月',
-      clear: '清空日期',
-      today: '今天'
-    }
-  }
 }
