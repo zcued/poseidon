@@ -1,6 +1,6 @@
 {
   "name": "@zcool/table",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "description": "Table",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -22,8 +22,8 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/theme": "^1.0.7",
-    "@zcool/util": "^1.0.5"
+    "@zcool/theme": "^2.0.18",
+    "@zcool/util": "^2.0.17"
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.10",
