@@ -1,0 +1,49 @@
+import Helmet from 'react-helmet'
+
+<Helmet
+  title="Zcool UI - Collapse"
+  meta={[
+    {
+      name: 'description',
+      content: 'Zcool UI - Collapse'
+    }
+  ]}
+/>
+
+# DatePicker
+
+```js
+import { Collapse, CollapseItem } from '@zcool/datepicker'
+```
+
+```.jsx
+() => {
+  function App() {
+    const data = [
+      {id:1,title:'No1',body:'第一个item'},
+      {id:2,title:'No2',body:'第二个item'},
+      {id:3,title:'No3',body:'第三个item'}
+      ]
+
+    return (
+       <Collapse
+          value={['1']}
+          accordion={true}
+        >
+          {data.map((item) => {
+            return (
+              <CollapseItem
+                key={item.id}
+                title={item.title}
+              >
+                <div>{item.body}</div>
+              </CollapseItem>
+            )
+          })}
+        </Collapse>
+    )
+  }
+
+  return <App />
+}
+```

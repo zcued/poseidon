@@ -21,6 +21,7 @@ import Tag from '../../../packages/tag'
 import Toast from '../../../packages/toast'
 import Tooltip from '../../../packages/tooltip'
 import { DatePicker, RangePicker } from '../../../packages/datepicker'
+import { Collapse, CollapseItem } from '../../../packages/collapse'
 
 const PreComponent = ({ className, ...props }) =>
   props.children.props.props &&
@@ -50,7 +51,9 @@ const PreComponent = ({ className, ...props }) =>
         Tooltip,
         GatsbyLink,
         DatePicker,
-        RangePicker
+        RangePicker,
+        Collapse,
+        CollapseItem
       }}
     >
       <LiveEditor tabIndex="-1" />
