@@ -1,0 +1,31 @@
+{
+  "name": "@zcool/collapse",
+  "version": "1.0.0",
+  "description": "Collapse",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "npm run build && tsc -w"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
+    "styled-components": "^4.1.2"
+  },
+  "author": "leo",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "@zcool/theme": "^2.0.18"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^4.1.10",
+    "typescript": "^3.3.3"
+  }
+}
