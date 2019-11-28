@@ -4,10 +4,11 @@ import {
   PopperContainer,
   TextContainer
 } from '@zcool/dropdown'
-import Calender, { DateValue } from './calender'
 import Icon from '@zcool/icon'
 import theme from '@zcool/theme'
 import styled from 'styled-components'
+import Calender, { DateValue } from './calender'
+import { LocalProps } from './interface'
 
 const Outside = styled(StyledClickOutSide)`
   position: relative;
@@ -40,6 +41,7 @@ const FlexCenter = styled.div`
 
 const PoppersContainerStyled = styled(PopperContainer)`
   position: absolute;
+  margin: 0;
   margin-top: 8px;
   top: 100%;
   border-radius: 0;
@@ -56,21 +58,81 @@ export interface DatePickerProps {
   onChange: (date?: DateValue) => void
   disabledDatesOfEnd?: DateValue
   disabledDatesOfStart?: DateValue
+  language?: 'zh' | 'en' | string
+  locals?: {
+    [localKey: string]: LocalProps
+  }
+  isIcon?: boolean
+}
+
+const defaultLocals = {
+  en: {
+    daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    monthsShort: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
+    ],
+    nextMonth: 'Next month',
+    nextYear: 'Next year',
+    prevYear: 'Prev year',
+    renderYear: year => year,
+    prevMonth: 'Prev month',
+    clear: 'Clear',
+    today: 'Today'
+  },
+  zh: {
+    daysShort: ['一', '二', '三', '四', '五', '六', '日'],
+    monthsShort: [
+      '1月',
+      '2月',
+      '3月',
+      '4月',
+      '5月',
+      '6月',
+      '7月',
+      '8月',
+      '9月',
+      '10月',
+      '11月',
+      '12月'
+    ],
+    nextMonth: '下一月',
+    nextYear: '下一年',
+    prevYear: '上一年',
+    renderYear: year => `${year}年`,
+    prevMonth: '上一月',
+    clear: '清空日期',
+    today: '今天'
+  }
 }
 
 export default function DatePicker(props: DatePickerProps) {
   const {
     className,
-    placeholder,
+    placeholder = '请选择',
     defaultValue,
     onChange,
     disabledDatesOfEnd,
-    disabledDatesOfStart
+    disabledDatesOfStart,
+    language = 'zh',
+    locals = defaultLocals,
+    isIcon = true
   } = props
 
   const [isOpen, setOpen] = useState(false)
   const [value, setValue] = useState(props.value || getValue())
   const isControl = props.hasOwnProperty('value')
+  const local = locals[language]
 
   if (isControl && props.value !== value) {
     setValue(props.value)
@@ -117,16 +179,14 @@ export default function DatePicker(props: DatePickerProps) {
       return false
     }
 
-    const selectedDate = +new Date(
-      `${value.year}-${value.month + 1}-${value.day}`
-    )
+    const selectedDate = +new Date(value.year, value.month + 1, value.day)
     if (disabledDatesOfStart) {
       return (
         selectedDate -
           +new Date(
-            `${disabledDatesOfStart.year}-${disabledDatesOfStart.month + 1}-${
-              disabledDatesOfStart.day
-            }`
+            disabledDatesOfStart.year,
+            disabledDatesOfStart.month + 1,
+            disabledDatesOfStart.day
           ) >
         0
       )
@@ -135,9 +195,9 @@ export default function DatePicker(props: DatePickerProps) {
       return (
         selectedDate -
           +new Date(
-            `${disabledDatesOfEnd.year}-${disabledDatesOfEnd.month + 1}-${
-              disabledDatesOfEnd.day
-            }`
+            disabledDatesOfEnd.year,
+            disabledDatesOfEnd.month + 1,
+            disabledDatesOfEnd.day
           ) <
         0
       )
@@ -149,7 +209,7 @@ export default function DatePicker(props: DatePickerProps) {
       <FlexCenter onClick={handleClick}>
         {value === null ? (
           <TextContainer data-text={true} aria-expanded={isOpen}>
-            {placeholder || '请选择'}
+            {placeholder}
           </TextContainer>
         ) : (
           <TextContainer
@@ -158,16 +218,16 @@ export default function DatePicker(props: DatePickerProps) {
             aria-expanded={isOpen}
           >
             {value &&
-              `${value.year}-${
-                value.month + 1 < 10 ? `0${value.month + 1}` : value.month + 1
-              }-${value.day < 10 ? `0${value.day}` : value.day}`}
+              `${value.year}-${value.month + 1 < 10 ? '0' : ''}${value.month +
+                1}-${value.day < 10 ? '0' : ''}${value.day}`}
           </TextContainer>
         )}
-        <Icon size={16} glyph="date" />
+        {isIcon && <Icon size={16} glyph="date" />}
       </FlexCenter>
       {isOpen ? (
-        <PoppersContainerStyled>
+        <PoppersContainerStyled className="poppers__container">
           <Calender
+            local={local}
             defaultValue={value}
             changeDate={changeDate}
             disabledDate={disabledDate}

@@ -101,11 +101,10 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
 
     case 'close':
       return (
-        <g fill="none" fillRule="evenodd">
-          <path fill="none" d="M0 0h16v16H0z" />
+        <g fill="none" fillRule="evenodd" stroke="currentColor">
           <path
             d="M7.99 7.99L1 1l6.99 6.99L1 14.98l6.99-6.99zm0 0L15 15 7.99 7.99 14.98 1 7.99 7.99z"
-            stroke="#979797"
+            stroke="currentColor"
           />
         </g>
       )
@@ -147,7 +146,7 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
       )
     case 'arrow-left-collapse':
       return (
-        <g fill="#666" fillRule="evenodd">
+        <g fill="currentColor" fillRule="evenodd">
           <path d="M7.329 8.338c0 .233.066.467.233.633l3.667 4.334c.366.433 1 .466 1.4.133.433-.367.466-1 .133-1.4l-3.133-3.7 3.133-3.7a.97.97 0 0 0-.133-1.4.97.97 0 0 0-1.4.133L7.562 7.705c-.167.166-.233.4-.233.633z" />
           <path d="M2.729 8.338c0 .233.066.467.233.633l3.667 4.334c.366.433 1 .466 1.4.133.433-.367.466-1 .133-1.4l-3.133-3.7 3.133-3.7a.97.97 0 0 0-.133-1.4.97.97 0 0 0-1.4.133L2.962 7.705c-.167.166-.233.4-.233.633z" />
         </g>
@@ -156,7 +155,7 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
       return (
         <path
           d="M8.671 8.338c0 .233-.066.467-.233.633l-3.667 4.334c-.366.433-1 .466-1.4.133-.433-.367-.466-1-.133-1.4l3.133-3.7-3.133-3.7a.97.97 0 0 1 .133-1.4.97.97 0 0 1 1.4.133l3.667 4.334c.167.166.233.4.233.633zm4.6 0c0 .233-.066.467-.233.633l-3.667 4.334c-.366.433-1 .466-1.4.133-.433-.367-.466-1-.133-1.4l3.133-3.7-3.133-3.7a.97.97 0 0 1 .133-1.4.97.97 0 0 1 1.4.133l3.667 4.334c.167.166.233.4.233.633z"
-          fill="#666"
+          fill="currentColor"
           fillRule="evenodd"
         />
       )
@@ -164,7 +163,7 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
       return (
         <path
           d="M5.529 7.195l3.666-4.333c.367-.433 1-.467 1.4-.133.434.366.467 1 .134 1.4l-3.134 3.7 3.134 3.7a.97.97 0 0 1-.134 1.4.97.97 0 0 1-1.4-.134L5.53 8.462c-.167-.167-.234-.4-.234-.633 0-.234.067-.467.234-.634z"
-          fill="#666"
+          fill="currentColor"
           fillRule="evenodd"
         />
       )
@@ -172,7 +171,30 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
       return (
         <path
           d="M10.833 8c0 .233-.066.467-.233.633l-3.667 4.334c-.366.433-1 .466-1.4.133-.433-.367-.466-1-.133-1.4L8.533 8 5.4 4.3a.97.97 0 0 1 .133-1.4.97.97 0 0 1 1.4.133L10.6 7.367c.167.166.233.4.233.633z"
-          fill="#666"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      )
+    case 'boult-right':
+      return (
+        <g fill="none" fillRule="evenodd">
+          <path fill="currentColor" d="M2 8h12v1H2z" />
+          <path stroke="currentColor" d="M10 4.5l4 4-4 4" />
+        </g>
+      )
+    case 'boult-left':
+      return (
+        <g fill="none" fillRule="evenodd">
+          <path fill="currentColor" d="M14 8H2v1h12z" />
+          <path stroke="currentColor" d="M6 4.5l-4 4 4 4" />
+        </g>
+      )
+    case 'date-close':
+      return (
+        <path
+          d="M8 8L4 4l4 4-4 4 4-4zm0 0l4 4-4-4 4-4-4 4z"
+          stroke="currentColor"
+          fill="none"
           fillRule="evenodd"
         />
       )

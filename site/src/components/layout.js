@@ -93,6 +93,9 @@ const Layout = ({ children }) => (
             <li>
               <NavLink to="/datepicker">DatePicker</NavLink>
             </li>
+            <li>
+              <NavLink to="/collapse">Collapse</NavLink>
+            </li>
           </ul>
           <div
             style={{

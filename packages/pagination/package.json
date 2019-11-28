@@ -1,6 +1,6 @@
 {
   "name": "@zcool/pagination",
-  "version": "2.0.12",
+  "version": "2.0.20",
   "description": "a pagination.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -22,13 +22,14 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/icon": "^1.0.6",
-    "@zcool/input": "^1.0.7",
-    "@zcool/theme": "^1.0.7",
-    "@zcool/util": "^1.0.5"
+    "@zcool/icon": "^2.0.19",
+    "@zcool/input": "^2.0.18",
+    "@zcool/theme": "^2.0.18",
+    "@zcool/util": "^2.0.17"
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.10",
     "typescript": "^3.3.3"
-  }
+  },
+  "gitHead": "6818f4c80a535586a6b5879ed12ee77ecdf2b23b"
 }
