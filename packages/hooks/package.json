@@ -1,0 +1,30 @@
+{
+  "name": "@zcool/hooks",
+  "version": "1.0.0",
+  "description": "useful react hooks.",
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hook"
+  ],
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "npm run build && tsc -w"
+  },
+  "author": "zhh",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "@zcool/util": "^2.0.17"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3"
+  }
+}
