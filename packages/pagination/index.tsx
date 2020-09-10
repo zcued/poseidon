@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
@@ -59,6 +59,9 @@ export const LI = styled.li`
 
     & > [data-icon='true'] {
       color: ${T('palette.spruce')};
+      :hover {
+        color: ${T('palette.primary')};
+      }
     }
 
     &[disabled],
@@ -97,10 +100,10 @@ function Pagination({
   const [currentPage, setCurrentPage] = useState(initialState)
   const [currentInput, setCurrentInput] = useState<number | ''>(initialState)
 
-  if (currentPage !== current) {
+  useEffect(() => {
     setCurrentPage(current)
     setCurrentInput(current)
-  }
+  }, [current])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = parseInt(e.target.value, 10)
@@ -156,7 +159,7 @@ function Pagination({
     <ThemeProvider theme={theme}>
       <UL className={className}>
         <LI onClick={handlePrev} role="prev">
-          <button disabled={currentPage <= 1}>
+          <button disabled={currentPage <= 1} title="上一页">
             <Icon glyph="arrow-left" />
           </button>
         </LI>
@@ -170,7 +173,7 @@ function Pagination({
           />
         </LI>
         <LI onClick={handleNext} role="next">
-          <button disabled={currentPage >= total}>
+          <button disabled={currentPage >= total} title="下一页">
             <Icon glyph="arrow-right" />
           </button>
         </LI>

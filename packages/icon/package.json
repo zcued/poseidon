@@ -1,6 +1,10 @@
 {
   "name": "@zcool/icon",
+<<<<<<< HEAD
   "version": "2.0.13",
+=======
+  "version": "2.0.19",
+>>>>>>> 384c3cda1813adab6f71865e2301e4eeaaa51cf7
   "description": "a icon.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -24,5 +28,6 @@
   "devDependencies": {
     "@types/styled-components": "^4.1.10",
     "typescript": "^3.3.3"
-  }
+  },
+  "gitHead": "6818f4c80a535586a6b5879ed12ee77ecdf2b23b"
 }

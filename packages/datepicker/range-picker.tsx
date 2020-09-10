@@ -8,7 +8,7 @@ const DateRangeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 253px;
+  min-width: 253px;
   height: 32px;
   background-color: ${theme.palette.white};
   border: 1px solid #ccc;
@@ -42,6 +42,9 @@ export interface RangePickerProps {
   value?: Value
   defaultValue?: { from: string; to: string }
   className?: string
+  endDatePickerClassName?: string
+  startDatePickerClassName?: string
+  language?: 'zh' | 'en' | string
   onChange: (value: Value) => void
 }
 
@@ -52,7 +55,10 @@ function RangePicker(props: RangePickerProps) {
     value,
     defaultValue,
     className,
-    onChange
+    endDatePickerClassName,
+    startDatePickerClassName,
+    onChange,
+    language = 'zh'
   } = props
 
   const changeDate = (date: DateValue, type: 'from' | 'to') => {
@@ -63,18 +69,22 @@ function RangePicker(props: RangePickerProps) {
   return (
     <DateRangeWrapper className={className}>
       <DatePicker
+        className={startDatePickerClassName}
         placeholder={startPlaceholder}
         defaultValue={defaultValue ? defaultValue.from : null}
         value={value ? value.from : null}
         onChange={e => changeDate(e, 'from')}
+        language={language}
         disabledDatesOfStart={value ? value.to : null}
       />
       <SplitLine />
       <DatePicker
+        className={endDatePickerClassName}
         placeholder={endPlaceholder}
         defaultValue={defaultValue ? defaultValue.to : null}
         value={value ? value.to : null}
         onChange={e => changeDate(e, 'to')}
+        language={language}
         disabledDatesOfEnd={value ? value.from : null}
       />
     </DateRangeWrapper>

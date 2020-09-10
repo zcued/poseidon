@@ -1,5 +1,36 @@
 export const isNumber = (n: any) => typeof n === 'number' && !isNaN(n)
 
+export function canUseDOM() {
+  return !!(
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.createElement
+  )
+}
+
+export function loadImage(src: string) {
+  const promise = new Promise((resolve, reject) => {
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+
+    img.onload = function() {
+      resolve(img)
+    }
+
+    img.onerror = function() {
+      reject(new Error('Image download error'))
+    }
+
+    img.onabort = function() {
+      reject(new Error('Image download error'))
+    }
+
+    img.src = src
+  })
+
+  return promise
+}
+
 export const px = (n: any) => (isNumber(n) ? `${n}px` : n)
 
 export const get = (from: object, ...selectors: Array<string>) =>

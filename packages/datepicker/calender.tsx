@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Icon from '@zcool/icon'
 import theme from '@zcool/theme'
+import DateDropdown from './date-dropdown'
+import { LocalProps } from './interface'
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -37,17 +39,6 @@ const CalenderHeaderLeft = styled(CalenderHeaderBox)`
 const CalenderHeaderRight = styled(CalenderHeaderBox)`
   div[data-icon='true']:nth-child(2) {
     margin: 0 0 0 16px;
-  }
-`
-
-const Title = styled.div`
-  font-size: ${theme.font.size.md}px;
-  font-weight: ${theme.font.weight.bold};
-  color: #282828;
-  line-height: 26px;
-
-  span {
-    margin-right: 12px;
   }
 `
 
@@ -90,8 +81,11 @@ const Cell = styled.button`
   cursor: pointer;
   transition: all 0.3s;
 
-  &.selected,
   &:hover {
+    background: rgba(234, 67, 53, 0.2);
+  }
+
+  &.selected {
     background: ${theme.palette.primary};
     color: ${theme.palette.white};
   }
@@ -114,7 +108,6 @@ const CalenderFooter = styled.div`
 
 const ClearDate = styled.span`
   color: ${theme.palette.spruce};
-  font-size: 14px;
   cursor: pointer;
   transition: color 0.3s;
   &:hover {
@@ -122,7 +115,20 @@ const ClearDate = styled.span`
   }
 `
 
-const weekDayNames = ['一', '二', '三', '四', '五', '六', '日']
+const Today = styled(ClearDate)<{ disabled: boolean }>`
+  margin-left: 16px;
+  color: ${theme.palette.blue};
+  ${props =>
+    props.disabled
+      ? css`
+          cursor: not-allowed;
+          color: ${theme.palette.gray};
+          &:hover {
+            color: ${theme.palette.gray};
+          }
+        `
+      : null}
+`
 
 export interface DateValue {
   year: number
@@ -134,10 +140,11 @@ export interface CalenderProps {
   defaultValue?: DateValue
   changeDate: (date?: DateValue) => void
   disabledDate?: Function
+  local: LocalProps
 }
 
 function Calender(props: CalenderProps) {
-  const { defaultValue, changeDate, disabledDate } = props
+  const { defaultValue, changeDate, disabledDate, local } = props
 
   const [year, setYear] = useState(getDefaultValue('year', null))
   const [month, setMonth] = useState(getDefaultValue('month', null))
@@ -149,13 +156,21 @@ function Calender(props: CalenderProps) {
     getDefaultValue('month', new Date().getMonth())
   )
 
+  // 今天
+  const today = new Date()
+  const todayDate = {
+    year: today.getFullYear(),
+    month: today.getMonth(),
+    day: today.getDate()
+  }
+  const disabledToday = disabledDate(todayDate)
+
   function getDefaultValue(key: string, value: any) {
     return defaultValue ? defaultValue[key] : value
   }
 
   // 当前月各天的时间状态
   function getDates() {
-    // const { currentYear, currentMonth } = state
     const dates = []
     let d
 
@@ -274,20 +289,33 @@ function Calender(props: CalenderProps) {
     )
   }
 
-  const dates = getDates()
+  function changeYear(y: number) {
+    setCurrentYear(y)
+  }
+
+  function changeMonth(m: number) {
+    setCurrentMonth(m)
+  }
+
+  function backToToday() {
+    if (disabledToday) {
+      return
+    }
+    handleDaySelect(todayDate)
+  }
 
   return (
     <Wrapper>
       <CalenderHeader>
         <CalenderHeaderLeft>
-          <span title="上一年">
+          <span title={local.prevYear}>
             <Icon
               glyph="arrow-left-collapse"
               size={16}
               onClick={changeDates.bind(this, -1, 'year')}
             />
           </span>
-          <span title="上一月">
+          <span title={local.prevMonth}>
             <Icon
               glyph="angle-left"
               size={16}
@@ -295,23 +323,22 @@ function Calender(props: CalenderProps) {
             />
           </span>
         </CalenderHeaderLeft>
-        <div>
-          <Title>
-            {currentYear}
-            <span>年</span>
-            {currentMonth + 1 < 10 ? `0${currentMonth + 1}` : currentMonth + 1}
-            月
-          </Title>
-        </div>
+        <DateDropdown
+          currentYear={currentYear}
+          currentMonth={currentMonth}
+          onChangeYear={changeYear}
+          onChangeMonth={changeMonth}
+          local={local}
+        />
         <CalenderHeaderRight>
-          <span title="下一月">
+          <span title={local.nextMonth}>
             <Icon
               size={16}
               glyph="angle-right"
               onClick={changeDates.bind(this, 1)}
             />
           </span>
-          <span title="下一年">
+          <span title={local.nextYear}>
             <Icon
               size={16}
               glyph="arrow-right-collapse"
@@ -324,16 +351,21 @@ function Calender(props: CalenderProps) {
         <Table>
           <thead>
             <tr>
-              {weekDayNames.map((name, i) => (
+              {local.daysShort.map((name, i) => (
                 <th key={i}>{name}</th>
               ))}
             </tr>
           </thead>
-          <tbody>{renderCalender(dates)}</tbody>
+          <tbody>{renderCalender(getDates())}</tbody>
         </Table>
       </CalenderBody>
       <CalenderFooter>
-        <ClearDate onClick={() => handleDaySelect(null)}>清空日期</ClearDate>
+        <ClearDate onClick={() => handleDaySelect(null)}>
+          {local.clear}
+        </ClearDate>
+        <Today disabled={disabledToday} onClick={backToToday}>
+          {local.today}
+        </Today>
       </CalenderFooter>
     </Wrapper>
   )

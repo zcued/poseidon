@@ -7,7 +7,7 @@ export interface RadioProps {
   size?: number
   checked?: boolean
   disabled?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => boolean | void
   name?: string
   value?: string | number
   label?: React.ReactNode
@@ -18,18 +18,19 @@ function BaseRadio(props: RadioProps) {
   const { className, name, value, label, size, disabled, onChange } = props
   const [checked, setChecked] = useState(props.checked || false)
 
-  useEffect(
-    () => {
-      setChecked(props.checked)
-    },
-    [props.checked]
-  )
+  useEffect(() => {
+    setChecked(props.checked)
+  }, [props.checked])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) {
       return false
     }
-    onChange(e, !checked)
+    
+    if(onChange(e, !checked) === false) {
+      return false
+    }
+
     setChecked(!checked)
   }
 
@@ -74,10 +75,6 @@ const Radio = styled(BaseRadio)`
   span {
     display: inline-block;
     margin-left: 8px;
-  }
-
-  &:hover {
-    color: ${({ theme, disabled }) => (disabled ? '' : theme.palette.primary)};
   }
 `
 

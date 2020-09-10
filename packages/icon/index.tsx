@@ -101,11 +101,10 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
 
     case 'close':
       return (
-        <g fill="none" fillRule="evenodd">
-          <path fill="none" d="M0 0h16v16H0z" />
+        <g fill="none" fillRule="evenodd" stroke="currentColor">
           <path
             d="M7.99 7.99L1 1l6.99 6.99L1 14.98l6.99-6.99zm0 0L15 15 7.99 7.99 14.98 1 7.99 7.99z"
-            stroke="#979797"
+            stroke="currentColor"
           />
         </g>
       )
@@ -173,6 +172,29 @@ export const Glyph = ({ glyph }: { glyph: string }) => {
         <path
           d="M10.833 8c0 .233-.066.467-.233.633l-3.667 4.334c-.366.433-1 .466-1.4.133-.433-.367-.466-1-.133-1.4L8.533 8 5.4 4.3a.97.97 0 0 1 .133-1.4.97.97 0 0 1 1.4.133L10.6 7.367c.167.166.233.4.233.633z"
           fill="currentColor"
+          fillRule="evenodd"
+        />
+      )
+    case 'boult-right':
+      return (
+        <g fill="none" fillRule="evenodd">
+          <path fill="currentColor" d="M2 8h12v1H2z" />
+          <path stroke="currentColor" d="M10 4.5l4 4-4 4" />
+        </g>
+      )
+    case 'boult-left':
+      return (
+        <g fill="none" fillRule="evenodd">
+          <path fill="currentColor" d="M14 8H2v1h12z" />
+          <path stroke="currentColor" d="M6 4.5l-4 4 4 4" />
+        </g>
+      )
+    case 'date-close':
+      return (
+        <path
+          d="M8 8L4 4l4 4-4 4 4-4zm0 0l4 4-4-4 4-4-4 4z"
+          stroke="currentColor"
+          fill="none"
           fillRule="evenodd"
         />
       )
