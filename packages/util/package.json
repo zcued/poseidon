@@ -17,6 +17,6 @@
     "build"
   ],
   "devDependencies": {
-    "typescript": "^3.3.3"
+    "typescript": "3.7.3"
   }
 }

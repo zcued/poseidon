@@ -1,6 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
+const SYMBOL = {
+  caret: '^',
+  tilde: '~',
+  exact: ''
+}
+
 module.exports = plop => {
   plop.setGenerator('upgrade', {
     description: '批量修改组建中依赖版本',
@@ -22,9 +28,20 @@ module.exports = plop => {
 
           return '请输入正确的版本号，如：12.1.9'
         }
+      },
+      {
+        type: 'list',
+        name: 'symbol',
+        message: '请选择版本号前缀',
+        choices: [
+          { name: 'caret', value: 'caret' },
+          { name: 'tilde', value: 'tilde' },
+          { name: 'exact', value: 'exact' }
+        ]
       }
     ],
     actions: data => {
+      const symbol = SYMBOL[data.symbol]
       const files = []
       const dir = './packages'
       const dirs = fs.readdirSync(dir)
@@ -41,7 +58,7 @@ module.exports = plop => {
           type: 'modify',
           path: item,
           pattern: new RegExp(`"${data.name}": ".+"`),
-          template: '"{{name}}": "^{{version}}"'
+          template: `"{{name}}": "${symbol}{{version}}"`
         }
       })
     }

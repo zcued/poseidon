@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 
-export function useElementHeight() {
+export default function useElementHeight() {
   const [height, setHeight] = useState<number>(0)
   const ref = useRef<HTMLElement>(null)
 
