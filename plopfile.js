@@ -32,7 +32,7 @@ module.exports = plop => {
       {
         type: 'list',
         name: 'symbol',
-        message: '请选择页面类型',
+        message: '请选择版本号前缀',
         choices: [
           { name: 'caret', value: 'caret' },
           { name: 'tilde', value: 'tilde' },
