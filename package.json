@@ -1,11 +1,16 @@
 {
   "name": "poseidon",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "test": "jest",
     "build": "lerna run build --parallel",
     "precommit": "pretty-quick --staged",
-    "release": "lerna run test && yarn build && lerna publish"
+    "release": "lerna run test && yarn build && lerna publish",
+    "plop": "plop"
   },
   "version": "0.0.0",
   "description": "web components",
@@ -36,6 +41,7 @@
     "jest-styled-components": "^6.3.1",
     "lerna": "^3.15.0",
     "lint-staged": "^8.1.0",
+    "plop": "^2.7.4",
     "prettier": "^1.13.5",
     "pretty-bytes": "^5.1.0",
     "pretty-quick": "^1.6.0",

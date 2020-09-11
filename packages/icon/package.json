@@ -1,10 +1,6 @@
 {
   "name": "@zcool/icon",
-<<<<<<< HEAD
-  "version": "2.0.13",
-=======
   "version": "2.0.19",
->>>>>>> 384c3cda1813adab6f71865e2301e4eeaaa51cf7
   "description": "a icon.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -15,7 +11,7 @@
   "peerDependencies": {
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
-    "styled-components": "^4.1.2"
+    "styled-components": "^5.2.0"
   },
   "author": "zhh",
   "license": "MIT",
