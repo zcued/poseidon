@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 import Flex from '@zcool/flex'
-import { JustifyContentProperty, AlignItemsProperty } from 'csstype'
+import { Property } from 'csstype'
 
 const StyledTabs = ({ children, halign, valign, theme, ...rest }) => {
   return (
@@ -14,8 +14,8 @@ const StyledTabs = ({ children, halign, valign, theme, ...rest }) => {
 }
 
 export const Tabs = styled(StyledTabs)<{
-  halign?: JustifyContentProperty
-  valign?: AlignItemsProperty
+  halign?: Property.JustifyContent
+  valign?: Property.AlignItems
 }>`
   border-bottom: 1px solid ${T('palette.daisy')};
   font-size: ${T('font.size.md')}px;
