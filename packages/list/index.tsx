@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
-import { TextAlignProperty } from 'csstype'
+import { Property } from 'csstype'
 
 export interface ListProps {
   width?: number
-  align?: TextAlignProperty
+  align?: Property.TextAlign
   children: React.ReactNode
 }
 

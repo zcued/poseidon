@@ -1,18 +1,12 @@
 import styled from 'styled-components'
-import {
-  FlexDirectionProperty,
-  JustifyContentProperty,
-  AlignItemsProperty,
-  FlexProperty,
-  FlexWrapProperty
-} from 'csstype'
+import { Property } from 'csstype'
 
 export interface FlexProps {
-  direction?: FlexDirectionProperty
-  halign?: JustifyContentProperty
-  valign?: AlignItemsProperty
-  flex?: FlexProperty<number>
-  wrap?: FlexWrapProperty
+  direction?: Property.FlexDirection
+  halign?: Property.JustifyContent
+  valign?: Property.AlignItems
+  flex?: Property.Flex<number>
+  wrap?: Property.FlexWrap
   children: React.ReactNode
 }
 

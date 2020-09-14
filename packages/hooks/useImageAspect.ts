@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { loadImage } from '@zcool/util'
 
-export function useImageAspect(src: string, aspect?: number) {
+export default function useImageAspect(src: string, aspect?: number) {
   const [naturalAspect, setNaturalAspect] = useState(aspect)
 
   useEffect(() => {
