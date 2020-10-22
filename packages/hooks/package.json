@@ -25,6 +25,12 @@
     "@zcool/util": "^2.0.17"
   },
   "devDependencies": {
+    "qs": "^6.9.4",
+    "react-router-dom": "^5.2.0",
     "typescript": "^4.0.0"
+  },
+  "peerDependencies": {
+    "qs": "^6.9.4",
+    "react-router-dom": "^5.2.0"
   }
 }
