@@ -12,3 +12,4 @@ export {
   useScrollYPosition,
   ScrollPositionProps
 } from './useScrollPosition'
+export { default as useQuery } from './useQuery'
