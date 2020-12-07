@@ -179,14 +179,16 @@ export default function DatePicker(props: DatePickerProps) {
       return false
     }
 
-    const selectedDate = +new Date(value.year, value.month + 1, value.day)
+    const selectedDate = +new Date(
+      `${value.year}/${value.month + 1}/${value.day} 00:00:00`
+    )
     if (disabledDatesOfStart) {
       return (
         selectedDate -
           +new Date(
-            disabledDatesOfStart.year,
-            disabledDatesOfStart.month + 1,
-            disabledDatesOfStart.day
+            `${disabledDatesOfStart.year}/${disabledDatesOfStart.month + 1}/${
+              disabledDatesOfStart.day
+            } 00:00:00`
           ) >
         0
       )
@@ -195,9 +197,9 @@ export default function DatePicker(props: DatePickerProps) {
       return (
         selectedDate -
           +new Date(
-            disabledDatesOfEnd.year,
-            disabledDatesOfEnd.month + 1,
-            disabledDatesOfEnd.day
+            `${disabledDatesOfEnd.year}/${disabledDatesOfEnd.month + 1}/${
+              disabledDatesOfEnd.day
+            } 00:00:00`
           ) <
         0
       )
