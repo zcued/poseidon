@@ -1,6 +1,6 @@
 {
   "name": "@zcool/hooks",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "useful react hooks.",
   "keywords": [
     "react",
@@ -22,7 +22,7 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/util": "^2.1.1"
+    "@zcool/util": "^2.1.2"
   },
   "devDependencies": {
     "qs": "^6.9.4",
