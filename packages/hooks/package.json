@@ -32,5 +32,6 @@
   "peerDependencies": {
     "qs": "^6.9.4",
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "gitHead": "086f86541df5529d1ceb0f0c8f4a2197febeab03"
 }
