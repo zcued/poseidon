@@ -1,6 +1,6 @@
 {
   "name": "@zcool/collapse",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Collapse",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -22,7 +22,7 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/theme": "^2.1.0"
+    "@zcool/theme": "^2.1.1"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.3",

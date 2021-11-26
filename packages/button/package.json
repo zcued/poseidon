@@ -1,6 +1,6 @@
 {
   "name": "@zcool/button",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "a button.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -22,8 +22,8 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/spinner": "^2.1.0",
-    "@zcool/theme": "^2.1.0"
+    "@zcool/spinner": "^2.1.1",
+    "@zcool/theme": "^2.1.1"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.3",

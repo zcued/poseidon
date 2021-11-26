@@ -1,6 +1,6 @@
 {
   "name": "@zcool/theme",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "a theme.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
