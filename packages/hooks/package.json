@@ -1,6 +1,6 @@
 {
   "name": "@zcool/hooks",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "useful react hooks.",
   "keywords": [
     "react",
@@ -22,7 +22,7 @@
     "build"
   ],
   "dependencies": {
-    "@zcool/util": "^2.1.0"
+    "@zcool/util": "^2.1.2"
   },
   "devDependencies": {
     "qs": "^6.9.4",
@@ -32,5 +32,6 @@
   "peerDependencies": {
     "qs": "^6.9.4",
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "gitHead": "086f86541df5529d1ceb0f0c8f4a2197febeab03"
 }

@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import theme from '@zcool/theme'
 import { T } from '@zcool/util'
 
-const Input = styled.input.attrs({
-  type: 'text'
-})`
+const Input = styled.input.attrs(({type}) => ({
+  type: type || 'text',
+}))`
   padding: 0 ${T('spacing.sm')}px;
   width: 100%;
   height: 32px;
@@ -36,7 +36,8 @@ const Input = styled.input.attrs({
 Input.displayName = 'Input'
 
 Input.defaultProps = {
-  theme
+  theme,
+  type: 'text'
 }
 
 export default Input
